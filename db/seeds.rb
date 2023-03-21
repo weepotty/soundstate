@@ -6,7 +6,6 @@
 #   movies = Movie.create!([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create!(name: "Luke", movie: movies.first)
 
-
 puts "destroying data..."
 Playlist.destroy_all
 Event.destroy_all
@@ -14,20 +13,73 @@ User.destroy_all
 
 puts 'planting new seeds'
 
-User.create!(email: 'frank@frankdev.com', password: '123456', nickname: 'frank')
-User.create!(email: 'sally@sallydev.com', password: '123456', nickname: 'sally')
-User.create!(email: 'bob@bobdev.com', password: '123456', nickname: 'bob')
-User.create!(email: 'carol@caroldev.com', password: '123456', nickname: 'carol')
-User.create!(email: 'alice@alicedev.com', password: '123456', nickname: 'alice')
+user1 = User.create!(email: 'frank@frankdev.com', password: '123456', nickname: 'frank')
+user2 = User.create!(email: 'sally@sallydev.com', password: '123456', nickname: 'sally')
+user3 = User.create!(email: 'bob@bobdev.com', password: '123456', nickname: 'bob')
+user4 = User.create!(email: 'carol@caroldev.com', password: '123456', nickname: 'carol')
+user5 = User.create!(email: 'alice@alicedev.com', password: '123456', nickname: 'alice')
 
-Event.create!(
-  title: 'Getting ready',
-  acousticness: 0.5,
-  danceability: 0.2,
-  energy: 0.8,
-  instrumentalness: 0.5,
-  tempo: 120,
-  valence: 0.8
-)
+users = [user1, user2, user3, user4, user5]
 
+users.each do |user|
+  Event.create!(
+    title: 'Getting ready',
+    acousticness: 0.5,
+    danceability: 0.2,
+    energy: 0.8,
+    instrumentalness: 0.5,
+    tempo: 120,
+    valence: 0.8,
+    time: 0,
+    user:
+  )
+
+  Event.create!(
+    title: 'Commuting',
+    acousticness: 0.002,
+    danceability: 0.5,
+    energy: 0.8,
+    instrumentalness: 0.01,
+    tempo: 150,
+    valence: 0.1,
+    time: 0,
+    user:
+  )
+
+  Event.create!(
+    title: 'Focusing',
+    acousticness: 0.01,
+    danceability: 0.01,
+    energy: 0.01,
+    instrumentalness: 0.8,
+    tempo: 100,
+    valence: 0.5,
+    time: 1,
+    user:
+  )
+
+  Event.create!(
+    title: 'Exercising',
+    acousticness: 0.001,
+    danceability: 0.9,
+    energy: 0.9,
+    instrumentalness: 0.01,
+    tempo: 180,
+    valence: 0.9,
+    time: 1,
+    user:
+  )
+
+  Event.create!(
+    title: 'Sleep',
+    acousticness: 0.99,
+    danceability: 0.001,
+    energy: 0.001,
+    instrumentalness: 0.99,
+    tempo: 80,
+    valence: 0.2,
+    time: 2,
+    user:
+  )
+end
 puts 'seeded like a lovely garden'
