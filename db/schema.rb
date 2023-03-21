@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_21_030047) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_21_034909) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,7 +21,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_030047) do
     t.float "energy", null: false
     t.float "instrumentalness", null: false
     t.float "liveness", null: false
-    t.float "speechiness", null: false
     t.float "tempo", null: false
     t.float "valence", null: false
     t.float "popularity", null: false
