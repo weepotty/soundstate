@@ -176,6 +176,11 @@ GEM
     omniauth-oauth2 (1.8.0)
       oauth2 (>= 1.4, < 3)
       omniauth (~> 2.0)
+    omniauth-rails_csrf_protection (1.0.1)
+      actionpack (>= 4.2)
+      omniauth (~> 2.0)
+    omniauth-spotify-oauth2 (1.0.1)
+      omniauth-oauth2 (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.4.6)
     public_suffix (5.0.1)
@@ -306,6 +311,8 @@ DEPENDENCIES
   font-awesome-sass (~> 6.1)
   jbuilder
   jsbundling-rails
+  omniauth-rails_csrf_protection
+  omniauth-spotify-oauth2 (~> 1.0)
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.2)

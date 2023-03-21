@@ -52,6 +52,8 @@ gem "sassc-rails"
 # gem "image_processing", "~> 1.2"
 gem "devise"
 gem 'rspotify'
+gem "omniauth-rails_csrf_protection"
+gem 'omniauth-spotify-oauth2', '~> 1.0'
 
 gem 'dotenv-rails'
 group :development, :test do
