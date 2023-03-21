@@ -1,9 +1,11 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 
-<!-- Flickity HTML init -->
+<!-- Carousel -->
 <div class="carousel">
   <% 5.times do %>
-    <%= render 'shared/event_image_card' %>
+    <div class="carousel-cell">
+      <%= render 'shared/event_image_card' %>
+    </div>
   <% end %>
 </div>
