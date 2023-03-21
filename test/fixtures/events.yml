@@ -1,0 +1,31 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  acousticness: 1.5
+  danceability: 1.5
+  energy: 1.5
+  instrumentalness: 1.5
+  liveness: 1.5
+  loudness: 1.5
+  speechiness: 1.5
+  tempo: 1.5
+  valence: 1.5
+  popularity: 1.5
+  time: 
+  user: one
+
+two:
+  title: MyString
+  acousticness: 1.5
+  danceability: 1.5
+  energy: 1.5
+  instrumentalness: 1.5
+  liveness: 1.5
+  loudness: 1.5
+  speechiness: 1.5
+  tempo: 1.5
+  valence: 1.5
+  popularity: 1.5
+  time: 
+  user: two
