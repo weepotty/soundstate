@@ -1,0 +1,27 @@
+.gallery-card {
+  width: 90%;
+  // height: 350px;
+  aspect-ratio: 1/1.23;
+  background: $dark-gray;
+  padding: .6em;
+
+  p {
+    color: $light-gray;
+    margin: 0;
+  }
+}
+
+.gallery-photo {
+  align-items: center;
+
+  img {
+    background-color: $dark-gray;
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+  }
+}
+
+.gallery-user {
+  display: flex;
+}
