@@ -1,2 +1,11 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+
+<!-- Carousel -->
+<div class="carousel">
+  <% 5.times do %>
+    <div class="carousel-cell">
+      <%= render 'shared/event_image_card' %>
+    </div>
+  <% end %>
+</div>
