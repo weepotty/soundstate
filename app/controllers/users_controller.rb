@@ -3,8 +3,18 @@ class UsersController < ApplicationController
     spotify_user = RSpotify::User.new(request.env['omniauth.auth'])
     User.create_user(spotify_user)
 
-    @tracks = spotify_user.saved_tracks
+    combined_tracks = []
+    @tracks = spotify_user.saved_tracks(offset: 0, limit: 50)
+    combined_tracks.concat(@tracks)
+    offset = 50
 
+    while @tracks.count == 50
+      @tracks = spotify_user.saved_tracks(offset:, limit: 50)
+      combined_tracks.concat(@tracks)
+      offset += 50
+    end
+
+    combined_tracks.count
     features_array = RSpotify::AudioFeatures.find(@tracks.map(&:id))
 
     @event = Event.find(50)
@@ -17,6 +27,6 @@ class UsersController < ApplicationController
         # feature.valence.between?(@event.valence - 0.5, @event.valence + 0.5)
     end
 
-    raise
+raise
   end
 end
