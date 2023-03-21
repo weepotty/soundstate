@@ -3,14 +3,17 @@
   color: $gray;
   font-size: large;
   width: 100%;
-  aspect-ratio: 4.5/1;
   display: flex;
   justify-content: space-between;
   text-align: center;
-  padding: 5%;
+  padding: 1.5%;
+  padding-left: 10%;
+  padding-right: 10%;
 
   p {
     color: $gray;
-    font-size: smaller;
+    font-size: 30%;
+    font-weight: 300;
+    margin: 0;
   }
 }
