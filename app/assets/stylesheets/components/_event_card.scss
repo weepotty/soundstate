@@ -1,0 +1,13 @@
+.event-card {
+  max-width: 400px;
+  aspect-ratio: 1 / 1;
+  border: 0.8rem solid $dark-gray;
+  margin: 0;
+}
+
+.event-card h1 {
+  text-align: center;
+  margin: 1rem 0 0 0;
+  font-size: $heading-fs;
+  font-weight: $heading-fw;
+}
