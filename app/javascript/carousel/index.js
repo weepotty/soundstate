@@ -6,7 +6,9 @@ window.addEventListener("load", function() {
 
 // Initialise Flickity
 var flkty = new Flickity(".carousel", {
-        //Flickity options
+  wrapAround: true,
+  pageDots: false,
+  prevNextButtons: false
 });
 
 // Due to the implementation of Flickity, a resize is required.

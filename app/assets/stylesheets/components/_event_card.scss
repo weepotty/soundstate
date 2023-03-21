@@ -1,8 +1,9 @@
 .event-card {
-  width: 80%;
+  width: 70%;
+  max-width: 400px;
   aspect-ratio: 1 / 1;
   border: 0.8rem solid $dark-gray;
-  margin: 0 auto;
+  margin: 0;
 }
 
 .event-card h1 {
