@@ -1,0 +1,16 @@
+.menu-bar {
+  background-color: $black;
+  color: $gray;
+  font-size: large;
+  width: 100%;
+  aspect-ratio: 4.5/1;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  padding: 5%;
+
+  p {
+    color: $gray;
+    font-size: smaller;
+  }
+}
