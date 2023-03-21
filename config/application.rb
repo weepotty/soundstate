@@ -6,12 +6,13 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-RSpotify::authenticate(ENV[SPOTIFY_CLIENT_ID], ENV[SPOTIFY_SECRET])
+
 module Soundstate
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
+    RSpotify::authenticate(ENV["SPOTIFY_CLIENT_ID"], ENV["SPOTIFY_SECRET"])
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
