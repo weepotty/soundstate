@@ -37,7 +37,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_21_025216) do
     t.bigint "event_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "title"
+    t.string "title", null: false
     t.index ["event_id"], name: "index_playlists_on_event_id"
   end
 
