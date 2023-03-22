@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_22_050131) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_22_090810) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -47,7 +47,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_22_050131) do
     t.float "max_acousticness", null: false
     t.float "max_danceability", null: false
     t.float "max_energy", null: false
-    t.float "max_instrumentalness", null: false
     t.float "max_tempo", null: false
     t.float "max_valence", null: false
     t.integer "time", null: false
@@ -57,7 +56,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_22_050131) do
     t.float "min_acousticness", null: false
     t.float "min_danceability", null: false
     t.float "min_energy", null: false
-    t.float "min_instrumentalness", null: false
     t.float "min_tempo", null: false
     t.float "min_valence", null: false
     t.index ["user_id"], name: "index_events_on_user_id"
