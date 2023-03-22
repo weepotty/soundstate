@@ -1,0 +1,18 @@
+.profile-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8%;
+  grid-auto-rows: minmax(auto);
+  margin-left: 8%;
+  margin-right: 8%;
+
+  .profile.card {
+    object-fit: cover;
+  }
+
+  img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  box-shadow: 3px 3px 1px lightgray ;
+  }
+}
