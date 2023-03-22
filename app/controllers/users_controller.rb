@@ -16,20 +16,17 @@ class UsersController < ApplicationController
       offset += 50
     end
 
-    filepath = '/Users/shona/code/weepotty/soundstate/db/songs.csv'
+    # filepath = '/Users/shona/code/weepotty/soundstate/db/songs.csv'
 
-    CSV.open(filepath, "a") do |csv|
-      csv << ["spotify_id", "name", "uri", "artist", "acousticness", "danceability", "energy", "instrumentalness", "tempo", "valence"]
-      tracks_array.each do |track|
-        features = RSpotify::AudioFeatures.find(track.id) # gives us back audio features for that track
-        csv_row = [track.id, track.name, track.uri, track.artists.first.name, features.acousticness, features.danceability,features.energy, features.instrumentalness, features.tempo, features.valence]
-        csv << csv_row
-      end
-    end
+    # CSV.open(filepath, "a") do |csv|
+    #   tracks_array.each do |track|
+    #     features = RSpotify::AudioFeatures.find(track.id) # gives us back audio features for that track
+    #     csv_row = [track.id, track.name, track.uri, track.artists.first.name, features.acousticness, features.danceability,features.energy, features.instrumentalness, features.tempo, features.valence]
+    #     csv << csv_row
+    #   end
+    # end
 
     # if user has more than 50 songs in library, keep fetching audio features
-
-
 
     # # filter the audio features according to event's filters
 
