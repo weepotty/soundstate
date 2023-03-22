@@ -8,18 +8,16 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
-
   <body class="d-flex flex-column min-vh-100">
     <% if user_signed_in? %>
       <%= render "shared/header" %>
     <% end %>
-
     <div class="content-container <%= "bg-black" unless user_signed_in? %>">
       <%= yield %>
     </div>
-
     <% if user_signed_in? %>
       <%= render "shared/menu_bar" %>
     <% end %>
+    <script src="https://open.spotify.com/embed-podcast/iframe-api/v1" async></script>
   </body>
 </html>
