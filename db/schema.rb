@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_22_034811) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_22_035529) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -67,6 +67,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_22_034811) do
     t.index ["user_id"], name: "index_playlists_on_user_id"
   end
 
+  create_table "playlists_songs", force: :cascade do |t|
+    t.bigint "playlist_id", null: false
+    t.bigint "song_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["playlist_id"], name: "index_playlists_songs_on_playlist_id"
+    t.index ["song_id"], name: "index_playlists_songs_on_song_id"
+  end
+
   create_table "songs", force: :cascade do |t|
     t.string "track_id", null: false
     t.float "acousticness", null: false
@@ -77,6 +86,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_22_034811) do
     t.float "valence", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "songs_users", force: :cascade do |t|
+    t.bigint "song_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["song_id"], name: "index_songs_users_on_song_id"
+    t.index ["user_id"], name: "index_songs_users_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -96,4 +114,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_22_034811) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "events", "users"
   add_foreign_key "playlists", "users"
+  add_foreign_key "playlists_songs", "playlists"
+  add_foreign_key "playlists_songs", "songs"
+  add_foreign_key "songs_users", "songs"
+  add_foreign_key "songs_users", "users"
 end
