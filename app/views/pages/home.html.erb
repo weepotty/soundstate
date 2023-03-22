@@ -1,11 +1,27 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<div class="container">
+  <h1>Good morning,</h1>
+  <h1><em>Banu!</em></h1>
+</div>
 
 <!-- Carousel -->
 <div class="carousel">
   <% 5.times do %>
     <div class="carousel-cell">
       <%= render 'shared/event_image_card' %>
+    </div>
+  <% end %>
+</div>
+
+<!-- Gallery Feed -->
+<div class="container mt-6">
+  <h4>Discover New Playlists</h4>
+</div>
+
+<div>
+  <% 3.times do %>
+    <div>
+      <%= render "shared/gallery_card" %>
     </div>
   <% end %>
 </div>
