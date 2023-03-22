@@ -1,0 +1,15 @@
+.landing-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  background-color: $black;
+  width: 100%;
+}
+
+.landing-wrapper h1 {
+  color: $white;
+  font-size: $heading-fs;
+  font-weight: $heading-fw;
+}
