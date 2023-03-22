@@ -4,7 +4,6 @@ class Playlist < ApplicationRecord
   has_many :songs
 
   validates :title, presence: true, length: { maximum: 25 }
-  validates :spotify_id, presence: true
 
 
   def create_playlist
