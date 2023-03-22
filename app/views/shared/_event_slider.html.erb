@@ -1,9 +1,9 @@
 <div class="range">
   <div class="range-slider">
-    <span class="range-selected" style="left: <%= (minValue / 10) %>%; right: <%= 100 - (maxValue / 10) %>%"></span>
+    <span class="range-selected" style="left: <%= ((minValue || 0) / 10) %>%; right: <%= 100 - ((maxValue || 1000) / 10) %>%"></span>
   </div>
   <div class="range-input">
-    <input type="range" class="min" min="0" max="1000" value="<%= minValue %>" step="10">
-    <input type="range" class="max" min="0" max="1000" value="<%= maxValue %>" step="10">
+    <input type="range" id="event_min_<%= propertyName %>" name="event[min_<%= propertyName %>]" class="min" min="0" max="1000" value="<%= minValue || 0 %>" step="10">
+    <input type="range" id="event_max_<%= propertyName %>" name="event[max_<%= propertyName %>]" class="max" min="0" max="1000" value="<%= maxValue || 1000 %>" step="10">
   </div>
 </div>

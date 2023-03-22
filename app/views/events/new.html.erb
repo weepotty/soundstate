@@ -1,17 +1,16 @@
 <div class="event-form">
-  <%= render 'shared/event_slider', minValue: 0, maxValue: 1000 %>
   <%= simple_form_for @event do |f| %>
     <%= f.input :title %>
-    <%= f.input :min_acousticness, as: :integer %>
-    <%= f.input :max_acousticness %>
-    <%= f.input :min_danceability %>
-    <%= f.input :max_danceability %>
-    <%= f.input :min_energy %>
-    <%= f.input :max_energy %>
-    <%= f.input :min_tempo %>
-    <%= f.input :max_tempo %>
-    <%= f.input :min_valence %>
-    <%= f.input :max_valence %>
+    <label>Acousticness</label>
+    <%= render 'shared/event_slider', minValue: @event["min_acousticness"], maxValue: @event["max_acousticness"], propertyName: "acousticness" %>
+    <label>Danceability</label>
+    <%= render 'shared/event_slider', minValue: @event["min_danceability"], maxValue: @event["max_danceability"], propertyName: "danceability" %>
+    <label>Energy</label>
+    <%= render 'shared/event_slider', minValue: @event["min_energy"], maxValue: @event["max_energy"], propertyName: "energy" %>
+    <label>Tempo</label>
+    <%= render 'shared/event_slider', minValue: @event["min_tempo"], maxValue: @event["max_tempo"], propertyName: "tempo" %>
+    <label>Valence</label>
+    <%= render 'shared/event_slider', minValue: @event["min_valence"], maxValue: @event["max_valence"], propertyName: "valence" %>
     <%= f.input :time, collection: Event.times %>
     <%= f.submit 'Save' %>
   <% end %>
