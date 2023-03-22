@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  track_id: MyString
+  acousticness: 1.5
+  danceability: 1.5
+  energy: 1.5
+  instrumentalness: 1.5
+  tempo: 1.5
+  valence: 1.5
+
+two:
+  track_id: MyString
+  acousticness: 1.5
+  danceability: 1.5
+  energy: 1.5
+  instrumentalness: 1.5
+  tempo: 1.5
+  valence: 1.5
