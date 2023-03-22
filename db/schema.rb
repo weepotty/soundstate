@@ -67,7 +67,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_22_120412) do
     t.datetime "updated_at", null: false
     t.string "title", null: false
     t.bigint "user_id", null: false
-    t.string "spotify_id", null: false
+    t.string "spotify_id", default: "", null: false
     t.index ["user_id"], name: "index_playlists_on_user_id"
   end
 
