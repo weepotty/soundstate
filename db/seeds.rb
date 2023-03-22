@@ -119,7 +119,7 @@ end
 
 
 
-filepath = '/Users/shona/code/weepotty/soundstate/db/songs.csv'
+filepath = 'db/songs.csv'
 
 CSV.foreach(filepath, headers: :first_row) do |row|
   Song.create!(spotify_id: row['spotify_id'], name: row['name'], uri: row['uri'], artist: row['artist'], acousticness: row['acousticness'], danceability: row['danceability'], energy: row['energy'], instrumentalness: row['instrumentalness'], tempo: row['tempo'], valence: row['valence'])
