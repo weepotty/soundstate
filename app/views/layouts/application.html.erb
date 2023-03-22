@@ -14,7 +14,7 @@
       <%= render "shared/header" %>
     <% end %>
 
-    <div class="content-container">
+    <div class="content-container <%= "bg-black" unless user_signed_in? %>">
       <%= yield %>
     </div>
 
