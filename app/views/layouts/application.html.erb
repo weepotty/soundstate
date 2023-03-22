@@ -9,14 +9,14 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+  <body class="d-flex flex-column min-vh-100">
 
     <div class="content-container">
       <%= yield %>
     </div>
 
-    <%= render "shared/menu_bar" %>
+    <% if user_signed_in? %>
+      <%= render "shared/menu_bar" %>
+    <% end %>
   </body>
 </html>
