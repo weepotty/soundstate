@@ -5,6 +5,7 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+    @event.user = User.first
     if @event.save
       redirect_to root_path
     else
@@ -15,6 +16,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
+    params[:event][:time] = params[:event][:time].to_i
     params.require(:event).permit(:title,
                                   :min_acousticness, :max_acousticness,
                                   :min_danceability, :max_danceability,

@@ -2,7 +2,7 @@
   <%= render 'shared/event_slider', minValue: 0, maxValue: 1000 %>
   <%= simple_form_for @event do |f| %>
     <%= f.input :title %>
-    <%= f.input :min_acousticness %>
+    <%= f.input :min_acousticness, as: :integer %>
     <%= f.input :max_acousticness %>
     <%= f.input :min_danceability %>
     <%= f.input :max_danceability %>
@@ -12,7 +12,7 @@
     <%= f.input :max_tempo %>
     <%= f.input :min_valence %>
     <%= f.input :max_valence %>
-    <%= f.input :time %>
+    <%= f.input :time, collection: Event.times %>
     <%= f.submit 'Save' %>
   <% end %>
 </div>
