@@ -4,6 +4,36 @@ class UsersController < ApplicationController
     spotify_user = RSpotify::User.new(request.env['omniauth.auth'])
     User.create_user(spotify_user)
 
+    # get all the from user's library
+    @tracks = spotify_user.saved_tracks(offset: 0, limit: 50)
+    tracks_array = @tracks
+    offset = 50
+    while @tracks.count == 50
+      @tracks = spotify_user.saved_tracks(offset:, limit: 50)
+      tracks_array.concat(@tracks)
+      offset += 50
+    end
+
+    filepath = '../../db/songs.csv'
+
+    CSV.open(filepath, "a") do |csv|
+      csv << ["spotify_id", "name", "uri", "artist", "acousticness", "danceability", "energy", "instrumentalness", "tempo", "valence"]
+      tracks_array.each do |track|
+        features = RSpotify::AudioFeatures.find(track.id) # gives us back audio features for that track
+        csv_row = [track.id, track.name, track.uri, track.artist, features.acousticness, features.danceability,features.energy, features.instrumentalness, features.tempo, features.valence]
+        csv << csv_row
+      end
+    end
+
+
+
+
+
+    # if user has more than 50 songs in library, keep fetching audio features
+
+
+
+
     # get the audio features of the first 50 tracks from user's library
     @tracks = spotify_user.saved_tracks(offset: 0, limit: 50)
     features_array = RSpotify::AudioFeatures.find(@tracks.map(&:id))
@@ -26,7 +56,7 @@ class UsersController < ApplicationController
         feature.tempo.between?(@event.tempo - 40, @event.tempo + 40) &&
         feature.valence.between?(@event.valence - 0.5, @event.valence + 0.5)
     end
-    raise
+
 
     # get the spotify song URIs from the filtered_array and create a playlist with these +/- store in user's spotify
     # play the playlist
