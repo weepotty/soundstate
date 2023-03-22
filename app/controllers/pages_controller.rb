@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def home
+
     @user = User.find(115)
     @event = Event.find(439)
 
@@ -16,5 +17,6 @@ class PagesController < ApplicationController
 
 
     render ( user_signed_in? ? 'pages/home' : 'pages/landing')
+
   end
 end
