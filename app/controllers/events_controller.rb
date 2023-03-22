@@ -9,7 +9,7 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to root_path
     else
-      render "pages/home", status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
