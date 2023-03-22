@@ -1,4 +1,15 @@
 <div class="landing-wrapper">
   <h1>SoundState</h1>
   <%= render 'devise/shared/spotify_oauth_button' %>
+  <%# testing area %>
+  <div style="color:white">
+    <% @playlist.each do |song| %>
+      <p><%= song.name %>
+        -
+        <%= song.artist %></p>
+    <% end %>
+    <%  if @playlist.empty?  %>
+      <p>no songs matched</p>
+    <% end %>
+  </div>
 </div>

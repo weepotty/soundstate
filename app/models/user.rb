@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :events, dependent: :destroy
   has_many :playlists, dependent: :destroy
+  has_many :songs_users, dependent: :destroy
   has_many :songs, through: :songs_users
 
   # Include default devise modules. Others available are:
