@@ -9,11 +9,11 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body class="min-vh-100 d-flex flex-column justify-content-start">
+  <body>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
 
-    <div class="flex-grow-1 position-relative">
+    <div class="content-container">
       <%= yield %>
     </div>
 
