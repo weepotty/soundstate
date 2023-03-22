@@ -8,3 +8,4 @@ import "bootstrap";
 // Webpack will automatically load an `index.js' file from the given
 // directory: 'app/javascript/carousel/index.js'
 import "./carousel";
+import "./slider";
