@@ -4,8 +4,8 @@ class UsersController < ApplicationController
   def spotify
     # create an RSpotify User
     spotify_user = RSpotify::User.new(request.env['omniauth.auth'])
-    access_token = spotify_user.to_hash
-    @user = User.create_from_spotify(spotify_user, access_token)
+    spotify_auth = spotify_user.to_hash
+    @user = User.create_from_spotify(spotify_user, spotify_auth)
 
     if @user.persisted?
       flash[:notice] = I18n.t 'devise.omniauth_callbacks.success', kind: 'Spotify'
