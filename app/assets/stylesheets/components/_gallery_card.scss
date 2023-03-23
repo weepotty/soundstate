@@ -1,12 +1,17 @@
+.gallery-card {
+  display: flex;
+  justify-content: center;
+  max-width: 380px;
+  margin: 0 auto;
+}
+
 .scene {
   display: inline-block;
   width: 90%;
+  min-width: 340px;
   aspect-ratio: 1/1.23;
   perspective: 600px;
   margin-bottom: 2em;
-  background: #8281F6;
-  padding: .6em;
-  margin-top: 8%;
 }
 
 .card {
@@ -17,13 +22,13 @@
   transition: transform 1s;
   width: 100%;
   height: 100%;
+  background-color: transparent;
 }
 
 .gallery-photo {
   align-items: center;
 
   img {
-    background-color: #8281F6;
     width: 100%;
     object-fit: cover;
     aspect-ratio: 1/1;
@@ -33,10 +38,18 @@
 .card__face {
   position: absolute;
   backface-visibility: hidden;
-  background: $dark-gray;
+  background: transparent;
   padding: .6em;
   margin-top: 8%;
   height: 100%;
+  
+  background-color: rgba(255, 255, 255, 0.074);
+  border: 1px solid rgba(255, 255, 255, 0.222);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border-radius: .5rem;
+  transform: scale(1);
+  transition: all ease .3s;
 
   p {
     color: $light-gray;
@@ -45,8 +58,13 @@
 }
 
 .card__face--front {
-  background: $dark-gray;
   margin: 0 auto;
+
+  &:hover {
+    box-shadow: 0px 0px 20px 1px #ffbb763f;
+    border: 1px solid rgba(255, 255, 255, 0.454);
+    transform: scale(1.02);
+  }
 }
 
 .card__face--back {
