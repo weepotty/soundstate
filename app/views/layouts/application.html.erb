@@ -10,7 +10,7 @@
   </head>
   <body class="d-flex flex-column min-vh-100">
     <% if user_signed_in? %>
-      <%= render "shared/header" %>
+     <%= render "shared/header" %>
     <% end %>
     <div class="content-container <%= "bg-black" unless user_signed_in? %>">
       <%= yield %>
