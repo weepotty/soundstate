@@ -6,9 +6,13 @@ class PlaylistsController < ApplicationController
   end
 
   def show
+    @user = User.spotify_user
+    # show requires an "id" variable to insert into embeded iframe
+    @playlist = Playlist.includes(:spotify_id).find(params[:id])
   end
 
   def create
+    @user = User.spotify_user
   end
 
   def edit
