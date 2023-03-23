@@ -1,8 +1,8 @@
 class PagesController < ApplicationController
   def home
 
-    @user = User.find(6)
-    @event = Event.find(40)
+    @user = User.first
+    @event = Event.first
 
     @playlist = @user.songs.where(
       acousticness: @event.min_acousticness..@event.max_acousticness,
