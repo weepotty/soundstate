@@ -15,14 +15,10 @@ class PlaylistsController < ApplicationController
     spotify_user = current_user.spotify_user
 
     # create instance of playlist to spotify
-    @spotify_playlist = spotify_user.create_playlist!('2nd Best PLaylist Ever')
-
-
-    # create instance of playlist on our database store songs
-    @ss_playlist = Playlist.new()
+    @spotify_playlist = spotify_user.create_playlist!('3rd Best PLaylist Ever')
 
     # get the event that we will filter the songs by
-    @event = Event.first # to be dynamic once slider and stuffs are done
+    @event = Event.last # to be dynamic once slider and stuffs are done
 
     # filter the user's songs with event
     filter_songs(@event)
@@ -30,6 +26,10 @@ class PlaylistsController < ApplicationController
 
     # add tracks to spotify playlist by
     @spotify_playlist.add_tracks!(@song_uris.sample(100))
+
+    # create instacne of playlist in out database wihtout phtot
+    # make title dynamic!!
+    @ss_playlist = Playlist.new(title: '3rd best playlist!', user: current_user, spotify_id: @spotify_playlist.id)
   end
 
   def create
