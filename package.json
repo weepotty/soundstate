@@ -7,6 +7,9 @@
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.3",
     "flickity": "^3.0.0",
+    "open-simplex-noise": "^2.5.0",
+    "seedrandom": "^3.0.5",
+    "three": "^0.150.1",
     "webpack": "^5.76.2",
     "webpack-cli": "^5.0.1"
   },
