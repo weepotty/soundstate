@@ -24,6 +24,7 @@ export default class extends Controller {
     this.scene.add(this.directionalLight);
 
     this.controls = new OrbitControls(this.camera, this.canvas);
+    this.controls.enableDamping = true
     this.camera.position.set(0, 0.5, 3);
 
     this.torus = new THREE.Mesh(this.geometry, this.material);
