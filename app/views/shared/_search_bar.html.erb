@@ -1,7 +1,7 @@
 <%= form_with url: users_path, method: :get, class: "d-flex flex-grow-1" do %>
   <%= text_field_tag :query,
     params[:query],
-    class: "form-control bg-white py-2",
+    class: "form-control search-bar",
     placeholder: "type in username",
     required: true
   %>

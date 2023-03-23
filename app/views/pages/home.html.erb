@@ -3,9 +3,7 @@
   <h1><em>Banu!</em></h1>
 </div>
 <!-- Carousel -->
-<div class="main-carousel" data-flickity='{     "wrapAround": true,
-    "pageDots": false,
-    "prevNextButtons": false }'>
+<div class="carousel" data-flickity='{ "wrapAround": true, "pageDots": false, "prevNextButtons": false }'>
   <% 5.times do %>
     <div class="carousel-cell">
       <%= render 'shared/event_image_card' %>
@@ -13,14 +11,12 @@
   <% end %>
 </div>
 <!-- Gallery Feed -->
-<div class="container mt-6">
+<div class="container mt-6 text-center">
   <h4>Discover New Playlists</h4>
 </div>
 <div>
   <% 3.times do %>
-    <div>
-      <%= render "shared/gallery_card" %>
-    </div>
+    <%= render "shared/gallery_card" %>
   <% end %>
 </div>
 <!--temporary playlist embed test zone-->
