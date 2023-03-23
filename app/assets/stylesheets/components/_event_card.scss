@@ -2,11 +2,11 @@
   max-width: 400px;
   aspect-ratio: 1 / 1;
   margin: 0;
+  padding: 0.8em;
 }
 
 .event-card h1 {
   text-align: center;
-  margin: 1rem 0 0 0;
   font-size: $heading-fs;
   font-weight: $heading-fw;
 }
