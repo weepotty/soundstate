@@ -17,10 +17,10 @@ class UsersController < ApplicationController
       redirect_to new_user_registration_url, alert: @user.errors.full_messages.join("\n")
     end
 
-    # get all the from user's library
-    User.user_tracks
-
-    # get the spotify song URIs from the filtered_array and create a playlist with these +/- store in user's spotify
-    # play the playlist
+    # get all the songs from user's library and their properties, and load into songs table
+    ::ImportSongsService.call(
+      spotify_user: spotify_user,
+      current_user: current_user
+    )
   end
 end
