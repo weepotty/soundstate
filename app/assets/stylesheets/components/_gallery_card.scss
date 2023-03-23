@@ -1,9 +1,16 @@
+.gallery-wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1em;
+}
+
 .scene {
   display: inline-block;
   width: 90%;
   aspect-ratio: 1/1.23;
   perspective: 600px;
   margin: 0 auto;
+  margin-bottom: 2em;
 }
 
 .card {
@@ -34,7 +41,6 @@
   background: $dark-gray;
   padding: .6em;
   margin-top: 8%;
-  margin: auto;
   height: 100%;
 
   p {
@@ -45,14 +51,16 @@
 
 .card__face--front {
   background: $dark-gray;
+  margin: 0 auto;
 }
 
 .card__face--back {
-  background: $light-gray;
+  background: #282828;
   transform: rotateY(180deg);
   width: 100%;
   height: 100%;
   padding: 0;
+  margin: 0 auto;
 }
 
 .gallery-user {
