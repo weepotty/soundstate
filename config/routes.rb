@@ -14,5 +14,5 @@ Rails.application.routes.draw do
     resources :playlists, only: %i[new create]
   end
 
-  resources :playlists, only: %i[show]
+  resources :playlists, only: %i[index show new create edit update destroy]
 end
