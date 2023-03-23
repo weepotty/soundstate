@@ -26,3 +26,51 @@
 .gallery-user {
   display: flex;
 }
+
+.scene {
+  display: inline-block;
+  width: 90%;
+  aspect-ratio: 1/1.23;
+/*   border: 1px solid #CCC; */
+  margin: 40px 0;
+  perspective: 600px;
+}
+
+.card {
+  position: relative;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform-origin: center right;
+  transition: transform 1s;
+  margin: auto;
+}
+
+.card.is-flipped {
+  transform: translateX(-100%) rotateY(-180deg);
+}
+
+.card__face {
+  position: absolute;
+  backface-visibility: hidden;
+  width: 90%;
+  // height: 350px;
+  aspect-ratio: 1/1.23;
+  background: $dark-gray;
+  padding: .6em;
+  margin-top: 8%;
+  margin: auto;
+
+  p {
+    color: $light-gray;
+    margin: 0;
+  }
+}
+
+.card__face--front {
+  background: $dark-gray;
+}
+
+.card__face--back {
+  background: slateblue;
+  transform: rotateY(180deg);
+}
