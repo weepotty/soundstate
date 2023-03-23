@@ -1,6 +1,6 @@
 <div class="event-form">
   <%= simple_form_for @event do |f| %>
-    <%= f.input :title %>
+    <%= f.input :title, label: "Title" %>
     <label>Acousticness</label>
     <%= render 'shared/event_slider', minValue: @event["min_acousticness"], maxValue: @event["max_acousticness"], propertyName: "acousticness" %>
     <label>Danceability</label>
@@ -11,7 +11,12 @@
     <%= render 'shared/event_slider', minValue: @event["min_tempo"], maxValue: @event["max_tempo"], propertyName: "tempo" %>
     <label>Valence</label>
     <%= render 'shared/event_slider', minValue: @event["min_valence"], maxValue: @event["max_valence"], propertyName: "valence" %>
-    <%= f.input :time, collection: Event.times %>
+    <label>Time</label>
+    <div class="range">
+      <div class="range-input">
+        <input type="range" id="event_time" name="event[time]" min="0" max="2" value="<%= Event.times[@event["time"]] || 0 %>" step="1" style="background: scroll;">
+      </div>
+    </div>
     <%= f.submit 'Save' %>
   <% end %>
 </div>

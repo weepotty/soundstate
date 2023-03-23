@@ -1,12 +1,11 @@
-let rangeMin = 100;
+let rangeMin = 0.01;
 const range = document.querySelector(".range-selected");
 const rangeInput = document.querySelectorAll(".range-input input");
 
 rangeInput.forEach((input) => {
   input.addEventListener("input", (e) => {
-    let minRange = parseInt(rangeInput[0].value);
-    let maxRange = parseInt(rangeInput[1].value);
-    console.log(`min: ${minRange}, max: ${maxRange}`)
+    let minRange = parseFloat(rangeInput[0].value);
+    let maxRange = parseFloat(rangeInput[1].value);
     if (maxRange - minRange < rangeMin) {
       if (e.target.className === "min") {
         rangeInput[0].value = maxRange - rangeMin;
