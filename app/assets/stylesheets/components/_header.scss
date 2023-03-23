@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   padding: 3%;
-  color: $gray;
+  color: $white;
   font-size: larger;
   align-content: center;
   align-items: center;
@@ -10,8 +10,8 @@
 
 .header-dropdown {
   border: 0;
-  background-color: $white;
-  color: $gray;
+  background-color: transparent;
+  color: $white;
 }
 
 .dropdown-item {
