@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  include PgSearch::Model
+
   has_many :events, dependent: :destroy
   has_many :playlists, dependent: :destroy
   has_many :songs_users, dependent: :destroy
@@ -10,6 +12,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :nickname, presence: true, uniqueness: true
+
+  pg_search_scope :search_by_nickname,
+    against: [ :nickname ],
+    using: {
+      tsearch: { prefix: true }
+    }
 
   def self.create_from_spotify(spotify_user, spotify_auth)
     account = User.where(email: spotify_user.email).first

@@ -22,4 +22,17 @@ class UsersController < ApplicationController
       current_user: current_user
     )
   end
+
+  def index
+    if params[:query]
+      @query = params[:query]
+      @users = User.search_by_nickname(@query)
+    else
+      @users = Users.all
+    end
+  end
+
+  def show
+    @user = User.find(params[:id])
+  end
 end
