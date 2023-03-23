@@ -12,7 +12,12 @@
     <label>Valence</label>
     <%= render 'shared/event_slider', minValue: @event["min_valence"], maxValue: @event["max_valence"], propertyName: "valence" %>
     <label>Time</label>
-    <input type="range" id="event_time" name="event[time]" class="time-slider" min="0" max="2" value="<%= Event.times[@event["time"]] || 0 %>" step="1">
+    <input type="range" id="event_time" name="event[time]" class="time-slider" min="0" max="2" value="<%= Event.times[@event["time"]] || 0 %>" step="1" data-action="input->slider#displayLabel">
+    <div id="time-label">
+      <p data-slider-target="timeLabel">Morning</p>
+      <p class="invisible" data-slider-target="timeLabel">Afternoon</p>
+      <p class="invisible" data-slider-target="timeLabel">Evening</p>
+    </div>
     <%= f.submit 'Save' %>
   <% end %>
 </div>

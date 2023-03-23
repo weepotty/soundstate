@@ -78,7 +78,7 @@ $hot-color: #FF587F;
 // Styling for Time slider
 .time-slider {
   -webkit-appearance: none;
-  margin: 1.2rem 0;
+  margin-top: 1.2rem 0;
   width: 100%;
   background-color: transparent;
 }
@@ -151,4 +151,15 @@ $hot-color: #FF587F;
 }
 .time-slider:focus::-ms-fill-upper {
   background: $track-outer-color;
+}
+
+// Style for time slider label
+#time-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  & p {
+    font-size: $label-fs;
+  }
 }

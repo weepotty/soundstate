@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="slider"
 export default class extends Controller {
-  static targets = ["sliderWrapper", "rangeBar", "minInput", "maxInput"]
+  static targets = ["sliderWrapper", "rangeBar", "minInput", "maxInput", "timeLabel"]
 
   connect() {
   }
@@ -26,5 +26,10 @@ export default class extends Controller {
       range.style.left = (minRange / rangeMinInput.max) * 100 + "%";
       range.style.right = 100 - (maxRange / rangeMaxInput.max) * 100 + "%";
     }
+  }
+
+  displayLabel(event) {
+    this.timeLabelTargets.forEach(element => element.classList.add("invisible"));
+    this.timeLabelTargets[event.target.value].classList.remove("invisible");
   }
 }
