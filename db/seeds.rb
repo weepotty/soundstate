@@ -11,6 +11,7 @@ require 'csv'
 puts "destroying data..."
 PlaylistsSong.destroy_all
 SongsUser.destroy_all
+Song.destroy_all
 Event.destroy_all
 Playlist.destroy_all
 User.destroy_all
