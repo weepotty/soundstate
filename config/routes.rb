@@ -1,19 +1,18 @@
 Rails.application.routes.draw do
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-
   get '/auth/spotify/callback', to: 'users#spotify'
-
 
   # Defines the root path route ("/")
   root to: "pages#home"
 
-  get 'playlists/index'
-  get 'playlists/show'
-  get 'playlists/new'
-  get 'playlists/create'
-  get 'playlists/edit'
-  get 'playlists/update'
-  get 'playlists/destroy'
+  resources :users, only: %i[index show] do
+    resources :playlists, only: %i[index]
+  end
+
+  resources :events, only: %i[index new create edit update] do
+    resources :playlists, only: %i[new create]
+  end
+
+  resources :playlists, only: %i[index show new create edit update destroy]
 end

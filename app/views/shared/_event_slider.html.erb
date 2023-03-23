@@ -1,0 +1,9 @@
+<div id="<%= propertyName %>" class="range" data-slider-target="sliderWrapper">
+  <div class="range-slider">
+    <span class="range-selected" style="left: <%= ((minValue || 0.0) * 100) %>%; right: <%= 100 - ((maxValue || 1.0) * 100) %>%" data-slider-target="rangeBar"></span>
+  </div>
+  <div class="range-input">
+    <input type="range" id="event_min_<%= propertyName %>" name="event[min_<%= propertyName %>]" class="min" min="0.000" max="1.000" value="<%= minValue || 0.0 %>" step="0.001" data-slider-target="minInput" data-action="input->slider#slide">
+    <input type="range" id="event_max_<%= propertyName %>" name="event[max_<%= propertyName %>]" class="max" min="0.000" max="1.000" value="<%= maxValue || 1.0 %>" step="0.001" data-slider-target="maxInput" data-action="input->slider#slide">
+  </div>
+</div>
