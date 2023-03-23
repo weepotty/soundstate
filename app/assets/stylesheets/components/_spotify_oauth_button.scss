@@ -4,7 +4,7 @@
   max-width: 250px;
   height: 3rem;
   overflow: hidden;
-  border: 1px solid gray;
+  // border: 1px solid gray;
   border-radius: 4px;
   padding: 1rem;
   margin: 1rem 0;
@@ -12,9 +12,15 @@
   align-items: center;
   transform: scale(1);
   transition: transform 0.5s;
+  box-shadow: 0 0 30px 5px rgb(60, 60, 60);
 
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
+    background: rgb(61, 106, 255);
+    box-shadow: 0 0 50px 5px rgba(0, 142, 236, 0.815);
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
   }
 }
 
@@ -40,8 +46,23 @@
   top: 0;
   left: 0;
   transition: background-color 0.5s;
+}
 
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+
+
+
+@keyframes sh02 {
+  from {
+    opacity: 0;
+    left: 0%;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    left: 100%;
   }
 }
