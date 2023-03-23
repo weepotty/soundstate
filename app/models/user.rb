@@ -11,7 +11,7 @@ class User < ApplicationRecord
 
   validates :nickname, presence: true, uniqueness: true
 
-  def self.create_user(spotify_user, access_token)
+  def self.create_from_spotify(spotify_user, access_token)
     account = User.where(email: spotify_user.email).first
     if account
       return account if account.access_token == access_token
@@ -19,12 +19,9 @@ class User < ApplicationRecord
       account.update!(access_token:)
     else
       account = User.create!(email: spotify_user.email, password: Devise.friendly_token[0, 20], nickname: spotify_user.display_name, access_token:)
+      # create 3 default events here!
     end
     account
-  end
-
-  def self.initiate_spotify(auth)
-    @spotify_user = RSpotify::User.new(auth)
   end
 
   def self.user_tracks
@@ -36,5 +33,9 @@ class User < ApplicationRecord
       tracks_array.concat(@tracks)
       offset += 50
     end
+  end
+
+  def spotify_user
+    RSpotify::User.new(access_token)
   end
 end
