@@ -1,15 +1,19 @@
-.gallery-card {
+.scene {
+  display: inline-block;
   width: 90%;
-  // height: 350px;
   aspect-ratio: 1/1.23;
-  background: $dark-gray;
-  padding: .6em;
-  margin-top: 8%;
+  perspective: 600px;
+  margin: 0 auto;
+}
 
-  p {
-    color: $light-gray;
-    margin: 0;
-  }
+.card {
+  position: relative;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform-origin: center right;
+  transition: transform 1s;
+  width: 100%;
+  height: 100%;
 }
 
 .gallery-photo {
@@ -23,30 +27,6 @@
   }
 }
 
-.gallery-user {
-  display: flex;
-}
-
-.scene {
-  display: inline-block;
-  width: 90%;
-  aspect-ratio: 1/1.23;
-  perspective: 600px;
-  margin: auto;
-}
-
-.card {
-  position: relative;
-  cursor: pointer;
-  transform-style: preserve-3d;
-  transform-origin: center right;
-  transition: transform 1s;
-}
-
-.card.is-flipped {
-  transform: translateX(-100%) rotateY(-180deg);
-}
-
 .card__face {
   position: absolute;
   backface-visibility: hidden;
@@ -55,6 +35,7 @@
   padding: .6em;
   margin-top: 8%;
   margin: auto;
+  height: 100%;
 
   p {
     color: $light-gray;
@@ -69,4 +50,15 @@
 .card__face--back {
   background: $light-gray;
   transform: rotateY(180deg);
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+
+.gallery-user {
+  display: flex;
+}
+
+.card.is-flipped {
+  transform: translateX(-100%) rotateY(-180deg);
 }
