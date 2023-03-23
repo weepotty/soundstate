@@ -27,7 +27,7 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
     if @event.update(event_params)
-      redirect_to root_path
+      redirect_to new_event_playlist_path(@event)
     else
       render :edit, status: :unprocessable_entity
     end
