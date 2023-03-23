@@ -11,20 +11,20 @@ class User < ApplicationRecord
 
   validates :nickname, presence: true, uniqueness: true
 
-  def self.create_user(spotify_user)
+  def self.create_user(spotify_user, access_token)
     account = User.where(email: spotify_user.email).first
-    account ||= User.new(email: spotify_user.email, password: Devise.friendly_token[0, 20], nickname: spotify_user.display_name)
-    account.save!
+    if account
+      return account if account.access_token == access_token
+
+      account.update!(access_token:)
+    else
+      account = User.create!(email: spotify_user.email, password: Devise.friendly_token[0, 20], nickname: spotify_user.display_name, access_token:)
+    end
     account
   end
 
   def self.initiate_spotify(auth)
     @spotify_user = RSpotify::User.new(auth)
-  end
-
-  def self.spotify_user
-    @hash = @spotify_user.to_hash
-    RSpotify::User.new(@hash)
   end
 
   def self.user_tracks

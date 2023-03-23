@@ -2,11 +2,12 @@ require 'csv'
 
 class UsersController < ApplicationController
   def spotify
-
     # create an RSpotify User
     @spotify_user = User.initiate_spotify(request.env['omniauth.auth'])
 
-    @user = User.create_user(@spotify_user)
+    access_token = @spotify_user.to_hash
+
+    @user = User.create_user(@spotify_user, access_token)
     if @user.persisted?
       flash[:notice] = I18n.t 'devise.omniauth_callbacks.success', kind: 'Spotify'
       sign_in_and_redirect @user, event: :authentication
