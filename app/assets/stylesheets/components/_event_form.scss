@@ -9,3 +9,12 @@
   align-items: center;
   border-radius: 8px;
 }
+
+.event-button {
+  background-color: transparent;
+  border: 0;
+  color: $white;
+  font-size: $subheading-fs;
+  padding: 0.5em;
+  width: 100%;
+}

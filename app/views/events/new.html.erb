@@ -18,6 +18,8 @@
       <p class="invisible" data-slider-target="timeLabel">Afternoon</p>
       <p class="invisible" data-slider-target="timeLabel">Evening</p>
     </div>
-    <%= f.submit 'Save' %>
+    <%= button_tag(type: 'submit', class: 'event-button') do %>
+      <i class="fa-solid fa-compact-disc"></i>
+    <% end %>
   <% end %>
 </div>
