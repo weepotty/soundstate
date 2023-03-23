@@ -8,6 +8,12 @@
     </ul>
   </div>
   <span>SoundState</span>
-  <%= render "shared/search_bar" %>
-  <i class="fa-solid fa-magnifying-glass"></i>
+  <div class="dropdown">
+    <button class="header-dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
+    <ul class="dropdown-menu" style="min-width: 100vw" >
+      <li class="dropdown-item"><%= render "shared/search_bar" %></li>
+    </ul>
+  </div>
 </div>
