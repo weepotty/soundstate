@@ -15,7 +15,12 @@
   background-color: transparent;
   border: 0;
   color: $white;
-  font-size: $subheading-fs;
-  padding: 0.5em;
+  font-size: 1.6rem;
+  padding: 0 0.5em;
   width: 100%;
+
+  &:hover {
+    -webkit-animation: fa-spin 2s infinite linear;
+    animation: fa-spin 2s infinite linear;
+  }
 }
