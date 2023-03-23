@@ -1,15 +1,32 @@
 class EventsController < ApplicationController
+  # GET /events/new
   def new
     @event = Event.new
   end
-
+  
+  # POST /events
   def create
     @event = Event.new(event_params)
-    @event.user = User.first
+    @event.user = current_user
     if @event.save
       redirect_to root_path
     else
       render :new, status: :unprocessable_entity
+    end
+  end
+
+  # GET /events/:id/edit
+  def edit
+    @event = Event.find(params[:id])
+  end
+
+  # PATCH /events/:id
+  def update
+    @event = Event.find(params[:id])
+    if @event.update(event_params)
+      redirect_to root_path
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
