@@ -28,7 +28,7 @@ class UsersController < ApplicationController
       @query = params[:query]
       @users = User.search_by_nickname(@query)
     else
-      @users = Users.all
+      @users = User.all
     end
   end
 
