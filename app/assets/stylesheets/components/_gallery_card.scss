@@ -1,15 +1,8 @@
-.gallery-wrapper {
-  display: flex;
-  flex-direction: column;
-  row-gap: 1em;
-}
-
 .scene {
   display: inline-block;
   width: 90%;
   aspect-ratio: 1/1.23;
   perspective: 600px;
-  margin: 0 auto;
   margin-bottom: 2em;
 }
 
@@ -37,7 +30,6 @@
 .card__face {
   position: absolute;
   backface-visibility: hidden;
-  // height: 350px;
   background: $dark-gray;
   padding: .6em;
   margin-top: 8%;
