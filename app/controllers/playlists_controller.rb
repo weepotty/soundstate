@@ -1,5 +1,8 @@
 class PlaylistsController < ApplicationController
   def index
+    @playlists = Playlist.all
+    # Eager loading for when we start on image generation
+    # @playlists = Playlist.includes(:image).all
   end
 
   def show
