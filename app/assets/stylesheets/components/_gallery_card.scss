@@ -4,6 +4,9 @@
   aspect-ratio: 1/1.23;
   perspective: 600px;
   margin-bottom: 2em;
+  background: #8281F6;
+  padding: .6em;
+  margin-top: 8%;
 }
 
 .card {
@@ -20,7 +23,7 @@
   align-items: center;
 
   img {
-    background-color: $dark-gray;
+    background-color: #8281F6;
     width: 100%;
     object-fit: cover;
     aspect-ratio: 1/1;

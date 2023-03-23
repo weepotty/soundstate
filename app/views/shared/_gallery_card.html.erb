@@ -20,3 +20,83 @@
     </div>
   </div>
 </div>
+<div class="container">
+    <div class="box">
+      <div class="gallery-photo">
+        <img src="https://images.unsplash.com/photo-1552570173-43e2d76c37f4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80" alt="">
+      </div>
+
+      <div class="gallery-user d-flex align-items-center gap-3 mt-2">
+        <img class="avatar" src="https://static.toiimg.com/thumb/resizemode-4,msid-76729750,imgsize-249247,width-720/76729750.jpg" alt="">
+        <p><small>Username</small></p>
+      </div>
+      <div class="mt-2 ml-6">
+        <p>This is some regular text</p>
+      </div>
+    </div>
+</div>
+
+<style>
+.container {
+  position: relative;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .box {
+  width: 90%;
+  /* width: 11.875em; */
+  aspect-ratio: 1/1.23;
+  /* height: 15.875em; */
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.074);
+  border: 1px solid rgba(255, 255, 255, 0.222);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border-radius: .5rem;
+  transform: scale(1);
+  transition: all ease .3s;
+}
+
+.container .box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.container .box .title {
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: .1em
+}
+
+.container .box div strong {
+  display: block;
+  margin-bottom: .5rem;
+}
+
+.container .box div p {
+  margin: 0;
+  font-size: .9em;
+  font-weight: 300;
+  letter-spacing: .1em;
+}
+
+.container .box div span {
+  font-size: .7rem;
+  font-weight: 300;
+}
+
+.container .box div span:nth-child(3) {
+  font-weight: 500;
+  margin-right: .2rem;
+}
+
+.container .box:hover {
+  box-shadow: 0px 0px 20px 1px #ffbb763f;
+  border: 1px solid rgba(255, 255, 255, 0.454);
+  transform: scale(1.02);
+}
+</style>
