@@ -1,20 +1,35 @@
 .event-form {
-  background-color: $dark-gray;
+  background-color: rgba(255, 255, 255, 0.074);
+  border: 1px solid rgba(255, 255, 255, 0.222);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border-radius: .5rem;
+  transition: all ease .3s;
+  color: $white;
   width: 80%;
-  max-width: 300px;
-  padding: 5% 10%;
+  max-width: 280px;
+  padding: 1.6rem;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 8px;
+
+  &:hover {
+    box-shadow: 0px 0px 20px 1px #F88EBE;
+    border: 1px solid rgba(255, 255, 255, 0.454);
+  }
 }
 
 .event-button {
   background-color: transparent;
   border: 0;
   color: $white;
-  font-size: $subheading-fs;
-  padding: 0.5em;
+  font-size: 1.6rem;
+  padding: 0 0.5em;
   width: 100%;
+
+  &:hover {
+    -webkit-animation: fa-spin 2s infinite linear;
+    animation: fa-spin 2s infinite linear;
+  }
 }

@@ -1,15 +1,18 @@
 class PlaylistsController < ApplicationController
+  # GET /users/:user_id/playlists
   def index
     @playlists = Playlist.all
     # Eager loading for when we start on image generation
     # @playlists = Playlist.includes(:image).all
   end
 
+  # GET /playlists/:id
   def show
     # show requires an "id" variable to insert into embeded iframe
     @playlist = Playlist.includes(:spotify_id).find(params[:id])
   end
 
+  # GET /events/:event_id/playlists/new
   def new
     # access user's account
     spotify_user = current_user.spotify_user
@@ -18,7 +21,7 @@ class PlaylistsController < ApplicationController
     @spotify_playlist = spotify_user.create_playlist!('4th Best PLaylist Ever')
 
     # get the event that we will filter the songs by
-    @event = Event.last # to be dynamic once slider and stuffs are done
+    @event = Event.find(params[:event_id]) # to be dynamic once slider and stuffs are done
 
     # filter the user's songs with event
     filter_songs(@event)
@@ -33,16 +36,8 @@ class PlaylistsController < ApplicationController
     @ss_playlist = Playlist.create!(title: '4th best playlist!', user: current_user, spotify_id: @spotify_playlist.id)
   end
 
+  # POST /events/:event_id/playlists
   def create
-  end
-
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
   end
 
   private
