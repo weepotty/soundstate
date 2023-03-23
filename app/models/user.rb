@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  include PgSearch::Model
+
   has_many :events, dependent: :destroy
   has_many :playlists, dependent: :destroy
   has_many :songs_users, dependent: :destroy
