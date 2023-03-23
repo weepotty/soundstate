@@ -5,5 +5,14 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root to: "pages#home"
-  resources :events, only: %i[new create]
+
+  resources :users, only: %i[index show] do
+    resources :playlists, only: %i[index]
+  end
+
+  resources :events, only: %i[index new create edit update] do
+    resources :playlists, only: %i[new create]
+  end
+
+  resources :playlists, only: %i[show]
 end
