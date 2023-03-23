@@ -1,0 +1,9 @@
+<%= form_with url: users_path, method: :get, class: "d-flex flex-grow-1 px-4" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control bg-white py-2",
+    placeholder: "What service are you looking for today?",
+    required: true
+  %>
+  <button class='btn btn-dark'><i class="fa-solid fa-magnifying-glass"></i></button>
+<% end %>

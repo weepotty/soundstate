@@ -4,7 +4,9 @@ class UsersController < ApplicationController
   def spotify
     # create an RSpotify User
     spotify_user = RSpotify::User.new(request.env['omniauth.auth'])
-    @user = User.create_user(spotify_user)
+    spotify_auth = spotify_user.to_hash
+    @user = User.create_from_spotify(spotify_user, spotify_auth)
+
     if @user.persisted?
       flash[:notice] = I18n.t 'devise.omniauth_callbacks.success', kind: 'Spotify'
       sign_in_and_redirect @user, event: :authentication
@@ -14,22 +16,23 @@ class UsersController < ApplicationController
       redirect_to new_user_registration_url, alert: @user.errors.full_messages.join("\n")
     end
 
-    # get all the from user's library
-    @tracks = spotify_user.saved_tracks(offset: 0, limit: 50)
-    tracks_array = @tracks
-    offset = 50
-    while @tracks.count == 50
-      @tracks = spotify_user.saved_tracks(offset:, limit: 50)
-      tracks_array.concat(@tracks)
-      offset += 50
-    end
-
-
-
-
-    # get the spotify song URIs from the filtered_array and create a playlist with these +/- store in user's spotify
-    # play the playlist
-
+    # get all the songs from user's library and their properties, and load into songs table
+    ::ImportSongsService.call(
+      spotify_user: spotify_user,
+      current_user: current_user
+    )
   end
 
+  def index
+    if params[:query]
+      @query = params[:query]
+      @users = User.search_by_nickname(@query)
+    else
+      @users = Users.all
+    end
+  end
+
+  def show
+    @user = User.find(params[:id])
+  end
 end
