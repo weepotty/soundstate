@@ -23,6 +23,7 @@ class UsersController < ApplicationController
     )
   end
 
+  # GET /users/
   def index
     if params[:query]
       @query = params[:query]
@@ -32,7 +33,9 @@ class UsersController < ApplicationController
     end
   end
 
+  # GET /users/:id
   def show
-    @user = User.find(params[:id])
+    current_user
+    @playlists = current_user.playlists
   end
 end

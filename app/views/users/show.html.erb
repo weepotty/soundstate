@@ -1,4 +1,13 @@
 <div class="container">
-  <h1>User show page (vault)</h1>
-  <p>This is my nickname: <%= current_user.nickname %></p>
+  <h2 class="text-center">Your Events</h2>
+  <h2 class="text-center">Your Vault</h2>
+  <div class="main-carousel" data-flickity='{     "wrapAround": true,
+    "pageDots": false,
+    "prevNextButtons": false }'>
+    <% @playlists.each do |playlist| %>
+      <div class="carousel-cell">
+        <%= render 'shared/event_image_card' %>
+      </div>
+    <% end %>
+  </div>
 </div>
