@@ -31,9 +31,8 @@
   display: inline-block;
   width: 90%;
   aspect-ratio: 1/1.23;
-/*   border: 1px solid #CCC; */
-  margin: 40px 0;
   perspective: 600px;
+  margin: auto;
 }
 
 .card {
@@ -42,7 +41,6 @@
   transform-style: preserve-3d;
   transform-origin: center right;
   transition: transform 1s;
-  margin: auto;
 }
 
 .card.is-flipped {
@@ -52,9 +50,7 @@
 .card__face {
   position: absolute;
   backface-visibility: hidden;
-  width: 90%;
   // height: 350px;
-  aspect-ratio: 1/1.23;
   background: $dark-gray;
   padding: .6em;
   margin-top: 8%;
@@ -71,6 +67,6 @@
 }
 
 .card__face--back {
-  background: slateblue;
+  background: $light-gray;
   transform: rotateY(180deg);
 }
