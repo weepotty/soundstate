@@ -1,11 +1,17 @@
 .header {
   display: flex;
   justify-content: space-between;
-  padding: 3%;
+  padding: 0.5em 1em;
+  max-height: 3.8rem;
   color: $white;
+  font-family: $headers-font;
   font-size: larger;
   align-content: center;
   align-items: center;
+}
+
+.header-logo {
+  font-size: $subheading-fs;
 }
 
 .header-dropdown {
@@ -23,6 +29,7 @@
 }
 
 .dropdown-item {
+  font-family: $body-font;
   background-color: transparent;
   transform: scale(1);
   transition: all ease .3s;
