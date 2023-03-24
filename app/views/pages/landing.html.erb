@@ -3,3 +3,9 @@
   <h1>SoundState</h1>
   <%= render 'devise/shared/spotify_oauth_button' %>
 </div>
+<%# testing %>
+<div class="container">
+  <% @user.playlists.each do |playlist| %>
+    <%= cl_image_tag playlist.photo.key, class: "mb-4", height: 150, width: 150, crop: :fill %>
+  <% end %>
+</div>
