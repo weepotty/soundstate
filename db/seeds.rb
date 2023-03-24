@@ -26,6 +26,12 @@ user5 = User.create!(email: 'alice@alicedev.com', password: '123456', nickname: 
 
 users = [user1, user2, user3, user4, user5]
 
+filepath = 'db/songs.csv'
+
+CSV.foreach(filepath, headers: :first_row) do |row|
+  Song.create!(spotify_id: row['spotify_id'], name: row['name'], uri: row['uri'], artist: row['artist'], acousticness: row['acousticness'], danceability: row['danceability'], energy: row['energy'], tempo: row['tempo'], valence: row['valence'])
+end
+
 users.each do |user|
   Event.create!(
     title: 'Getting ready',
@@ -74,45 +80,63 @@ users.each do |user|
     time: 2,
     user:
   )
+
+  SongsUser.create!(song: Song.first, user:)
 end
 
 
 
-filepath = 'db/songs.csv'
+playlist1_image = URI.open("https://res.cloudinary.com/drftmp0s5/image/upload/v1679621030/millenial.png")
+playlist1 = Playlist.create!(title: 'Stretching', user: user1, spotify_id: "0mAeoOnm1vVOWRg1wy6AFT", is_shared: true)
+playlist1.photo.attach(io: playlist1_image, filename: "millenial.png", content_type: "image/png")
+playlist1.save
+PlaylistsSong.create!(playlist: playlist1, song: Song.first)
 
-CSV.foreach(filepath, headers: :first_row) do |row|
-  Song.create!(spotify_id: row['spotify_id'], name: row['name'], uri: row['uri'], artist: row['artist'], acousticness: row['acousticness'], danceability: row['danceability'], energy: row['energy'], tempo: row['tempo'], valence: row['valence'])
-end
+playlist2_image = URI.open("https://res.cloudinary.com/drftmp0s5/image/upload/v1679624157/splitscreen_f3g6aj.png")
+playlist2 = Playlist.create!(title: 'Code Monkey', user: user1, spotify_id: "0mWhUI9HdprDlrY2JGXN1o", is_shared: true)
+playlist2.photo.attach(io: playlist2_image, filename: "splitscreen_f3g6aj.png", content_type: "image/png")
+playlist2.save
+PlaylistsSong.create!(playlist: playlist2, song: Song.first)
 
-playlist1 = Playlist.create!(title: 'watering flowers', user: user1, is_shared: true)
-playlist2 = Playlist.create!(title: 'George & Indiana', user: user2)
-playlist3 = Playlist.create!(title: 'Stretching', user: user3, is_shared: true)
-playlist4 = Playlist.create!(title: 'SHUIJIAO', user: user4, is_shared: true)
-playlist5 = Playlist.create!(title: 'secret yoga', user: user5, is_shared: true)
+playlist3_image = URI.open("https://res.cloudinary.com/drftmp0s5/image/upload/v1679624123/calm_hghfse.png")
+playlist3 = Playlist.create!(title: 'Silence and Calm', user: user1, spotify_id: "4pwTaUwO5HNwQA3OsPFEDP", is_shared: true)
+playlist3.photo.attach(io: playlist3_image, filename: "calm_hghfse.png", content_type: "image/png")
+playlist3.save
+PlaylistsSong.create!(playlist: playlist3, song: Song.first)
 
-Song.all.sample(200).each do |song|
-  PlaylistsSong.create!(playlist: playlist1, song:)
-  SongsUser.create!(song:, user: user1)
-end
+playlist4_image = URI.open("https://res.cloudinary.com/drftmp0s5/image/upload/v1679624152/cubism_ggdch9.png")
+playlist4 = Playlist.create!(title: 'Cycling', user: user1, spotify_id: "1UoGc2m2g3IbepT1YJpNvG", is_shared: true)
+playlist4.photo.attach(io: playlist4_image, filename: "cubism_ggdch9.png", content_type: "image/png")
+playlist4.save
+PlaylistsSong.create!(playlist: playlist4, song: Song.first)
 
-Song.all.sample(200).each do |song|
-  PlaylistsSong.create!(playlist: playlist2, song:)
-  SongsUser.create!(song:, user: user2)
-end
+playlist5_image = URI.open("https://res.cloudinary.com/drftmp0s5/image/upload/v1679621049/dreamybubbles.png")
+playlist5 = Playlist.create!(title: 'Chilling', user: user1, spotify_id: "6iXQpDitArksnLfprwx3OV", is_shared: true)
+playlist5.photo.attach(io: playlist5_image, filename: "dreamybubbles.png", content_type: "image/png")
+playlist5.save
+PlaylistsSong.create!(playlist: playlist5, song: Song.first)
 
-Song.all.sample(200).each do |song|
-  PlaylistsSong.create!(playlist: playlist3, song:)
-  SongsUser.create!(song:, user: user3)
-end
+playlist6_image = URI.open("https://res.cloudinary.com/drftmp0s5/image/upload/v1679624161/tokyobag_qmcuga.png")
+playlist6 = Playlist.create!(title: 'Exercise', user: user1, spotify_id: "501cNzLT6BHAc2BbjT7Vql", is_shared: true)
+playlist6.photo.attach(io: playlist6_image, filename: "tokyobag_qmcuga.png", content_type: "image/png")
+playlist6.save
+PlaylistsSong.create!(playlist: playlist6, song: Song.first)
 
-Song.all.sample(200).each do |song|
-  PlaylistsSong.create!(playlist: playlist4, song:)
-  SongsUser.create!(song:, user: user4)
-end
+playlist7_image = URI.open("https://res.cloudinary.com/drftmp0s5/image/upload/v1679624160/stretching_nnw5qt.png")
+playlist7 = Playlist.create!(title: 'Yoga', user: user2, spotify_id: "2sDakL9bYMnDT4ieERyIBD", is_shared: true)
+playlist7.photo.attach(io: playlist7_image, filename: "stretching_nnw5qt.png", content_type: "image/png")
+playlist7.save
+PlaylistsSong.create!(playlist: playlist7, song: Song.first)
 
-Song.all.sample(200).each do |song|
-  PlaylistsSong.create!(playlist: playlist5, song:)
-  SongsUser.create!(song:, user: user5)
-end
+playlist8_image = URI.open("https://res.cloudinary.com/drftmp0s5/image/upload/v1679624157/milkyway_cebdhg.png")
+playlist8 = Playlist.create!(title: 'In The Zone', user: user2, spotify_id: "7jfg6SX0LJYseu71JmZ4RK", is_shared: true)
+playlist8.photo.attach(io: playlist8_image, filename: "milkyway_cebdhg.png", content_type: "image/png")
+playlist8.save
+PlaylistsSong.create!(playlist: playlist8, song: Song.first)
 
+playlist9_image = URI.open("https://res.cloudinary.com/drftmp0s5/image/upload/v1679621024/botanicalart.png")
+playlist9 = Playlist.create!(title: 'Coffee House', user: user3, spotify_id: "4U42sfz3cWz3T8CtOmyWz2", is_shared: true)
+playlist9.photo.attach(io: playlist9_image, filename: "botanicalart.png", content_type: "image/png")
+playlist9.save
+PlaylistsSong.create!(playlist: playlist9, song: Song.first)
 # puts 'seeded like a lovely garden'
