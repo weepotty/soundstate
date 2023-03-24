@@ -26,6 +26,12 @@ user5 = User.create!(email: 'alice@alicedev.com', password: '123456', nickname: 
 
 users = [user1, user2, user3, user4, user5]
 
+filepath = 'db/songs.csv'
+
+CSV.foreach(filepath, headers: :first_row) do |row|
+  Song.create!(spotify_id: row['spotify_id'], name: row['name'], uri: row['uri'], artist: row['artist'], acousticness: row['acousticness'], danceability: row['danceability'], energy: row['energy'], tempo: row['tempo'], valence: row['valence'])
+end
+
 users.each do |user|
   Event.create!(
     title: 'Getting ready',
@@ -78,11 +84,7 @@ users.each do |user|
   SongsUser.create!(song: Song.first, user:)
 end
 
-filepath = 'db/songs.csv'
 
-CSV.foreach(filepath, headers: :first_row) do |row|
-  Song.create!(spotify_id: row['spotify_id'], name: row['name'], uri: row['uri'], artist: row['artist'], acousticness: row['acousticness'], danceability: row['danceability'], energy: row['energy'], tempo: row['tempo'], valence: row['valence'])
-end
 
 playlist1_image = URI.open("https://res.cloudinary.com/drftmp0s5/image/upload/v1679621030/millenial.png")
 playlist1 = Playlist.create!(title: 'Stretching', user: user1, spotify_id: "0mAeoOnm1vVOWRg1wy6AFT", is_shared: true)
