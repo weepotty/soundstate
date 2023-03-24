@@ -1,0 +1,39 @@
+.vault-top {
+  width: 100%;
+  margin: 1rem auto;
+}
+
+.event-slide {
+  padding: 1rem 0;
+  max-height: 10rem;
+}
+  
+.event-cell {
+  width: 70%;
+  max-width: 300px;
+  margin: 1.2rem 10px 1.2rem 0;
+  border-radius: .5rem;
+}
+
+.event-cell * {
+  opacity: 0.8;
+  transform: scale(0.8) translateY(0.8rem);
+  transition: 0.5s;
+}
+
+.event-cell.is-selected * {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  transition: transform 0.5s, opacity 0.5s;
+
+  box-shadow: 0px 0px 15px 1px #f88ebe89;
+}
+
+.event-cell-card {
+  width: 100%;
+  height: 100%;
+  background-color: #f88ebe89;
+  border: 0;
+  border-radius: .5rem;
+  font-size: $label-fs;
+}

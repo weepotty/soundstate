@@ -1,11 +1,9 @@
-  <div class="vault-top mt-5">
+  <div class="vault-top">
     <h2 class="text-center">Your Events</h2>
-    <div class="main-carousel" data-flickity='{     "wrapAround": true,
-      "pageDots": false,
-      "prevNextButtons": false }'>
-      <% @events.each do |event| %>
-        <div class="carousel-cell">
-          <div class="card text-center py-4"><%= event.title %></div>
+    <div class="event-slide" data-flickity='{ "wrapAround": true, "pageDots": false, "prevNextButtons": false }'>
+      <% @events.each_with_index do |event, index| %>
+        <div class="event-cell">
+          <div class="event-cell-card text-center py-4"><%= event.title %></div>
         </div>
       <% end %>
     </div>
