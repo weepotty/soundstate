@@ -1,8 +1,8 @@
-<div class="gallery-card" data-controller="gallery-card" data-action="click->gallery-card#click">
+<div class="gallery-card" data-controller="gallery-card">
   <div class="scene scene--card">
     <div class="card" data-gallery-card-target="card">
       <div class="card__face card__face--front">
-        <div class="gallery-photo">
+        <div class="gallery-photo" data-action="click->gallery-card#click">
           <%= cl_image_tag playlist.photo.key, crop: :fill %>
         </div>
         <div class="gallery-user d-flex align-items-center gap-3 mt-2">
