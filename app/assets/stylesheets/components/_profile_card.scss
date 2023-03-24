@@ -1,8 +1,8 @@
 .profile-wrapper {
-  width: 100%;
+  width: auto;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8%;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4%;
   margin-left: 8%;
   margin-right: 8%;
   margin-top: 8%;
@@ -20,11 +20,11 @@
   }
 }
 
-.scene {
+.profile-scene {
   display: inline-block;
   width: 90%;
   aspect-ratio: 1/1;
-  perspective: 600px;
+  // perspective: 600px;
   // margin-bottom: 2em;
 }
 
@@ -39,11 +39,11 @@
   background-color: transparent;
 }
 
-.card__face {
+.profile_card__face {
   position: absolute;
   backface-visibility: hidden;
   background: transparent;
-  padding: .6em;
+  padding: .2em;
   margin-top: 8%;
   height: 100%;
 
@@ -61,7 +61,7 @@
   }
 }
 
-.card__face--front {
+.profile_card__face--front {
   margin: 0 auto;
 
   &:hover {
@@ -71,7 +71,7 @@
   }
 }
 
-.card__face--back {
+.profile_card__face--back {
   background: #282828;
   transform: rotateY(180deg);
   width: 100%;

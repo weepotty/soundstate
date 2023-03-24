@@ -1,14 +1,14 @@
 <div class="profile-wrapper">
   <% @playlists.each do |playlist| %>
     <div class="profile-card" data-controller="profile-card" data-action="click->profile-card#click">
-      <div class="scene scene--card">
+      <div class="profile-scene scene--card">
         <div class="card" data-profile-card-target="card">
-          <div class="card__face card__face--front">
+          <div class="profile_card__face profile_card__face--front">
             <div class="profile-card">
               <%= cl_image_tag playlist.photo.key %>
             </div>
           </div>
-          <div class="card__face card__face--back">
+          <div class="profile_card__face profile_card__face--back">
               <iframe style="border-radius:12px;" src="https://open.spotify.com/embed/playlist/1UCY5fAnCk6w590OuAWvFS?utm_source=generator&theme=0" width="100%" height="100%" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
           </div>
         </div>
