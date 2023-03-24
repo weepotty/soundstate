@@ -2,7 +2,7 @@
   <h2>Good <%= current_user.day_period %>, <em><%= current_user.nickname %></em></h2>
 </div>
 <!-- Carousel -->
-<div class="carousel" data-flickity='{ "wrapAround": true, "pageDots": false, "prevNextButtons": false }'>
+<div class="carousel" data-controller="flickity">
   <% current_user.user_playlists.each do |playlist| %>
     <div class="carousel-cell">
       <%= render 'shared/event_image_card', playlist: playlist %>

@@ -7,5 +7,4 @@ import "bootstrap";
 // from there.
 // Webpack will automatically load an `index.js' file from the given
 // directory: 'app/javascript/carousel/index.js'
-import "./carousel";
 import "./webplayback";
