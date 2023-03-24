@@ -1,6 +1,6 @@
   <div class="vault-top">
     <h2 class="text-center">Your Events</h2>
-    <div class="event-slide" data-flickity='{ "wrapAround": true, "pageDots": false, "prevNextButtons": false }'>
+    <div class="event-slide" data-controller="flickity">
       <% @events.each_with_index do |event, index| %>
         <div class="event-cell">
           <div class="event-cell-card text-center py-4"><%= event.title %></div>

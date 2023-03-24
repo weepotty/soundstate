@@ -6,7 +6,7 @@ import Flickity from "flickity";
 export default class extends Controller {
   connect() {
     // Initialise Flickity
-    var flkty = new Flickity(".carousel", {
+    var flkty = new Flickity(this.element, {
       "wrapAround": true,
       "pageDots": false,
       "prevNextButtons": false
