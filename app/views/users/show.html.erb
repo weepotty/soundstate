@@ -1,4 +1,3 @@
-<div class="container">
   <div class="vault-top mt-5">
     <h2 class="text-center">Your Events</h2>
     <div class="main-carousel" data-flickity='{     "wrapAround": true,
@@ -6,7 +5,7 @@
       "prevNextButtons": false }'>
       <% @events.each do |event| %>
         <div class="carousel-cell">
-          <div class="card text-center py-4"><%= event.name %></div>
+          <div class="card text-center py-4"><%= event.title %></div>
         </div>
       <% end %>
     </div>
@@ -24,4 +23,3 @@
       <% end %>
     </div>
   </div>
-</div>
