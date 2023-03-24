@@ -32,7 +32,11 @@ class User < ApplicationRecord
     account
   end
   
-  def self.day_period
+  def spotify_user
+    RSpotify::User.new(spotify_auth)
+  end
+  
+  def day_period
     hour = Time.now.hour
     period = "evening"
     if (hour >= 5 && hour < 12)
@@ -42,9 +46,5 @@ class User < ApplicationRecord
     end
 
     period
-  end
-
-  def spotify_user
-    RSpotify::User.new(spotify_auth)
   end
 end
