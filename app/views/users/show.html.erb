@@ -10,14 +10,5 @@
   </div>
   <div class="vault-bottom">
     <h2 class="text-center">Your Vault</h2>
-    <div class="main-carousel" data-flickity='{     "wrapAround": true,
-      "pageDots": false,
-      "prevNextButtons": false }'>
-      <% @playlists.each do |playlist| %>
-        <div class="carousel-cell">
-          <p><%= playlist.title %></p>
-          <%= render 'shared/event_image_card' %>
-        </div>
-      <% end %>
-    </div>
+    <%= render "shared/profile", playlists: @playlists %>
   </div>
