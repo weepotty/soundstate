@@ -6,7 +6,7 @@
 
   <div class="flex-grow-1 episodes-container">
     <ul id="episodes" class="list-unstyled">
-      <% @songs.first(20).each do |song| %>
+      <% @songs.each do |song| %>
         <li class="episodes">
           <button class="btn episodes-button" data-spotify-id=<%= song.uri %>>
             <%= song.name %> - <%= song.artist %>
@@ -19,5 +19,6 @@
 
 <%= simple_form_for [@event, @playlist], defaults: { required: false }  do |f| %>
       <%= f.input :title, :label => "Playlist Title", placeholder: "Name your playlist" %>
+      <%= f.input :photo, as: :file, label: "Upload your photo", input_html: { class: "bg-white py-1" }, wrapper_html: { class: "fs-6 mt-2 text-dark fw-normal" } %>
       <%= f.submit "Create Playlist", class: "btn oauth-signin" %>
 <% end %>

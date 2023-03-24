@@ -32,10 +32,12 @@ class PlaylistsController < ApplicationController
     # create instance of playlist to spotify
     @spotify_playlist = spotify_user.create_playlist!(playlist_params[:title])
 
-    # add tracks to spotify playlist by
+    # add tracks and replace image to spotify playlist
     @spotify_playlist.add_tracks!(@song_uris)
+    # @spotify_playlist.replace_image!(playlist_params[:photo], playlist_params[:photo].content_type)
 
-    @ss_playlist = Playlist.new(title: playlist_params[:title], user: current_user, spotify_id: @spotify_playlist.id)
+
+    @ss_playlist = Playlist.new(title: playlist_params[:title], photo: playlist_params[:photo], user: current_user, spotify_id: @spotify_playlist.id)
 
     redirect_to playlist_path(@ss_playlist) if @ss_playlist.save!
   end
@@ -64,6 +66,6 @@ class PlaylistsController < ApplicationController
   end
 
   def playlist_params
-    params.require(:playlist).permit(:title)
+    params.require(:playlist).permit(:title, :photo)
   end
 end
