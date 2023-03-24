@@ -4,6 +4,7 @@ class PlaylistsController < ApplicationController
     @playlists = Playlist.all
     # Eager loading for when we start on image generation
     # @playlists = Playlist.includes(:image).all
+    @user = User.find(params[:user_id])
   end
 
   # GET /playlists/:id
