@@ -1,7 +1,8 @@
 <div class="container">
-  <h1 class ="mb-6"><%= @user.nickname %>'s Gallery</h1>
+  <h2><%= @user.nickname.capitalize %>'s Gallery</h2>
+  <%= @user["images"] %>
 
-  <div class ="pt-6">
+  <div>
     <%= render "shared/profile" %>
   </div>
 </div>
