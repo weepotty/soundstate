@@ -11,14 +11,16 @@ class PlaylistsController < ApplicationController
   def show
     # show requires an "id" variable to insert into embeded iframe
     @playlist = Playlist.find(params[:id])
+
   end
 
   # GET /events/:event_id/playlists/new
   def new
+    @event = Event.find(params[:event_id])
     @playlist = Playlist.new
-
     @event = Event.find(params[:event_id])
     filter_songs(@event)
+
   end
 
   # POST /events/:event_id/playlists

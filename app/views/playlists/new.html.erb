@@ -1,9 +1,24 @@
+<script>
+  function reloadPage() {
+  // The last "domLoading" Time //
+  let currentDocumentTimestamp =
+  new Date(performance.timing.domLoading).getTime();
+  // Current Time //
+  let now = Date.now();
+  // Ten Seconds //
+  let oneSec = 1 * 1000;
+  // Plus Ten Seconds //
+  let plusOneSec = currentDocumentTimestamp + oneSec;
+  if (now > plusOneSec) {
+  location.reload();
+  } else {}
+  }
+  reloadPage();
+</script>
 <h1>New Playlist</h1>
-
 <div id="first-song" value="<%= @song_uris.first %>"></div>
 <div class="d-flex justify-content-center align-items-start gap-3 flex-wrap">
   <div id="embed-iframe"></div>
-
   <div class="flex-grow-1 episodes-container">
     <ul id="episodes" class="list-unstyled">
       <% @songs.first(20).each do |song| %>
@@ -11,13 +26,12 @@
           <button class="btn episodes-button" data-spotify-id=<%= song.uri %>>
             <%= song.name %> - <%= song.artist %>
           </button>
-        </li>
-      <% end %>
-    </ul>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
-</div>
-
-<%= simple_form_for [@event, @playlist], defaults: { required: false }  do |f| %>
-      <%= f.input :title, :label => "Playlist Title", placeholder: "Name your playlist" %>
-      <%= f.submit "Create Playlist", class: "btn oauth-signin" %>
-<% end %>
+  <%= simple_form_for [@event, @playlist], defaults: { required: false }  do |f| %>
+    <%= f.input :title, :label => "Playlist Title", placeholder: "Name your playlist" %>
+    <%= f.submit "Create Playlist", class: "btn oauth-signin" %>
+  <% end %>
