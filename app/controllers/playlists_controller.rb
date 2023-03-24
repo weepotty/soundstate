@@ -26,7 +26,7 @@ class PlaylistsController < ApplicationController
     # filter the user's songs with event
     filter_songs(@event)
 
-    @songs_uri.count > 100 ? @spotify_playlist.add_tracks!(@song_uris.sample(100)) : @spotify_playlist.add_tracks!(@song_uris)
+    @song_uris.count > 100 ? @spotify_playlist.add_tracks!(@song_uris.sample(100)) : @spotify_playlist.add_tracks!(@song_uris)
     # add tracks to spotify playlist by
 
     # create instacne of playlist in out database wihtout phtot
