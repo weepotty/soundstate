@@ -3,9 +3,9 @@
 </div>
 <!-- Carousel -->
 <div class="carousel" data-flickity='{ "wrapAround": true, "pageDots": false, "prevNextButtons": false }'>
-  <% 5.times do %>
+  <% current_user.user_playlists.each do |playlist| %>
     <div class="carousel-cell">
-      <%= render 'shared/event_image_card' %>
+      <%= render 'shared/event_image_card', playlist: playlist %>
     </div>
   <% end %>
 </div>

@@ -47,4 +47,8 @@ class User < ApplicationRecord
 
     period
   end
+
+  def user_playlists
+    Playlist.where(user: self)
+  end
 end
