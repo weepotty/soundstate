@@ -1,3 +1,23 @@
-<h1>NEW PLAYLIST CREATED IN SPOTUFY???</h1>
-<h1><%= @ss_playlist.title %></h1>
-<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/<%= @ss_playlist.spotify_id %>?utm_source=generator&theme=0" width="100%" height="1000" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+<h1>New Playlist</h1>
+
+<div id="first-song" value="<%= @song_uris.first %>"></div>
+<div class="d-flex justify-content-center align-items-start gap-3 flex-wrap">
+  <div id="embed-iframe"></div>
+
+  <div class="flex-grow-1 episodes-container">
+    <ul id="episodes" class="list-unstyled">
+      <% @songs.first(20).each do |song| %>
+        <li class="episodes">
+          <button class="btn episodes-button" data-spotify-id=<%= song.uri %>>
+            <%= song.name %> - <%= song.artist %>
+          </button>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<%= simple_form_for [@event, @playlist], defaults: { required: false }  do |f| %>
+      <%= f.input :title, :label => "Playlist Title", placeholder: "Name your playlist" %>
+      <%= f.submit "Create Playlist", class: "btn oauth-signin" %>
+<% end %>
