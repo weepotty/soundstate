@@ -32,17 +32,6 @@ class User < ApplicationRecord
     account
   end
 
-  def self.user_tracks
-    @tracks = @spotify_user.saved_tracks(offset: 0, limit: 50)
-    tracks_array = @tracks
-    offset = 50
-    while @tracks.count == 50
-      @tracks = @spotify_user.saved_tracks(offset:, limit: 50)
-      tracks_array.concat(@tracks)
-      offset += 50
-    end
-  end
-
   def spotify_user
     RSpotify::User.new(spotify_auth)
   end

@@ -1,4 +1,14 @@
-<div class="container">
-  <h1>User show page (vault)</h1>
-  <p>This is my nickname: <%= current_user.nickname %></p>
-</div>
+  <div class="vault-top">
+    <h2 class="text-center">Your Events</h2>
+    <div class="event-slide" data-flickity='{ "wrapAround": true, "pageDots": false, "prevNextButtons": false }'>
+      <% @events.each_with_index do |event, index| %>
+        <div class="event-cell">
+          <div class="event-cell-card text-center py-4"><%= event.title %></div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="vault-bottom">
+    <h2 class="text-center">Your Vault</h2>
+    <%= render "shared/profile", playlists: @playlists %>
+  </div>

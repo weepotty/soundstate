@@ -23,16 +23,20 @@ class UsersController < ApplicationController
     )
   end
 
+  # GET /users/
   def index
     if params[:query]
       @query = params[:query]
       @users = User.search_by_nickname(@query)
     else
-      @users = Users.all
+      @users = User.all
     end
   end
 
+  # GET /users/:id
   def show
-    @user = User.find(params[:id])
+    current_user
+    @playlists = current_user.playlists
+    @events = current_user.events
   end
 end
