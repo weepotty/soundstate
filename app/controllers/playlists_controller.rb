@@ -2,6 +2,7 @@ class PlaylistsController < ApplicationController
   # GET /users/:user_id/playlists
   def index
     @playlists = Playlist.all
+    @user = User.find(params[:user_id])
     # Eager loading for when we start on image generation
     # @playlists = Playlist.includes(:image).all
   end
@@ -32,11 +33,16 @@ class PlaylistsController < ApplicationController
     @spotify_playlist = spotify_user.create_playlist!(playlist_params[:title])
 
     # add tracks to spotify playlist by
-    @spotify_playlist.add_tracks!(@song_uris.sample(20))
-    @ss_playlist = Playlist.new(title: playlist_params[:title], user: current_user, spotify_id: @spotify_playlist.id)
-     if @ss_playlist.save!
-      redirect_to playlist_path(@ss_playlist)
-     end
+    @song_uris.count > 100 ? @spotify_playlist.add_tracks!(@song_uris.sample(100)) : @spotify_playlist.add_tracks!(@song_uris)
+
+    # create instacne of playlist in out database wihtout phtot
+    # make title dynamic!!
+    # no image yet!
+    @ss_playlist = Playlist.create!(title: '4th best playlist!', user: current_user, spotify_id: @spotify_playlist.id)
+  end
+
+  # POST /events/:event_id/playlists
+  def create
   end
 
   private

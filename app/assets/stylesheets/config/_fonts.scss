@@ -1,16 +1,16 @@
 // Import Google fonts
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700&display=swap');
 
 // Define fonts for body and headers
-$body-font: "Inter", "Helvetica", "sans-serif";
-$headers-font: "Inter", "Helvetica", "sans-serif";
+$body-font: "Montserrat", "Helvetica", "sans-serif";
+$headers-font: "Bebas Neue", "Helvetica", "sans-serif";
 
-$heading-fs: 2rem;
+$heading-fs: 2.5rem;
 $heading-fw: 900;
-$subheading-fs: 1.2rem;
+$subheading-fs: 2rem;
 $subheading-fw: 700;
-$text-fs: 0.9rem;
-$label-fs: 0.7rem;
+$text-fs: 1.0rem;
+$label-fs: 0.8rem;
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
