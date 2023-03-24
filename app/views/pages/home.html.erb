@@ -14,7 +14,7 @@
   <h2>Discover New Playlists</h2>
 </div>
 <div>
-  <% 3.times do %>
-    <%= render "shared/gallery_card" %>
+  <% current_user.others_playlists.each do |playlist| %>
+    <%= render "shared/gallery_card", playlist: playlist %>
   <% end %>
 </div>

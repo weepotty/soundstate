@@ -51,4 +51,8 @@ class User < ApplicationRecord
   def user_playlists
     Playlist.where(user: self)
   end
+
+  def others_playlists
+    Playlist.where.not(user: self)
+  end
 end
