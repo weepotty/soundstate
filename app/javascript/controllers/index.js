@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import FlickityController from "./flickity_controller"
+application.register("flickity", FlickityController)
+
 import GalleryCardController from "./gallery_card_controller"
 application.register("gallery-card", GalleryCardController)
 
