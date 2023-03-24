@@ -37,5 +37,6 @@ class UsersController < ApplicationController
   def show
     current_user
     @playlists = current_user.playlists
+    @events = current_user.events
   end
 end

@@ -1,13 +1,27 @@
 <div class="container">
-  <h2 class="text-center">Your Events</h2>
-  <h2 class="text-center">Your Vault</h2>
-  <div class="main-carousel" data-flickity='{     "wrapAround": true,
-    "pageDots": false,
-    "prevNextButtons": false }'>
-    <% @playlists.each do |playlist| %>
-      <div class="carousel-cell">
-        <%= render 'shared/event_image_card' %>
-      </div>
-    <% end %>
+  <div class="vault-top mt-5">
+    <h2 class="text-center">Your Events</h2>
+    <div class="main-carousel" data-flickity='{     "wrapAround": true,
+      "pageDots": false,
+      "prevNextButtons": false }'>
+      <% @events.each do |event| %>
+        <div class="carousel-cell">
+          <div class="card text-center py-4"><%= event.name %></div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="vault-bottom mt-5">
+    <h2 class="text-center">Your Vault</h2>
+    <div class="main-carousel" data-flickity='{     "wrapAround": true,
+      "pageDots": false,
+      "prevNextButtons": false }'>
+      <% @playlists.each do |playlist| %>
+        <div class="carousel-cell">
+          <p><%= playlist.title %></p>
+          <%= render 'shared/event_image_card' %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
