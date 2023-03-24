@@ -14,30 +14,32 @@ class PlaylistsController < ApplicationController
 
   # GET /events/:event_id/playlists/new
   def new
-    # access user's account
-    spotify_user = current_user.spotify_user
-
-    # create instance of playlist to spotify
-    @spotify_playlist = spotify_user.create_playlist!('4th Best PLaylist Ever')
-
+    @playlist = Playlist.new
     # get the event that we will filter the songs by
-    @event = Event.find(params[:event_id]) # to be dynamic once slider and stuffs are done
+    @event = Event.find(params[:event_id])
 
     # filter the user's songs with event
     filter_songs(@event)
 
+    @song_uris
 
-    # add tracks to spotify playlist by
-    @spotify_playlist.add_tracks!(@song_uris.sample(100))
-
-    # create instacne of playlist in out database wihtout phtot
-    # make title dynamic!!
-    # no image yet!
-    @ss_playlist = Playlist.create!(title: '4th best playlist!', user: current_user, spotify_id: @spotify_playlist.id)
+    @tracks = RSpotify::Base.find(@song_ids.first(20), 'track')
   end
 
   # POST /events/:event_id/playlists
   def create
+    # access user's account
+    spotify_user = current_user.spotify_user
+
+    # create instance of playlist to spotify
+    @spotify_playlist = spotify_user.create_playlist!(playlist_params.title)
+
+    # add tracks to spotify playlist by
+    @spotify_playlist.add_tracks!(@song_uris.sample(100))
+
+    # create instacne of playlist in out database
+    # no image yet!
+    @ss_playlist = Playlist.create!(title: playlist_params.title, user: current_user, spotify_id: @spotify_playlist.id)
   end
 
   private
@@ -55,5 +57,14 @@ class PlaylistsController < ApplicationController
     @songs.each do |song|
       @song_uris << song.uri
     end
+
+    @song_ids = []
+    @songs.each do |song|
+      @song_ids << song.spotify_id
+    end
+  end
+
+  def playlist_params
+    params.require(:playlist).permit(:title)
   end
 end
