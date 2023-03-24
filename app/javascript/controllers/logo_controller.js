@@ -12,7 +12,7 @@ export default class extends Controller {
     this.initScene();
     this.initCamera();
     this.renderer = new THREE.WebGLRenderer({ canvas: this.canvas });
-    this.renderer.setSize(500, 500);
+    this.renderer.setSize(350, 350);
 
     this.geometry = new THREE.TorusKnotGeometry(0.4, 0.15, 100, 20, 2, 3);
     this.material = new THREE.MeshNormalMaterial();
