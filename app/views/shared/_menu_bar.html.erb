@@ -5,7 +5,7 @@
     </div>
   <% end %>
 
-  <%= link_to playlist_path(Playlist.first) do %>
+  <%= link_to (current_user.playlists.nil? ? new_event_path : playlist_path(current_user.playlists.first)) do %>
     <div class="px-3">
       <i class="fa-solid fa-headphones fa-md"></i>
     </div>
