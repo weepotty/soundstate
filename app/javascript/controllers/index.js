@@ -13,5 +13,8 @@ application.register("hello", HelloController)
 import LogoController from "./logo_controller"
 application.register("logo", LogoController)
 
+import ProfileCardController from "./profile_card_controller"
+application.register("profile-card", ProfileCardController)
+
 import SliderController from "./slider_controller"
 application.register("slider", SliderController)

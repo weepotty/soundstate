@@ -2,6 +2,7 @@ class PlaylistsController < ApplicationController
   # GET /users/:user_id/playlists
   def index
     @playlists = Playlist.all
+    @user = User.find(params[:user_id])
     # Eager loading for when we start on image generation
     # @playlists = Playlist.includes(:image).all
   end
