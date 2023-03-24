@@ -7,7 +7,9 @@
       <li class="dropdown-item"><%= link_to 'Logout', destroy_user_session_path, data: {turbo_method: :delete} %></li>
     </ul>
   </div>
-  <span class="header-logo">SoundState</span>
+
+  <%= link_to "Soundstate", root_path, style: 'text-decoration: none; color: white;' %>
+
   <div class="dropdown">
     <button class="header-dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
       <i class="fa-solid fa-magnifying-glass"></i>
