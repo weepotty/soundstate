@@ -33,10 +33,21 @@
     </div>
   </div>
 </div>
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#playlistSpinnerModal">
+  Launch static backdrop modal
+</button>
 <div class="mb-5">
   <%= simple_form_for [@event, @playlist], defaults: { required: false }  do |f| %>
     <%= f.input :title, :label => "Playlist Title", placeholder: "Name your playlist" %>
     <%= f.input :photo, as: :file, label: "Upload your photo", wrapper_html: { class: "fs-6 mt-2 fw-normal" } %>
     <%= f.submit "Create Playlist", class: "btn oauth-signin" %>
   <% end %>
+</div>
+<%# Spinner modal %>
+<div class="modal" id="playlistSpinnerModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content d-flex justify-content-center align-items-center"  style='background: black; opacity: 0.9'>
+      <%= render 'generate_playlist_spinner' %>
+    </div>
+  </div>
 </div>
