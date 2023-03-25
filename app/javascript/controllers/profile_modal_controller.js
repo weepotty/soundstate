@@ -5,10 +5,14 @@ export default class extends Controller {
   static targets = ["modal", "overlay"]
 
   open() {
-    this.modalTarget.classList.remove("hidden")
+    setTimeout(() => {
+      this.modalTarget.classList.remove("hidden")
+    }, 500);
   }
 
   close() {
-    this.modalTarget.classList.add("hidden")
+    setTimeout(() => {
+      this.modalTarget.classList.add("hidden")
+    }, 500);
   }
 }
