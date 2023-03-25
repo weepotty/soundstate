@@ -1,6 +1,6 @@
-<div class="profile-wrapper" data-controller="profile-card">
+<div class="profile-wrapper">
   <% playlists.each do |playlist| %>
-    <div class="profile-card" data-action="click->profile-card#click">
+    <div class="profile-card" data-controller="profile-card" data-action="click->profile-card#click">
       <div class="profile-scene scene--card" data-action="click->profile-modal#open">
         <div class="card" data-profile-card-target="card">
           <div class="profile_card__face profile_card__face--front">
