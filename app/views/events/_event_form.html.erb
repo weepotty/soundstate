@@ -10,7 +10,7 @@
       <%= render 'shared/event_slider', minValue: event["min_energy"], maxValue: event["max_energy"], propertyName: "energy" %>
       <label>Tempo</label>
       <%= render 'shared/event_slider', minValue: event["min_tempo"], maxValue: event["max_tempo"], propertyName: "tempo" %>
-      <label>Valence</label>
+      <label>Positivity</label>
       <%= render 'shared/event_slider', minValue: event["min_valence"], maxValue: event["max_valence"], propertyName: "valence" %>
       <label>Time</label>
       <input type="range" id="event_time" name="event[time]" class="time-slider" min="0" max="2" value="<%= Event.times[event["time"]] || 0 %>" step="1" data-action="input->slider#displayLabel">
