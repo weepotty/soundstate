@@ -33,9 +33,6 @@
     </div>
   </div>
 </div>
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#playlistSpinnerModal">
-  Launch static backdrop modal
-</button>
 <div class="mb-5">
   <%= simple_form_for [@event, @playlist], defaults: { required: false }  do |f| %>
     <%= f.input :title, :label => "Playlist Title", placeholder: "Name your playlist" %>
