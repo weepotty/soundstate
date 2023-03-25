@@ -12,6 +12,7 @@
     <% if user_signed_in? %>
       <%= render "shared/header" %>
     <% end %>
+    <%= render "shared/flashes" %>
     <div class="content-container <%= "bg-black" unless user_signed_in? %>">
       <%= yield %>
     </div>
