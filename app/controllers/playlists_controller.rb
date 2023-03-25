@@ -31,7 +31,7 @@ class PlaylistsController < ApplicationController
     # create instance of playlist to spotify
     @spotify_playlist = spotify_user.create_playlist!(playlist_params[:title])
     rescue RestClient::BadRequest
-      flash[:alert] = "Please fill in required fields"
+      flash[:alert] = "Please enter a Title"
       render :new, status: :bad_request
     else
       # add tracks and replace image to spotify playlist
