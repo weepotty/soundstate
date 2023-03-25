@@ -6,7 +6,11 @@
           <%= cl_image_tag playlist.photo.key, crop: :fill %>
         </div>
         <div class="gallery-user d-flex align-items-center gap-3 mt-2">
-          <img class="avatar" src="https://static.toiimg.com/thumb/resizemode-4,msid-76729750,imgsize-249247,width-720/76729750.jpg" alt="">
+          <% if playlist.user.avatar.attached? %>
+            <%= cl_image_tag playlist.user.avatar.key, crop: :fill, class: "avatar" %>
+          <% else %>
+            <%= image_tag "unknown_avatar.jpg", class: "avatar" %>
+          <% end %>
           <p><small><%= playlist.user.nickname %></small></p>
           <%= link_to "", user_playlists_path(playlist.user) %>
         </div>
