@@ -29,11 +29,13 @@ class User < ApplicationRecord
     else
       account = User.create!(email: spotify_user.email, password: Devise.friendly_token[0, 20], nickname: spotify_user.display_name, spotify_auth:)
       
-      require "open-uri"
-      avatar = URI.open(spotify_user.images.first.url)
-      filename = spotify_user.images.first.url.match(/\/image\/(.+)/)[1]
-      account.avatar.attach(io: avatar, filename: "#{filename}.jpg", content_type: "image/jpg")
-      account.save
+      if !spotify_user.images.empty?
+        require "open-uri"
+        avatar = URI.open(spotify_user.images.first.url)
+        filename = spotify_user.images.first.url.match(/\/image\/(.+)/)[1]
+        account.avatar.attach(io: avatar, filename: "#{filename}.jpg", content_type: "image/jpg")
+        account.save
+      end
       # create 3 default events here!
     end
     account
