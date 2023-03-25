@@ -1,6 +1,12 @@
 <div class="container">
-  <h2><%= @user.nickname.capitalize %>'s Gallery</h2>
-  <%= @user["images"] %>
+  <div class="profile-header">
+    <% if @user.avatar.attached? %>
+      <%= cl_image_tag @user.avatar.key, crop: :fill %>
+    <% else %>
+      <%= image_tag "unknown_avatar.jpg" %>
+    <% end %>
+    <h2><%= @user.nickname.capitalize %>'s Gallery</h2>
+  </div>
 
   <%= render "shared/profile", playlists: @playlists %>
 </div>
