@@ -11,7 +11,18 @@
   z-index: 1;
 }
 
-.profile-modal-hidden {
+.profile-modal {
+  justify-content: center;
+  align-items: center;
   background-color: $light-gray;
   z-index: 2;
+  position: absolute;
+  top: 15%;
+  left: 0;
+  right: 0;
+  margin: auto
+}
+
+.hidden {
+  display: none;
 }
