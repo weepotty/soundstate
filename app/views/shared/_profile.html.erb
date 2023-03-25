@@ -1,4 +1,4 @@
-<div class="profile-wrapper">
+<div class="profile-wrapper" data-controller="profile-modal">
   <% playlists.each do |playlist| %>
     <div class="profile-card" data-controller="profile-card" data-action="click->profile-card#click">
       <div class="profile-scene scene--card" data-action="click->profile-modal#open">
