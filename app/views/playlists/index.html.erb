@@ -1,16 +1,16 @@
-<section class="profile-modal-hidden">
+<section class="profile-modal-hidden" data-controller="profile-modal" data-profile-modal-target="modal">
   <div class="container">
     <div class="d-flex justify-content-between align-items-center">
       <h1 class="m-0">Playlist Title</h1>
-      <i class="fa-solid fa-xmark"></i>
+      <i class="fa-solid fa-xmark" data-profile-modal-target="close"></i>
     </div>
     <iframe id="playlist-show" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/7soJCNRvS1LTHaMcT4rTqg?utm_source=generator&theme=0" width="100%" height="1000" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
   </div>
 </section>
 
-<div class="overlay-hidden"></div>
+<div class="overlay-hidden" data-controller="profile-modal" data-profile-modal-target="overlay"></div>
 
-<div class="container">
+<div class="container" data-controller="profile-modal">
   <h2><%= @user.nickname.capitalize %>'s Gallery</h2>
 </div>
 <%= render "shared/profile", playlists: @playlists %>
