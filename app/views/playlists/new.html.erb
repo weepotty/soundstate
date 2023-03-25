@@ -17,6 +17,7 @@
 </script>
 <h1>New Playlist</h1>
 <div id="first-song" value="<%= @song_uris.first %>"></div>
+<p><i class="fa-solid fa-chevron-left"></i> <%= link_to 'Edit filters', edit_event_path(@event)%></p>
 <div class="d-flex justify-content-center align-items-start gap-3 flex-wrap">
   <div id="embed-iframe"></div>
   <div class="flex-grow-1 episodes-container">
