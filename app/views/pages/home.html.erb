@@ -1,8 +1,8 @@
 <div class="background">
   <%# <img src="assets/12.svg" alt=""> %>
   <div data-controller="homepage" class="y scroll-snapping">
-    <div class="container container-scroll">
-      <h2 class="hidden greeting" data-homepage-target="hidden">Good <%= current_user.day_period %>, <br><em><%= current_user.nickname %></em></h2>
+    <div class="container container-scroll" data-controller="time-zone">
+      <h2 class="hidden greeting" data-homepage-target="hidden">Good <span data-time-zone-target="dayPeriod"></span>, <br><em><%= current_user.nickname %></em></h2>
     </div>
     <div class="container carousel-container">
       <h2 class="hidden carousel-greeting" data-homepage-target="hidden">Here is what you have been listening to</h2>

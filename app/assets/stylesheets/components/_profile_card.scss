@@ -1,3 +1,21 @@
+.profile-header {
+  margin: 0 8%;
+  display: flex;
+  align-items: center;
+
+  & img {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  & h2 {
+    margin: 0 0.5em;
+    font-size: 1.5rem;
+  }
+}
+
 .profile-wrapper {
   width: auto;
   display: grid;
