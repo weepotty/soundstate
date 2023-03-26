@@ -13,6 +13,9 @@ application.register("gallery-card", GalleryCardController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import HomepageController from "./homepage_controller"
+application.register("homepage", HomepageController)
+
 import LogoController from "./logo_controller"
 application.register("logo", LogoController)
 

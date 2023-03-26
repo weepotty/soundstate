@@ -1,0 +1,12 @@
+.hidden {
+  opacity: 0;
+  transition: all 1s;
+}
+
+.hidden.active {
+  opacity: 1;
+}
+
+.scroll {
+  min-height: 100vh;
+}
