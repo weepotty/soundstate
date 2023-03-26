@@ -21,3 +21,6 @@ application.register("profile-card", ProfileCardController)
 
 import SliderController from "./slider_controller"
 application.register("slider", SliderController)
+
+import TimeZoneController from "./time_zone_controller"
+application.register("time-zone", TimeZoneController)

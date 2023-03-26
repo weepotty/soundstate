@@ -1,5 +1,5 @@
-<div class="container">
-  <h2>Good <%= current_user.day_period %>, <em><%= current_user.nickname %></em></h2>
+<div class="container" data-controller="time-zone">
+  <h2>Good <span data-time-zone-target="dayPeriod"></span>, <em><%= current_user.nickname %></em></h2>
 </div>
 <!-- Carousel -->
 <div class="carousel" data-controller="flickity">
