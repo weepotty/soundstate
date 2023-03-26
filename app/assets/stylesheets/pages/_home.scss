@@ -19,7 +19,7 @@
 
 .carousel-greeting {
   padding-top: 0vh;
-  font-size: 3em;
+  font-size: 2em;
 }
 
 .y.scroll-snapping {
@@ -29,16 +29,37 @@
 }
 
 .container-scroll {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
   min-height: 100vh;
   scroll-snap-align: center;
 }
 
 .carousel-container {
+  position: absolute;
+  top: 100vh;
+  left: 50%;
+  transform: translateX(-50%);
   scroll-snap-align: center;
 }
 
 .gallery-container {
+  position: absolute;
+  bottom: -1;
+  left: 50%;
+  transform: translateX(-50%);
   padding-top: 5vh;
   scroll-snap-align: start;
   min-height: 100vh;
 }
+
+.background img{
+  position: relative;
+}
+
+// .background .scroll-snapping{
+//   position: absolute;
+//   top: 0;
+// }
