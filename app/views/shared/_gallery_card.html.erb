@@ -3,6 +3,7 @@
     <div class="card" data-gallery-card-target="card">
       <div class="card__face card__face--front">
         <div class="gallery-photo" data-action="click->gallery-card#click">
+          <%# need to add default pic here if photo not attached. maybe pull from their spotify library%>
           <%= cl_image_tag playlist.photo.key, crop: :fill %>
         </div>
         <div class="gallery-user d-flex align-items-center gap-3 mt-2">

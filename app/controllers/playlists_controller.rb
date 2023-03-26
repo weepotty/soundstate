@@ -11,37 +11,41 @@ class PlaylistsController < ApplicationController
   def show
     # show requires an "id" variable to insert into embeded iframe
     @playlist = Playlist.find(params[:id])
-
   end
 
   # GET /events/:event_id/playlists/new
   def new
-    @event = Event.find(params[:event_id])
     @playlist = Playlist.new
     @event = Event.find(params[:event_id])
     filter_songs(@event)
-
   end
 
   # POST /events/:event_id/playlists
   def create
     # access user's account
     spotify_user = current_user.spotify_user
-
+    @playlist = Playlist.new
     @event = Event.find(params[:event_id])
     filter_songs(@event)
 
     # create instance of playlist to spotify
     @spotify_playlist = spotify_user.create_playlist!(playlist_params[:title])
+    rescue RestClient::BadRequest
+      flash[:alert] = "Please enter a Title"
+      render :new, status: :bad_request
+    else
+      # add tracks and replace image to spotify playlist
+      @spotify_playlist.add_tracks!(@song_uris)
 
-    # add tracks and replace image to spotify playlist
-    @spotify_playlist.add_tracks!(@song_uris)
-    # @spotify_playlist.replace_image!(playlist_params[:photo], playlist_params[:photo].content_type)
+      # @spotify_playlist.replace_image!(playlist_params[:photo], playlist_params[:photo].content_type)
 
+      @ss_playlist = Playlist.new(title: playlist_params[:title], photo: playlist_params[:photo], user: current_user, spotify_id: @spotify_playlist.id)
 
-    @ss_playlist = Playlist.new(title: playlist_params[:title], photo: playlist_params[:photo], user: current_user, spotify_id: @spotify_playlist.id)
-
-    redirect_to playlist_path(@ss_playlist) if @ss_playlist.save!
+      if @ss_playlist.save!
+        redirect_to playlist_path(@ss_playlist)
+      else
+        render :new, status: :unprocessable_entity
+      end
   end
 
   private
@@ -55,11 +59,7 @@ class PlaylistsController < ApplicationController
       valence: event.min_valence..event.max_valence
     )
 
-    if @songs.count > 100
-      @songs = @songs.sample(100)
-    else
-      @songs
-    end
+    @songs.count > 100 ? @songs = @songs.sample(100): @songs
 
     @song_uris = []
     @songs.each do |song|
