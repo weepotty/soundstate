@@ -1,22 +1,28 @@
-<div data-controller="homepage">
-  <div class="container scroll">
-    <h2 class="hidden" data-homepage-target="hidden">Good <%= current_user.day_period %>, <em><%= current_user.nickname %></em></h2>
+<div data-controller="homepage" class="y scroll-snapping">
+  <div class="container container-scroll">
+    <h2 class="hidden greeting" data-homepage-target="hidden">Good <%= current_user.day_period %>, <br><em><%= current_user.nickname %></em></h2>
   </div>
-  <!-- Carousel -->
-  <div class="carousel hidden scroll" data-controller="flickity" data-homepage-target="hidden">
-    <% current_user.user_playlists.each do |playlist| %>
-      <div class="carousel-cell">
-        <%= render 'shared/event_image_card', playlist: playlist %>
-      </div>
-    <% end %>
+
+  <div class="container carousel-container">
+    <h2 class="hidden carousel-greeting" data-homepage-target="hidden">Here is what you have been listening to</h2>
+    <!-- Carousel -->
+    <div class="carousel hidden" data-controller="flickity" data-homepage-target="hidden">
+      <% current_user.user_playlists.each do |playlist| %>
+        <div class="carousel-cell">
+          <%= render 'shared/event_image_card', playlist: playlist %>
+        </div>
+      <% end %>
+    </div>
   </div>
   <!-- Gallery Feed -->
-  <div class="container mt-6 text-center scroll">
-    <h2 class="hidden" data-homepage-target="hidden">DISCOVER PLAYLISTS</h2>
-  </div>
-  <div class="hidden" data-homepage-target="hidden">
-    <% current_user.others_playlists.each do |playlist| %>
-      <%= render "shared/gallery_card", playlist: playlist %>
-    <% end %>
+  <div class="gallery-container">
+    <div class="container mt-6 text-center">
+      <h2 class="hidden" data-homepage-target="hidden">DISCOVER PLAYLISTS</h2>
+    </div>
+    <div class="hidden" data-homepage-target="hidden">
+      <% current_user.others_playlists.each do |playlist| %>
+        <%= render "shared/gallery_card", playlist: playlist %>
+      <% end %>
+    </div>
   </div>
 </div>

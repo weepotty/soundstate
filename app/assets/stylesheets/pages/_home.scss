@@ -1,12 +1,44 @@
 .hidden {
   opacity: 0;
   transition: all 1s;
+  filter: blur(5px);
+  transform: translateX(-100%);
 }
 
 .hidden.active {
+  transform: translateX(0);
+  filter: blur(0);
   opacity: 1;
 }
 
-.scroll {
+
+.greeting {
+  padding-top: 30vh;
+  font-size: 3em;
+}
+
+.carousel-greeting {
+  padding-top: 0vh;
+  font-size: 3em;
+}
+
+.y.scroll-snapping {
+  overflow: scroll;
+  height: 100vh;
+  scroll-snap-type: y mandatory;
+}
+
+.container-scroll {
+  min-height: 100vh;
+  scroll-snap-align: center;
+}
+
+.carousel-container {
+  scroll-snap-align: center;
+}
+
+.gallery-container {
+  padding-top: 5vh;
+  scroll-snap-align: start;
   min-height: 100vh;
 }
