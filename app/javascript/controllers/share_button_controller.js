@@ -14,7 +14,6 @@ export default class extends Controller {
 
   share() {
     const url = `/playlists/toggle_shared`
-    console.log(url);
     const lock = "<p class='m-0' style='$light-gray'>Playlist Hidden</p>"
     const unlock = "<p class='m-0' style='$light-gray'>Playlist Shared</p>"
 
