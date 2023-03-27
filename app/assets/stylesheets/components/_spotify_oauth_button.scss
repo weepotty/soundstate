@@ -7,7 +7,8 @@
   // border: 1px solid gray;
   border-radius: 4px;
   padding: 1rem;
-  margin: 1rem 0;
+  margin: 1rem auto;
+  margin-top: 13rem;
   display: flex;
   align-items: center;
   transform: scale(1);
@@ -34,12 +35,13 @@
   text-decoration: none;
   color: $white;
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 0.9rem;
   flex-grow: 1;
   margin: 0;
 }
 
 .oauth-signin-link {
+  display: block;
   width: 100%;
   height: 100%;
   position: absolute;
