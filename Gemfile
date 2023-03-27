@@ -59,6 +59,9 @@ gem 'dotenv-rails'
 gem "cloudinary"
 gem "pg_search"
 
+# OpenAI gem for GPT3.5 Turbo and Dall-E
+gem "ruby-openai"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

@@ -1,7 +1,11 @@
 <div class="landing-wrapper">
   <canvas class="webgl" data-controller="logo"></canvas>
-  <h1>SOUNDSTATE</h1>
-  <%= render 'devise/shared/spotify_oauth_button' %>
+  <div class="intro">
+    <h1>SOUNDSTATE</h1>
+    <div class="intro-button">
+      <%= render 'devise/shared/spotify_oauth_button' %>
+    </div>
+  </div>
 </div>
 <!-- Modal -->
 <div class="modal" id="loginSpinnerModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">

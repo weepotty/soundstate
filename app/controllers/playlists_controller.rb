@@ -38,12 +38,21 @@ class PlaylistsController < ApplicationController
     else
       # add tracks and replace image to spotify playlist
       @spotify_playlist.add_tracks!(@song_uris)
-
-      # @spotify_playlist.replace_image!(playlist_params[:photo], playlist_params[:photo].content_type)
-
-      @ss_playlist = Playlist.new(title: playlist_params[:title], photo: playlist_params[:photo], user: current_user, spotify_id: @spotify_playlist.id)
+      
+      @ss_playlist = Playlist.new(title: playlist_params[:title], user: current_user, spotify_id: @spotify_playlist.id)
+      
+      # Using OpenAI gem to generate image from the Song instance object.
+      # Here, we use the first song in the playlist to generate the image.
+      require "open-uri"
+      playlist_image = URI.open(generate_image(@songs.first))
+      @ss_playlist.photo.attach(io: playlist_image, filename: "#{@ss_playlist.title}.png", content_type: "image/png")
 
       if @ss_playlist.save!
+        # As Spotify only accepts jpeg in Base64 string format, we would need to use Cloudinary to convert the uploaded png from OpenAI into jpeg.
+        # Then, we would need to use strict_encode64.
+        jpeg_image = URI.open("#{@ss_playlist.photo.url[...-4]}.jpeg") { |io| io.read }
+        @spotify_playlist.replace_image!(Base64.strict_encode64(jpeg_image), 'image/jpeg')
+        
         redirect_to playlist_path(@ss_playlist)
       else
         render :new, status: :unprocessable_entity
@@ -80,7 +89,41 @@ class PlaylistsController < ApplicationController
   end
 
   def playlist_params
-    params.require(:playlist).permit(:title, :photo)
+    params.require(:playlist).permit(:title)
+  end
+
+  # Private method to generate image from the Song instance object, returns an image url.
+  def generate_image(song)
+    # Generate the prompt from the Song instance object.
+    prompt = generate_prompt(song)
+
+    # Various prompt helper words for better image generation results.
+    art_styles = ["pop art", "risograph", "illustration", "one line drawing", "cubism", "digital art", "3d render", "block printing",
+                  "watercolor", "synthwave", "fauvism", "Neo-Expressionism", "linocut art", "silkscreen printing", "oil painting"]
+    description_set_one = %w( delicate intricate serene minimalistic modern )
+    description_set_two = %w( sublime symmetrical vibrant vivid provocative poignant )
+
+    # Generate image and returns image url.
+    client = OpenAI::Client.new
+    image_response = client.images.generate(parameters: { prompt: "#{prompt}, #{art_styles.sample}, #{description_set_one.sample}, #{description_set_two.sample}", size: "256x256" })
+    img_res = image_response.dig("data", 0, "url")
+  end
+
+  # Private method to generate prompt from the Song instance object.
+  def generate_prompt(song)
+    title = song.name
+    artist = song.artist
+    query = "Meaning of the song #{title} by #{artist} in 20 words"
+
+    client = OpenAI::Client.new
+    response = client.chat(
+      parameters: {
+          model: "gpt-3.5-turbo", # Required.
+          messages: [{ role: "user", content: query}], # Required.
+          temperature: 0.2,
+      })
+
+    response.dig("choices", 0, "message", "content")
   end
 
   def shared_params
