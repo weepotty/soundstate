@@ -43,6 +43,7 @@ class PlaylistsController < ApplicationController
 
       # Generate prompt for image generation
       prompt = generate_prompt(@songs.first)
+      url = generate_image(prompt)
 
       if @ss_playlist.save!
         redirect_to playlist_path(@ss_playlist)
@@ -72,6 +73,17 @@ class PlaylistsController < ApplicationController
 
   def playlist_params
     params.require(:playlist).permit(:title)
+  end
+
+  def generate_image(prompt)
+    client = OpenAI::Client.new
+    art_styles = ["pop art", "risograph", "illustration", "one line drawing", "cubism", "digital art", "3d render", "block printing",
+                  "watercolor", "synthwave", "fauvism", "Neo-Expressionism", "vaporwave", "linocut art", "silkscreen printing", "oil painting"]
+    description_set_one = %w( delicate intricate serene minimalistic modern )      
+    description_set_two = %w( sublime symmetrical vibrant vivid provocative poignant )      
+      
+    image_response = client.images.generate(parameters: { prompt: "#{prompt}, #{art_styles.sample}, #{description_set_one.sample}, #{description_set_two.sample}", size: "256x256" })
+    img_res = image_response.dig("data", 0, "url")
   end
 
   def generate_prompt(song)
