@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="share-button"
 export default class extends Controller {
-  static targets = ["share"]
+  static targets = ["share", "thumbnail"]
   static values = {
     id: String,
     shared: Boolean
@@ -10,6 +10,7 @@ export default class extends Controller {
 
   connect() {
     console.log("Button controller connected");
+    console.log(this.thumbnailTarget);
   }
 
   share() {
@@ -29,12 +30,13 @@ export default class extends Controller {
     })
       .then(res => res.json())
       .then((data) => {
-        if (data.playlist == true) {
+        if (data.playlist) {
           this.shareTarget.outerHTML = unlock
         }
         else {
           this.shareTarget.outerHTML = lock
         }
+        this.thumbnailTarget.remove()
       })
   }
 }
