@@ -24,7 +24,7 @@
         <p class="<%= Event.times[event["time"]] == 1 ? "" : "invisible" %>" data-slider-target="timeLabel">Afternoon</p>
         <p class="<%= Event.times[event["time"]] == 2 ? "" : "invisible" %>" data-slider-target="timeLabel">Evening</p>
       </div>
-      <%= f.submit "Generate Event", class: "event-button" %>
+      <%= f.submit "Preview Playlist", class: "event-button" %>
     <% end %>
   </div>
 </div>
