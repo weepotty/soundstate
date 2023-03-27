@@ -36,7 +36,7 @@
 </div>
 <div class="mb-5">
   <%= simple_form_for [@event, @playlist], defaults: { required: false }  do |f| %>
-    <%= f.input :title, :label => "Playlist Title", placeholder: "Name your playlist" %>
+    <%= f.input :title, :label => "Playlist Title", input_html: {value: @event.title || 'My Playlist'}  %>
     <%= f.input :photo, as: :file, label: "Upload your photo", wrapper_html: { class: "fs-6 mt-2 fw-normal" } %>
     <%= f.button :submit, "Create Playlist", class: "btn oauth-signin", data: {bs_toggle: "modal", bs_target: "#playlistSpinnerModal"} %>
   <% end %>
