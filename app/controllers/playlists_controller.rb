@@ -42,7 +42,7 @@ class PlaylistsController < ApplicationController
       # Using OpenAI gem to generate image from the Song instance object.
       # Here, we use the first song in the playlist to generate the image.
       require "open-uri"
-      playlist_image = URI.open(generate_image(@songs.first, @event))
+      playlist_image = URI.open(generate_image(@songs.sample, @event))
       @ss_playlist.photo.attach(io: playlist_image, filename: "#{@ss_playlist.title}.png", content_type: "image/png")
 
       if @ss_playlist.save!
@@ -68,7 +68,7 @@ class PlaylistsController < ApplicationController
       valence: event.min_valence..event.max_valence
     )
 
-    @songs.count > 100 ? @songs = @songs.sample(100): @songs
+    @songs.count > 100 ? @songs = @songs.sample(100) : @songs
 
     @song_uris = []
     @songs.each do |song|
@@ -128,7 +128,7 @@ class PlaylistsController < ApplicationController
       parameters: {
           model: "gpt-3.5-turbo", # Required.
           messages: [{ role: "user", content: query}], # Required.
-          temperature: 0.2,
+          temperature: 0.7,
       })
 
     response.dig("choices", 0, "message", "content")
