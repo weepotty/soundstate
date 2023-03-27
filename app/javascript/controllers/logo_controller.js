@@ -14,6 +14,7 @@ export default class extends Controller {
     this.renderer = new THREE.WebGLRenderer({ canvas: this.canvas });
     this.renderer.setSize(350, 350);
 
+
     this.geometry = new THREE.TorusKnotGeometry(0.4, 0.15, 100, 20, 2, 3);
     this.material = new THREE.MeshNormalMaterial();
     // this.material = new THREE.MeshStandardMaterial({ color: 0x212121 });
@@ -48,6 +49,7 @@ export default class extends Controller {
 
   initScene() {
     this.scene = new THREE.Scene();
+    this.scene.background = new THREE.Color( 0x161722 )
   }
   initCamera() {
     this.camera = new THREE.PerspectiveCamera(40, 500 / 500, 0.1, 1000);
