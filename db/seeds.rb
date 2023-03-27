@@ -18,11 +18,31 @@ User.destroy_all
 
 puts 'planting new seeds'
 
+puts 'Creating new users...'
 user1 = User.create!(email: 'frank@frankdev.com', password: '123456', nickname: 'frank')
+user1_avatar = URI.open("https://res.cloudinary.com/dsx50recn/image/upload/c_fill,h_256,w_256/v1679927913/Avatars/avatar_frank_x9drlt.jpg")
+user1.avatar.attach(io: user1_avatar, filename: "avatar_frank_x9drlt.jpg", content_type: "image/jpg")
+user1.save
+
 user2 = User.create!(email: 'sally@sallydev.com', password: '123456', nickname: 'sally')
+user2_avatar = URI.open("https://res.cloudinary.com/dsx50recn/image/upload/c_fill,h_256,w_256/v1679928346/Avatars/avatar_sally_zmdjkx.jpg")
+user2.avatar.attach(io: user2_avatar, filename: "avatar_sally_zmdjkx.jpg", content_type: "image/jpg")
+user2.save
+
 user3 = User.create!(email: 'bob@bobdev.com', password: '123456', nickname: 'bob')
+user3_avatar = URI.open("https://res.cloudinary.com/dsx50recn/image/upload/c_fill,h_256,w_256/v1679927913/Avatars/avatar_bob_p66uns.jpg")
+user3.avatar.attach(io: user3_avatar, filename: "avatar_bob_p66uns.jpg", content_type: "image/jpg")
+user3.save
+
 user4 = User.create!(email: 'carol@caroldev.com', password: '123456', nickname: 'carol')
+user4_avatar = URI.open("https://res.cloudinary.com/dsx50recn/image/upload/c_fill,h_256,w_256/v1679927913/Avatars/avatar_carol_g4zrkf.jpg")
+user4.avatar.attach(io: user4_avatar, filename: "avatar_carol_g4zrkf.jpg", content_type: "image/jpg")
+user4.save
+
 user5 = User.create!(email: 'alice@alicedev.com', password: '123456', nickname: 'alice')
+user5_avatar = URI.open("https://res.cloudinary.com/dsx50recn/image/upload/c_fill,h_256,w_256/v1679927913/Avatars/avatar_alice_indrsx.jpg")
+user5.avatar.attach(io: user5_avatar, filename: "avatar_alice_indrsx.jpg", content_type: "image/jpg")
+user5.save
 
 users = [user1, user2, user3, user4, user5]
 
