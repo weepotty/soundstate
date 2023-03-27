@@ -121,7 +121,7 @@ class PlaylistsController < ApplicationController
   def generate_prompt(song)
     title = song.name
     artist = song.artist
-    query = "Return a string of the meaning of #{title} by #{artist}. Limit to 40 characters"
+    query = "Return a string of the meaning of #{title} by #{artist}. Limit to 60 characters"
     pp title
     pp query
     client = OpenAI::Client.new
@@ -129,7 +129,7 @@ class PlaylistsController < ApplicationController
       parameters: {
           model: "gpt-3.5-turbo", # Required.
           messages: [{ role: "user", content: query}], # Required.
-          temperature: 0.5,
+          temperature: 0.7,
       })
 
     pp response
