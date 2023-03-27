@@ -14,5 +14,9 @@ Rails.application.routes.draw do
     resources :playlists, only: %i[new create]
   end
 
-  resources :playlists, only: %i[show]
+  resources :playlists, only: %i[show] do
+    collection do
+      post :toggle_shared
+    end
+  end
 end
