@@ -48,6 +48,12 @@ class PlaylistsController < ApplicationController
       end
   end
 
+  def update
+    @playlist = Playlist.find(params[:id])
+    @playlist.update(shared_params)
+    @playlist.save!
+  end
+
   private
 
   def filter_songs(event)
@@ -69,5 +75,9 @@ class PlaylistsController < ApplicationController
 
   def playlist_params
     params.require(:playlist).permit(:title, :photo)
+  end
+
+  def shared_params
+    params.require(:playlist).permit(:is_shared)
   end
 end
