@@ -23,9 +23,13 @@
 }
 
 .y.scroll-snapping {
-  overflow: scroll;
-  height: 100vh;
+  // height: 100vh;
   width: 100vw;
+  background-image: url('assets/12.svg');
+  background-repeat: no-repeat;
+}
+
+html {
   scroll-snap-type: y mandatory;
 }
 
@@ -55,12 +59,12 @@
   min-height: 100vh;
 }
 
-.background{
-  background-image: url('assets/12.svg');
-  background-attachment: fixed;
-//   position: relative;
-//   transform: translateY(-5%);
-}
+// .background{
+//   background-image: url('assets/12.svg');
+//   background-attachment: fixed;
+// //   position: relative;
+// //   transform: translateY(-5%);
+// }
 
 // .scroll-snapping{
 //   position: absolute;
