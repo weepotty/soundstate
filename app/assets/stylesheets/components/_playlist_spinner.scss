@@ -1,52 +1,62 @@
+// Animation for the image rotation.
 .playlist-loader {
-  margin: auto;
-  width: 100px;
-  height: 30px;
-  overflow: hidden;
-  position: relative;
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 5px;
-  box-shadow: 0px 35px 0 -5px #7befff, 0 -5px 0 0px #e94be4, 0 -25px 0 -5px #fff,
-    -25px -30px 0 0px #e94be4, -25px 30px 0 0px #e94be4, 25px -30px 0 0px #e94be4,
-    25px 30px 0 0px #e94be4, 20px 10px 0 5px #e94be4, 20px -10px 0 5px #e94be4,
-    -20px -10px 0 5px #e94be4, -20px 10px 0 5px #e94be4;
+  margin: 0 auto;
+  height: 180px;
+  width: 180px;
+  background-size: cover;
+  animation-name: bg-image-animation;
+  animation-duration: 8s;
+  animation-timing-function: step-start;
+  animation-iteration-count: infinite;
 }
 
-.playlist-loader:after,
-.playlist-loader:before {
-  content: "";
-  border-radius: 100%;
-  width: 35px;
-  height: 35px;
-  display: block;
-  position: absolute;
-  border: 4px dashed #fff;
-  bottom: -4px;
-  transform: rotate(0deg);
-  box-sizing: border-box;
-  animation: tape 4s linear infinite;
-}
-
-.playlist-loader:before {
-  right: 0;
-  box-shadow: 0 0 0 4px #ffffff, 0 0 0 34px #000;
-}
-
-.playlist-loader:after {
-  left: 0;
-  box-shadow: 0 0 0 4px #fff, 0 0 0 65px #000;
-}
-
-@keyframes tape {
+@keyframes bg-image-animation {
   0% {
-    transform: rotate(0deg) scale(0.4);
+    background-image: url("sample_image_1.png");
   }
-
+  
+  10% {
+    background-image: url("sample_image_2.png");
+  }
+  
+  20% {
+    background-image: url("sample_image_3.png");
+  }
+  
+  30% {
+    background-image: url("sample_image_4.png");
+  }
+  
+  40% {
+    background-image: url("sample_image_5.png");
+  }
+  
+  50% {
+    background-image: url("sample_image_6.png");
+  }
+  
+  60% {
+    background-image: url("sample_image_7.png");
+  }
+  
+  70% {
+    background-image: url("sample_image_8.png");
+  }
+  
+  80% {
+    background-image: url("sample_image_9.png");
+  }
+  
+  90% {
+    background-image: url("sample_image_10.png");
+  }
+  
   100% {
-    transform: rotate(-360deg) scale(0.4);
+    background-image: url("sample_image_1.png");
   }
 }
 
+// Animation for the text wave form.
 .spinner {
   height: 50px;
   width: max-content;
@@ -62,7 +72,7 @@
 }
 
 .spinner p {
-  animation: loading6454 1.5s ease infinite;
+  animation: loading-wave 1.5s ease infinite;
 }
 
 $total: 18;
@@ -72,7 +82,7 @@ $total: 18;
   }
 }
 
-@keyframes loading6454 {
+@keyframes loading-wave {
   0%, 100% {
    transform: translateY(0);
   }
