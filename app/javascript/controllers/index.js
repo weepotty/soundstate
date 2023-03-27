@@ -25,6 +25,9 @@ application.register("profile-card", ProfileCardController)
 import ProfileModalController from "./profile_modal_controller"
 application.register("profile-modal", ProfileModalController)
 
+import ShareButtonController from "./share_button_controller"
+application.register("share-button", ShareButtonController)
+
 import SliderController from "./slider_controller"
 application.register("slider", SliderController)
 
