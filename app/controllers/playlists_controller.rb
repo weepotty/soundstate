@@ -41,7 +41,8 @@ class PlaylistsController < ApplicationController
 
       @ss_playlist = Playlist.new(title: playlist_params[:title], user: current_user, spotify_id: @spotify_playlist.id)
 
-      # Generate prompt for image generation
+      # Using OpenAI gem to generate image from the Song instance object.
+      # Here, we use the first song in the playlist to generate the image.
       require "open-uri"
       playlist_image = URI.open(generate_image(@songs.first))
       @ss_playlist.photo.attach(io: playlist_image, filename: "#{@ss_playlist.title}.png", content_type: "image/png")
@@ -76,18 +77,24 @@ class PlaylistsController < ApplicationController
     params.require(:playlist).permit(:title)
   end
 
+  # Private method to generate image from the Song instance object, returns an image url.
   def generate_image(song)
-    client = OpenAI::Client.new
+    # Generate the prompt from the Song instance object.
     prompt = generate_prompt(song)
+
+    # Various prompt helper words for better image generation results.
     art_styles = ["pop art", "risograph", "illustration", "one line drawing", "cubism", "digital art", "3d render", "block printing",
                   "watercolor", "synthwave", "fauvism", "Neo-Expressionism", "vaporwave", "linocut art", "silkscreen printing", "oil painting"]
     description_set_one = %w( delicate intricate serene minimalistic modern )      
     description_set_two = %w( sublime symmetrical vibrant vivid provocative poignant )      
-      
+
+    # Generate image and returns image url.
+    client = OpenAI::Client.new
     image_response = client.images.generate(parameters: { prompt: "#{prompt}, #{art_styles.sample}, #{description_set_one.sample}, #{description_set_two.sample}", size: "256x256" })
     img_res = image_response.dig("data", 0, "url")
   end
 
+  # Private method to generate prompt from the Song instance object.
   def generate_prompt(song)
     title = song.name
     artist = song.artist
@@ -100,6 +107,7 @@ class PlaylistsController < ApplicationController
           messages: [{ role: "user", content: query}], # Required.
           temperature: 0.2,
       })
+
     response.dig("choices", 0, "message", "content")
   end
 end
