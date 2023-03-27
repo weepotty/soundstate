@@ -12,7 +12,7 @@ export default class extends Controller {
     this.initScene();
     this.initCamera();
     this.renderer = new THREE.WebGLRenderer({ canvas: this.canvas });
-    this.renderer.setSize(350, 350);
+    this.renderer.setSize(window.innerWidth, window.innerHeight);
 
 
     this.geometry = new THREE.TorusKnotGeometry(0.4, 0.15, 100, 20, 2, 3);
@@ -29,7 +29,7 @@ export default class extends Controller {
     this.camera.position.set(0, 0.5, 3);
 
     this.torus = new THREE.Mesh(this.geometry, this.material);
-    this.torus.position.y = -0.2
+    // this.torus.position.y = -
     this.scene.add(this.torus);
 
     this.animate();
@@ -52,7 +52,7 @@ export default class extends Controller {
     this.scene.background = new THREE.Color( 0x161722 )
   }
   initCamera() {
-    this.camera = new THREE.PerspectiveCamera(40, 500 / 500, 0.1, 1000);
+    this.camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
   }
 
 }
