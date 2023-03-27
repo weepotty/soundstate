@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user = User.create_from_spotify(spotify_user, spotify_auth)
 
     if @user.persisted?
-      flash[:notice] = I18n.t 'devise.omniauth_callbacks.success', kind: 'Spotify'
+      # flash[:notice] = I18n.t 'devise.omniauth_callbacks.success', kind: 'Spotify'
       sign_in_and_redirect @user, event: :authentication
     else
       # Removing extra as it can overflow some session stores

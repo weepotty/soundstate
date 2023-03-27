@@ -84,9 +84,9 @@ class PlaylistsController < ApplicationController
 
     # Various prompt helper words for better image generation results.
     art_styles = ["pop art", "risograph", "illustration", "one line drawing", "cubism", "digital art", "3d render", "block printing",
-                  "watercolor", "synthwave", "fauvism", "Neo-Expressionism", "vaporwave", "linocut art", "silkscreen printing", "oil painting"]
-    description_set_one = %w( delicate intricate serene minimalistic modern )      
-    description_set_two = %w( sublime symmetrical vibrant vivid provocative poignant )      
+                  "watercolor", "synthwave", "fauvism", "Neo-Expressionism", "linocut art", "silkscreen printing", "oil painting"]
+    description_set_one = %w( delicate intricate serene minimalistic modern )
+    description_set_two = %w( sublime symmetrical vibrant vivid provocative poignant )
 
     # Generate image and returns image url.
     client = OpenAI::Client.new
