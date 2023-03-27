@@ -4,7 +4,7 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["share"]
   static values = {
-    faris: String,
+    id: String,
     shared: Boolean
    }
 
@@ -25,7 +25,7 @@ export default class extends Controller {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          playlist_id: this.farisValue
+          playlist_id: this.idValue
         })
     })
       .then(res => res.json())

@@ -1,6 +1,6 @@
 <div class="profile-wrapper">
   <% playlists.each do |playlist| %>
-    <div data-controller="profile-modal" data-profile-modal-faris-value="hello">
+    <div data-controller="profile-modal">
       <div class="profile-card" data-controller="profile-card" data-action="click->profile-card#click">
         <div class="profile-scene scene--card" data-action="click->profile-modal#open">
           <div class="card" data-profile-card-target="card">
@@ -17,7 +17,7 @@
       </div>
 
       <section class="profile-modal hidden" data-profile-modal-target="modal" style="margin:0 auto">
-        <div class="modal-container" data-controller="share-button" data-share-button-shared-value="<%= playlist.is_shared %>" data-share-button-faris-value="<%= playlist.id %>">
+        <div class="modal-container" data-controller="share-button" data-share-button-shared-value="<%= playlist.is_shared %>" data-share-button-id-value="<%= playlist.id %>">
           <div class="d-flex justify-content-between align-items-center">
             <h1 class="m-0"><%= playlist.title %></h1>
             <span data-action="click->profile-modal#close">X</span>
