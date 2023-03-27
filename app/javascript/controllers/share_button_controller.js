@@ -15,6 +15,8 @@ export default class extends Controller {
   share() {
     const url = `/playlists/toggle_shared`
     console.log(url);
+    const lock = "<p>Playlist Hidden</p>"
+    const unlock = "<p>Playlist Shared</p>"
 
     fetch(url, {
         method: "POST",
@@ -27,6 +29,13 @@ export default class extends Controller {
         })
     })
       .then(res => res.json())
-      .then(data => console.log(data))
+      .then((data) => {
+        if (data.playlist == true) {
+          this.shareTarget.outerHTML = unlock
+        }
+        else {
+          this.shareTarget.outerHTML = lock
+        }
+      })
   }
 }

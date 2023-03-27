@@ -20,23 +20,19 @@
         <div class="modal-container" data-controller="share-button" data-share-button-shared-value="<%= playlist.is_shared %>" data-share-button-faris-value="<%= playlist.id %>">
           <div class="d-flex justify-content-between align-items-center">
             <h1 class="m-0"><%= playlist.title %></h1>
-
-            <% if playlist.is_shared %>
-              <i class="fa-solid fa-lock"
-                data-share-button-target="share"
-                data-action="click->share-button#share"
-              ></i>
-              <p>Hide Playlist</p>
-            <% else %>
-              <i class="fa-solid fa-lock-open"
-                data-share-button-target="share"
-                data-action="click->share-button#share"
-              ></i>
-              <p>Show Playlist</p>
-            <% end %>
-
             <span data-action="click->profile-modal#close">X</span>
           </div>
+            <% if playlist.is_shared %>
+              <i data-share-button-target="share"
+                class="fa-solid fa-lock"
+                data-action="click->share-button#share"
+              ></i>
+            <% else %>
+              <i data-share-button-target="share"
+                class="fa-solid fa-lock-open"
+                data-action="click->share-button#share"
+              ></i>
+            <% end %>
           <iframe id="playlist-show" style="border-radius:12px" src=<%= "https://open.spotify.com/embed/playlist/#{playlist.spotify_id}?utm_source=generator&theme=0" %> width="100%" height="1000" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </div>
       </section>
