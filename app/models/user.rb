@@ -36,7 +36,7 @@ class User < ApplicationRecord
         account.avatar.attach(io: avatar, filename: "#{filename}.jpg", content_type: "image/jpg")
         account.save
       end
-      # create 3 default events here!
+      account.add_default_events
     end
     account
   end
@@ -51,5 +51,56 @@ class User < ApplicationRecord
 
   def others_playlists
     Playlist.where.not(user: self)
+  end
+
+  # Add 3 default events to new users
+  def add_default_events
+    Event.create!(
+      title: 'Getting ready',
+      min_acousticness: 0.0,
+      max_acousticness: 1.0,
+      min_danceability: 0.6,
+      max_danceability: 0.9,
+      min_energy: 0.6,
+      max_energy: 1.0,
+      min_tempo: 100,
+      max_tempo: 180,
+      min_valence: 0.4,
+      max_valence: 0.9,
+      time: 0,
+      user: self
+    )
+  
+    Event.create!(
+      title: 'Acoustic',
+      min_acousticness: 0.8,
+      max_acousticness: 1.0,
+      min_danceability: 0.0,
+      max_danceability: 1.0,
+      min_energy: 0.0,
+      max_energy: 1.0,
+      min_tempo: 50,
+      max_tempo: 200,
+      min_valence: 0.0,
+      max_valence: 1.0,
+      time: 1,
+      user: self
+    )
+  
+    Event.create!(
+      title: 'Sleep',
+      min_acousticness: 0.0,
+      max_acousticness: 1.0,
+      min_danceability: 0.0,
+      max_danceability: 0.5,
+      min_energy: 0.0,
+      max_energy: 0.2,
+      min_tempo: 80,
+      max_tempo: 180,
+      min_valence: 0.0,
+      max_valence: 1.0,
+      time: 2,
+      user: self
+    )
   end
 end
