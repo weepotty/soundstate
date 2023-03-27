@@ -11,6 +11,7 @@ class PlaylistsController < ApplicationController
   def show
     # show requires an "id" variable to insert into embeded iframe
     @playlist = Playlist.find(params[:id])
+
   end
 
   # GET /events/:event_id/playlists/new
@@ -95,7 +96,9 @@ class PlaylistsController < ApplicationController
     # Generate image and returns image url.
     client = OpenAI::Client.new
     # image_response = client.images.generate(parameters: { prompt: "#{prompt}, #{art_styles.sample} style, #{description_set_one.sample}, #{description_set_two.sample}", size: "256x256" })
-    image_response = client.images.generate(parameters: { prompt: "#{prompt}, #{mood_descriptors(event).sample(2)}, in the art style of #{art_styles.sample}", size: "256x256" })
+    array = mood_descriptors(event)
+    image_response = client.images.generate(parameters: { prompt: "#{prompt}, #{mood_descriptors(event).sample(2).join(', ')}, in the art style of #{art_styles.sample}", size: "256x256" })
+
     img_res = image_response.dig("data", 0, "url")
   end
 
@@ -104,7 +107,7 @@ class PlaylistsController < ApplicationController
     # happy energetic
     if event.max_valence > 0.5 && event.max_energy > 0.5
       %w[bright vibrant dynamic spirited vivid lively energetic colorful joyful romantic expressive rich
-        kaleidoscopic psychedelic saturated ecstatic passionate]
+        psychedelic saturated happy]
     # happy chill
     elsif event.max_valence > 0.5 && event.max_energy < 0.5
       %w[light peaceful calm serene soothing relaxed cosy tranquil pastel ethereal tender soft]
@@ -113,7 +116,7 @@ class PlaylistsController < ApplicationController
       %w[winter somber melancholic sad gothic post-apocalyptic]
     # discordant moods
     else
-      %w[sublime symmetrical vibrant vivid provocative poignant]
+      %w[sublime symmetrical vibrant vivid poignant]
     end
   end
 
@@ -121,9 +124,8 @@ class PlaylistsController < ApplicationController
   def generate_prompt(song)
     title = song.name
     artist = song.artist
-    query = "Return a string of the meaning of #{title} by #{artist}. Limit to 60 characters"
-    pp title
-    pp query
+    query = "Return a string of the meaning of the song #{title} by #{artist}. Limit to 10 words."
+
     client = OpenAI::Client.new
     response = client.chat(
       parameters: {
