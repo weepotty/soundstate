@@ -1,4 +1,6 @@
 class PlaylistsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   # GET /users/:user_id/playlists
   def index
     @user = User.find(params[:user_id])
@@ -48,10 +50,14 @@ class PlaylistsController < ApplicationController
       end
   end
 
-  def update
-    @playlist = Playlist.find(params[:id])
-    @playlist.update(shared_params)
+  def toggle_shared
+    @playlist = Playlist.find(params[:playlist_id])
+    @playlist.update(is_shared: !@playlist.is_shared)
     @playlist.save!
+
+    respond_to do |format|
+      format.json { render json: { playlist: @playlist.is_shared } }
+    end
   end
 
   private
