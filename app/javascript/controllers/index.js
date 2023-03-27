@@ -19,6 +19,9 @@ application.register("homepage", HomepageController)
 import LogoController from "./logo_controller"
 application.register("logo", LogoController)
 
+import MenuBarController from "./menu_bar_controller"
+application.register("menu-bar", MenuBarController)
+
 import ProfileCardController from "./profile_card_controller"
 application.register("profile-card", ProfileCardController)
 
