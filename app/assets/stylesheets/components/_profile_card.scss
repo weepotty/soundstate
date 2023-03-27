@@ -20,21 +20,21 @@
   width: auto;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 4%;
-  margin-left: 8%;
-  margin-right: 8%;
+  gap: 2%;
+  margin-left: 4%;
+  margin-right: 4%;
   margin-top: 8%;
 
-  .profile.card {
+  .profile-card {
     display: flex;
     justify-content: center;
-    margin: 0 auto;
-    object-fit: cover;
+    align-items: center;
   }
 
   img {
   width: 100%;
   aspect-ratio: 1/1;
+  object-fit: cover;
   }
 }
 
