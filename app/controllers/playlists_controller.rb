@@ -41,6 +41,9 @@ class PlaylistsController < ApplicationController
 
       @ss_playlist = Playlist.new(title: playlist_params[:title], user: current_user, spotify_id: @spotify_playlist.id)
 
+      # Generate prompt for image generation
+      prompt = generate_prompt(@songs.first)
+
       if @ss_playlist.save!
         redirect_to playlist_path(@ss_playlist)
       else
@@ -69,5 +72,20 @@ class PlaylistsController < ApplicationController
 
   def playlist_params
     params.require(:playlist).permit(:title)
+  end
+
+  def generate_prompt(song)
+    title = song.name
+    artist = song.artist
+    query = "Meaning of the song #{title} by #{artist} in 20 words"
+
+    client = OpenAI::Client.new
+    response = client.chat(
+      parameters: {
+          model: "gpt-3.5-turbo", # Required.
+          messages: [{ role: "user", content: query}], # Required.
+          temperature: 0.2,
+      })
+    response.dig("choices", 0, "message", "content")
   end
 end
