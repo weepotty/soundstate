@@ -1,4 +1,4 @@
-<div class="profile-wrapper" data-controller="profile-modal">
+<div class="profile-wrapper mb-5" data-controller="profile-modal">
   <% playlists.each do |playlist| %>
     <div class="profile-card" data-controller="profile-card" data-action="click->profile-card#click">
       <div class="profile-scene scene--card" data-action="click->profile-modal#open">
@@ -9,12 +9,11 @@
             </div>
           </div>
           <div class="profile_card__face profile_card__face--back">
-              <button class="btn-play"><i class="fa-solid fa-play"></i></button>
+            <button class="btn-play"><i class="fa-solid fa-play"></i></button>
           </div>
         </div>
       </div>
     </div>
-
     <section class="profile-modal hidden" data-profile-modal-target="modal" style="margin:0 auto">
       <div class="modal-container">
         <div class="d-flex justify-content-between align-items-center">
