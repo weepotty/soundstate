@@ -1,20 +1,3 @@
-<script>
-  function reloadPage() {
-  // The last "domLoading" Time //
-  let currentDocumentTimestamp =
-  new Date(performance.timing.domLoading).getTime();
-  // Current Time //
-  let now = Date.now();
-  // Ten Seconds //
-  let oneSec = 1 * 1000;
-  // Plus Ten Seconds //
-  let plusOneSec = currentDocumentTimestamp + oneSec;
-  if (now > plusOneSec) {
-  location.reload();
-  } else {}
-  }
-  reloadPage();
-</script>
 <%= render "shared/flashes" %>
 <h1>New Playlist</h1>
 <div id="first-song" value="<%= @song_uris.first %>"></div>

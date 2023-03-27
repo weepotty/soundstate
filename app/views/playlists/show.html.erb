@@ -1,20 +1,3 @@
-<script>
-  function reloadPage() {
-  // The last "domLoading" Time //
-  let currentDocumentTimestamp =
-  new Date(performance.timing.domLoading).getTime();
-  // Current Time //
-  let now = Date.now();
-  // Ten Seconds //
-  let oneSec = 1 * 1000;
-  // Plus Ten Seconds //
-  let plusOneSec = currentDocumentTimestamp + oneSec;
-  if (now > plusOneSec) {
-  location.reload();
-  } else {}
-  }
-  reloadPage();
-</script>
 <h1><%= @playlist.title %></h1>
 <div class="container">
   <iframe id="playlist-show" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/<%= @playlist.spotify_id %>?utm_source=generator&theme=0" width="100%" height="1000" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
