@@ -44,7 +44,7 @@ class PlaylistsController < ApplicationController
       # Using OpenAI gem to generate image from the Song instance object.
       # Here, we use the first song in the playlist to generate the image.
       require "open-uri"
-      playlist_image = URI.open(generate_image(@songs.first))
+      playlist_image = URI.open(generate_image(@songs.first, @event))
       @ss_playlist.photo.attach(io: playlist_image, filename: "#{@ss_playlist.title}.png", content_type: "image/png")
 
       if @ss_playlist.save!
@@ -78,27 +78,47 @@ class PlaylistsController < ApplicationController
   end
 
   # Private method to generate image from the Song instance object, returns an image url.
-  def generate_image(song)
+  def generate_image(song, event)
     # Generate the prompt from the Song instance object.
     prompt = generate_prompt(song)
 
     # Various prompt helper words for better image generation results.
-    art_styles = ["pop art", "risograph", "illustration", "one line drawing", "cubism", "digital art", "3d render", "block printing",
+    art_styles = ["pop art", "risograph", "illustration", "one line drawing", "cubism", "memphis", "digital art", "3D render", "block printing",
                   "watercolor", "synthwave", "fauvism", "Neo-Expressionism", "vaporwave", "linocut art", "silkscreen printing", "oil painting"]
-    description_set_one = %w( delicate intricate serene minimalistic modern )      
-    description_set_two = %w( sublime symmetrical vibrant vivid provocative poignant )      
+
+    # description_set_one = %w( delicate intricate serene minimalistic modern )
+    # description_set_two = %w( sublime symmetrical vibrant vivid provocative poignant )
 
     # Generate image and returns image url.
     client = OpenAI::Client.new
-    image_response = client.images.generate(parameters: { prompt: "#{prompt}, #{art_styles.sample}, #{description_set_one.sample}, #{description_set_two.sample}", size: "256x256" })
+    # image_response = client.images.generate(parameters: { prompt: "#{prompt}, #{art_styles.sample} style, #{description_set_one.sample}, #{description_set_two.sample}", size: "256x256" })
+    image_response = client.images.generate(parameters: { prompt: "#{prompt}, #{art_styles.sample} style, #{mood_descriptors(event).sample(2)}", size: "256x256" })
     img_res = image_response.dig("data", 0, "url")
+  end
+
+  # private method to select mood descriptors based on filter
+  def mood_descriptors(event)
+    # happy energetic
+    if event.max_valence > 0.5 && event.max_energy > 0.5
+      %w[bright vibrant dynamic spirited vivid lively energetic colorful joyful romantic expressive rich
+        kaleidoscopic psychedelic saturated ecstatic passionate]
+    # happy chill
+    elsif event.max_valence > 0.5 && event.max_energy < 0.5
+      %w[light peaceful calm serene soothing relaxed cosy tranquil pastel ethereal tender soft]
+    # sad chill
+    elsif event.max_valence < 0.5
+      %w[bleak somber melancholic sad tired]
+    # discordant moods
+    else
+      %w[sublime symmetrical vibrant vivid provocative poignant]
+    end
   end
 
   # Private method to generate prompt from the Song instance object.
   def generate_prompt(song)
     title = song.name
     artist = song.artist
-    query = "Meaning of the song #{title} by #{artist} in 20 words"
+    query = "String of first 3 nouns in #{title} by #{artist}"
 
     client = OpenAI::Client.new
     response = client.chat(
