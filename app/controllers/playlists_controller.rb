@@ -39,7 +39,7 @@ class PlaylistsController < ApplicationController
 
       # @spotify_playlist.replace_image!(playlist_params[:photo], playlist_params[:photo].content_type)
 
-      @ss_playlist = Playlist.new(title: playlist_params[:title], photo: playlist_params[:photo], user: current_user, spotify_id: @spotify_playlist.id)
+      @ss_playlist = Playlist.new(title: playlist_params[:title], user: current_user, spotify_id: @spotify_playlist.id)
 
       if @ss_playlist.save!
         redirect_to playlist_path(@ss_playlist)
@@ -68,6 +68,6 @@ class PlaylistsController < ApplicationController
   end
 
   def playlist_params
-    params.require(:playlist).permit(:title, :photo)
+    params.require(:playlist).permit(:title)
   end
 end
