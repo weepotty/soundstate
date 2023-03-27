@@ -42,8 +42,11 @@ class PlaylistsController < ApplicationController
       @ss_playlist = Playlist.new(title: playlist_params[:title], user: current_user, spotify_id: @spotify_playlist.id)
 
       # Generate prompt for image generation
+      require "open-uri"
       prompt = generate_prompt(@songs.first)
-      url = generate_image(prompt)
+      image_url = generate_image(prompt)
+      playlist_image = URI.open(image_url)
+      @ss_playlist.photo.attach(io: playlist_image, filename: "#{@ss_playlist.title}.png", content_type: "image/png")
 
       if @ss_playlist.save!
         redirect_to playlist_path(@ss_playlist)
