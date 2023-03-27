@@ -11,49 +11,17 @@
 }
 
 @keyframes bg-image-animation {
-  0% {
-    background-image: url("sample_image_1.png");
-  }
-  
-  10% {
-    background-image: url("sample_image_2.png");
-  }
-  
-  20% {
-    background-image: url("sample_image_3.png");
-  }
-  
-  30% {
-    background-image: url("sample_image_4.png");
-  }
-  
-  40% {
-    background-image: url("sample_image_5.png");
-  }
-  
-  50% {
-    background-image: url("sample_image_6.png");
-  }
-  
-  60% {
-    background-image: url("sample_image_7.png");
-  }
-  
-  70% {
-    background-image: url("sample_image_8.png");
-  }
-  
-  80% {
-    background-image: url("sample_image_9.png");
-  }
-  
-  90% {
-    background-image: url("sample_image_10.png");
-  }
-  
-  100% {
-    background-image: url("sample_image_1.png");
-  }
+  0% { background-image: url("sample_image_1.png"); }
+  10% { background-image: url("sample_image_2.png"); }
+  20% { background-image: url("sample_image_3.png"); }
+  30% { background-image: url("sample_image_4.png"); }
+  40% { background-image: url("sample_image_5.png"); }
+  50% { background-image: url("sample_image_6.png"); }
+  60% { background-image: url("sample_image_7.png"); }
+  70% { background-image: url("sample_image_8.png"); }
+  80% { background-image: url("sample_image_9.png"); }
+  90% { background-image: url("sample_image_10.png"); }
+  100% { background-image: url("sample_image_1.png"); }
 }
 
 // Animation for the text wave form.
