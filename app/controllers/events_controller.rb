@@ -31,6 +31,8 @@ class EventsController < ApplicationController
     if @event.update(event_params)
       redirect_to new_event_playlist_path(@event)
     else
+      @event.min_tempo = (@event.min_tempo / 220)
+      @event.max_tempo = (@event.max_tempo / 220)
       render :edit, status: :unprocessable_entity
     end
   end
