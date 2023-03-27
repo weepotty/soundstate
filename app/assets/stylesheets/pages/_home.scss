@@ -25,7 +25,7 @@
 .y.scroll-snapping {
   width: 100vw;
   background-image: url('assets/12.svg');
-  background-position: top 0 left -1rem;
+  background-position: top 0 left 5%;
   background-repeat: no-repeat;
 }
 
@@ -54,10 +54,16 @@
     background-position: top 15rem left -17rem;
     background-size: 300%;
   }
+  .carousel-container {
+    height: 70vh;
+  }
 }
 
-@media(max-width: 800px) {
+@media(max-width: 850px) and (min-width: 401px) {
   .y.scroll-snapping {
     background-position: top 5rem left -20rem;
+  }
+  .carousel-container {
+    height: 70vh;
   }
 }
