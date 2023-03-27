@@ -1,8 +1,24 @@
+// ul#episodes {
+//   max-width: 300px;
+//   max-height: 350px;
+//   overflow-y: auto;
+//   box-shadow: 2px 2px 10px rgba($color: #000000, $alpha: .2);
+//   -ms-overflow-style: none;  /* Internet Explorer 10+ */
+//   scrollbar-width: none;  /* Firefox */
+//   border-radius: 20px;
+//   background: linear-gradient(43deg, $hot-color 0%, $cold-color 46%, $medium-color 100%);
+// }
+
 ul#episodes {
   max-width: 300px;
-  max-height: 300px;
+  max-height: 350px;
   overflow-y: auto;
-  box-shadow: 2px 2px 10px rgba($color: #000000, $alpha: .2);
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+  border-radius: 20px;
+  padding: 5px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  background-image: linear-gradient(144deg,$hot-color, $cold-color 50%, $medium-color);
 }
 
 .episodes-container {
@@ -10,10 +26,55 @@ ul#episodes {
   justify-content: center;
 }
 
+.list-items-container {
+  background: $background;
+  border-radius: 17px;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+
 li.episodes {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  border-bottom: 1px solid lightgrey;
+  // border-bottom: 1px solid lightgrey;
+}
+
+ul#episodes::-webkit-scrollbar, .list-items-container::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
+}
+
+
+#new-playlist>h1, #new-playlist>p {
+  margin-bottom: 2rem;
+}
+
+#new-playlist h1 {
+  text-align: center;
+}
+
+#new-playlist a {
+  text-decoration: none;
+  color: $white;
+}
+
+
+#new_playlist {
+  max-width: 100%;
+  padding: 0 10rem
+}
+
+.new-playlist-form {
+  border: none;
+  border-radius: 10px;
+  padding: 0.6em;
+  border: none;
+  outline: none;
+  color: rgb(189, 189, 189);
+  background-color: #242424;
+  box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
 }

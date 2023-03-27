@@ -1,7 +1,7 @@
 window.onSpotifyIframeApiReady = (IFrameAPI) => {
   let element = document.getElementById("embed-iframe");
   let options = {
-    width: "70%",
+    width: "75%",
     height: "400px",
     uri: document.getElementById("first-song").getAttribute("value"),
   };
