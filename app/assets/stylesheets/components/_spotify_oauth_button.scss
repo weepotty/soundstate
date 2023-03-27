@@ -13,12 +13,13 @@
   align-items: center;
   transform: scale(1);
   transition: transform 0.5s;
-  box-shadow: 0 0 30px 5px rgb(60, 60, 60);
+  // background-color: rgba(60, 60, 60,0.5);
+  // box-shadow: 0 0 30px 5px rgba(60, 60, 60,0.5);
 
   &:hover {
     transform: scale(1.05);
-    background: rgb(61, 106, 255);
-    box-shadow: 0 0 50px 5px rgba(0, 142, 236, 0.815);
+    background: $spotify;
+    box-shadow: 0 0 40px 5px rgba($spotify, 0.815);
     -webkit-transition: all 0.2s ease-out;
     -moz-transition: all 0.2s ease-out;
     transition: all 0.2s ease-out;
