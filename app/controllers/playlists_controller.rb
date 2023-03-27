@@ -90,13 +90,8 @@ class PlaylistsController < ApplicationController
     art_styles = ["pop art", "risograph", "illustration", "colouring-in sheet", "cubism", "memphis", "digital art", "3D render", "block printing",
                   "watercolor", "synthwave", "ceramics", "vaporwave", "linocut art", "storybook"]
 
-    # description_set_one = %w( delicate intricate serene minimalistic modern )
-    # description_set_two = %w( sublime symmetrical vibrant vivid provocative poignant )
-
     # Generate image and returns image url.
     client = OpenAI::Client.new
-    # image_response = client.images.generate(parameters: { prompt: "#{prompt}, #{art_styles.sample} style, #{description_set_one.sample}, #{description_set_two.sample}", size: "256x256" })
-    array = mood_descriptors(event)
     image_response = client.images.generate(parameters: { prompt: "#{prompt}, #{mood_descriptors(event).sample(2).join(', ')}, in the art style of #{art_styles.sample}", size: "256x256" })
 
     img_res = image_response.dig("data", 0, "url")
