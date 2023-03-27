@@ -43,9 +43,7 @@ class PlaylistsController < ApplicationController
 
       # Generate prompt for image generation
       require "open-uri"
-      prompt = generate_prompt(@songs.first)
-      image_url = generate_image(prompt)
-      playlist_image = URI.open(image_url)
+      playlist_image = URI.open(generate_image(@songs.first))
       @ss_playlist.photo.attach(io: playlist_image, filename: "#{@ss_playlist.title}.png", content_type: "image/png")
 
       if @ss_playlist.save!
@@ -78,8 +76,9 @@ class PlaylistsController < ApplicationController
     params.require(:playlist).permit(:title)
   end
 
-  def generate_image(prompt)
+  def generate_image(song)
     client = OpenAI::Client.new
+    prompt = generate_prompt(song)
     art_styles = ["pop art", "risograph", "illustration", "one line drawing", "cubism", "digital art", "3d render", "block printing",
                   "watercolor", "synthwave", "fauvism", "Neo-Expressionism", "vaporwave", "linocut art", "silkscreen printing", "oil painting"]
     description_set_one = %w( delicate intricate serene minimalistic modern )      
