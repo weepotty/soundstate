@@ -133,9 +133,6 @@ class PlaylistsController < ApplicationController
           messages: [{ role: "user", content: query}], # Required.
           temperature: 0.7,
       })
-
-    pp response
-
     response.dig("choices", 0, "message", "content")
   end
 end
