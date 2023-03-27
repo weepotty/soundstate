@@ -2,12 +2,12 @@
   <%# <img src="assets/12.svg" alt=""> %>
   <div data-controller="homepage" class="y scroll-snapping">
     <div class="container container-scroll" data-controller="time-zone">
-      <h2 class="hidden greeting" data-homepage-target="hidden">Good <span data-time-zone-target="dayPeriod"></span>, <br><em><%= current_user.nickname %></em></h2>
+      <h2 class="hide greeting" data-homepage-target="hide">Good <span data-time-zone-target="dayPeriod"></span>, <br><em><%= current_user.nickname %></em></h2>
     </div>
     <div class="container carousel-container">
-      <h2 class="hidden carousel-greeting" data-homepage-target="hidden">Here is what you have been listening to</h2>
+      <h2 class="hide carousel-greeting" data-homepage-target="hide">Here is what you have been listening to</h2>
       <!-- Carousel -->
-      <div class="carousel hidden" data-controller="flickity" data-homepage-target="hidden">
+      <div class="carousel hide" data-controller="flickity" data-homepage-target="hide">
         <% current_user.user_playlists.each do |playlist| %>
           <div class="carousel-cell">
             <%= render 'shared/event_image_card', playlist: playlist %>
@@ -18,9 +18,9 @@
     <!-- Gallery Feed -->
     <div class="gallery-container">
       <div class="container mt-6 text-center">
-        <h2 class="hidden" data-homepage-target="hidden">DISCOVER PLAYLISTS</h2>
+        <h2 class="hide" data-homepage-target="hide">DISCOVER PLAYLISTS</h2>
       </div>
-      <div class="hidden" data-homepage-target="hidden">
+      <div class="hide" data-homepage-target="hide">
         <% current_user.others_playlists.each do |playlist| %>
           <%= render "shared/gallery_card", playlist: playlist %>
         <% end %>
