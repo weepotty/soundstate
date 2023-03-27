@@ -11,4 +11,8 @@ class Playlist < ApplicationRecord
     user_tracks = spotify_user.saved_tracks
     playlist = user_tracks
   end
+
+  def change_share
+    @is_shared = true
+  end
 end
