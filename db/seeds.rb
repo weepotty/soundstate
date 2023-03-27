@@ -1,14 +1,7 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or create!d alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create!([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create!(name: "Luke", movie: movies.first)
-
+# Need to seed the Song model from a CSV file
 require 'csv'
 
-puts "destroying data..."
+puts "Destroying data..."
 PlaylistsSong.destroy_all
 SongsUser.destroy_all
 Song.destroy_all
@@ -16,9 +9,9 @@ Event.destroy_all
 Playlist.destroy_all
 User.destroy_all
 
-puts 'planting new seeds'
+puts 'Start planting new seeds'
 
-puts 'Creating new users...'
+puts 'Planting new users...'
 user1 = User.create!(email: 'frank@frankdev.com', password: '123456', nickname: 'frank')
 user1_avatar = URI.open("https://res.cloudinary.com/dsx50recn/image/upload/c_fill,h_256,w_256/v1679927913/Avatars/avatar_frank_x9drlt.jpg")
 user1.avatar.attach(io: user1_avatar, filename: "avatar_frank_x9drlt.jpg", content_type: "image/jpg")
@@ -46,12 +39,14 @@ user5.save
 
 users = [user1, user2, user3, user4, user5]
 
+puts 'Planting new songs...'
 filepath = 'db/songs.csv'
 
 CSV.foreach(filepath, headers: :first_row) do |row|
   Song.create!(spotify_id: row['spotify_id'], name: row['name'], uri: row['uri'], artist: row['artist'], acousticness: row['acousticness'], danceability: row['danceability'], energy: row['energy'], tempo: row['tempo'], valence: row['valence'])
 end
 
+puts 'Planting new events...'
 users.each do |user|
   Event.create!(
     title: 'Getting ready',
@@ -105,6 +100,7 @@ users.each do |user|
 end
 
 
+puts 'Planting new playlists...'
 
 playlist1_image = URI.open("https://res.cloudinary.com/drftmp0s5/image/upload/c_fill,h_256,w_256/v1679621030/millenial.png")
 playlist1 = Playlist.create!(title: 'Stretching', user: user1, spotify_id: "0mAeoOnm1vVOWRg1wy6AFT", is_shared: true)
@@ -159,4 +155,5 @@ playlist9 = Playlist.create!(title: 'Coffee House', user: user3, spotify_id: "4U
 playlist9.photo.attach(io: playlist9_image, filename: "botanicalart.png", content_type: "image/png")
 playlist9.save
 PlaylistsSong.create!(playlist: playlist9, song: Song.first)
-# puts 'seeded like a lovely garden'
+
+puts 'Seeded like a lovely garden'
