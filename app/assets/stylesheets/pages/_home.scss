@@ -26,6 +26,7 @@
   // height: 100vh;
   width: 100vw;
   background-image: url('assets/12.svg');
+  background-position: top 0 left 5%;
   background-repeat: no-repeat;
 }
 
@@ -80,3 +81,17 @@ html {
 // bottom: -1;
 // left: 50%;
 // transform: translateX(-50%);
+
+
+@media(max-width: 400px) {
+  .y.scroll-snapping {
+    background-position: top 15rem left -17rem;
+    background-size: 300%;
+  }
+}
+
+@media(max-width: 800px) {
+  .y.scroll-snapping {
+    background-position: top 5rem left -20rem;
+  }
+}
