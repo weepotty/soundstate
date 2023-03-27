@@ -87,14 +87,15 @@ class PlaylistsController < ApplicationController
     prompt = generate_prompt(song)
 
     # Various prompt helper words for better image generation results.
-    art_styles = ["pop art", "risograph", "illustration", "colouring-in sheet", "cubism", "memphis", "digital art", "3D render", "block printing",
-                  "watercolor", "synthwave", "ceramics", "vaporwave", "linocut art", "storybook"]
+    art_styles = ['pop art', 'risograph', 'illustration', 'colouring-in sheet', 'cubism', 'memphis', 'digital art',
+                  '3D render', 'block printing', 'watercolor', 'synthwave', 'ceramics', 'vaporwave', 'linocut art',
+                  'storybook']
 
     # Generate image and returns image url.
     client = OpenAI::Client.new
     image_response = client.images.generate(parameters: { prompt: "#{prompt}, #{mood_descriptors(event).sample(2).join(', ')}, in the art style of #{art_styles.sample}", size: "256x256" })
 
-    img_res = image_response.dig("data", 0, "url")
+    img_res = image_response.dig('data', 0, 'url')
   end
 
   # private method to select mood descriptors based on filter
@@ -102,7 +103,7 @@ class PlaylistsController < ApplicationController
     # happy energetic
     if event.max_valence > 0.5 && event.max_energy > 0.5
       %w[bright vibrant dynamic spirited vivid lively energetic colorful joyful romantic expressive rich
-        psychedelic saturated happy]
+         psychedelic saturated happy]
     # happy chill
     elsif event.max_valence > 0.5 && event.max_energy < 0.5
       %w[light peaceful calm serene soothing relaxed cosy tranquil pastel ethereal tender soft]
@@ -117,17 +118,16 @@ class PlaylistsController < ApplicationController
 
   # Private method to generate prompt from the Song instance object.
   def generate_prompt(song)
-    title = song.name
-    artist = song.artist
-    query = "Return a string of the meaning of the song #{title} by #{artist}. Limit to 10 words."
+    query = "Return a string of the meaning of the song #{song.name} by #{song.artist}. Limit to 10 words."
 
     client = OpenAI::Client.new
     response = client.chat(
       parameters: {
-          model: "gpt-3.5-turbo", # Required.
-          messages: [{ role: "user", content: query}], # Required.
-          temperature: 0.7,
-      })
-    response.dig("choices", 0, "message", "content")
+        model: 'gpt-3.5-turbo', # Required.
+        messages: [{ role: 'user', content: query }], # Required.
+        temperature: 0.7
+      }
+    )
+    response.dig('choices', 0, 'message', 'content')
   end
 end
