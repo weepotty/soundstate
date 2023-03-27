@@ -87,7 +87,7 @@ class PlaylistsController < ApplicationController
 
     # Various prompt helper words for better image generation results.
     art_styles = ["pop art", "risograph", "illustration", "one line drawing", "cubism", "memphis", "digital art", "3D render", "block printing",
-                  "watercolor", "synthwave", "fauvism", "Neo-Expressionism", "vaporwave", "linocut art", "silkscreen printing", "oil painting"]
+                  "watercolor", "synthwave", "fauvism", "ceramics", "Neo-Expressionism", "vaporwave", "linocut art", "oil painting"]
 
     # description_set_one = %w( delicate intricate serene minimalistic modern )
     # description_set_two = %w( sublime symmetrical vibrant vivid provocative poignant )
@@ -121,7 +121,7 @@ class PlaylistsController < ApplicationController
   def generate_prompt(song)
     title = song.name
     artist = song.artist
-    query = "String of first 3 nouns in #{title} by #{artist}"
+    query = "Return a string of the meaning of #{title} by #{artist}. Limit to 40 characters"
 
     client = OpenAI::Client.new
     response = client.chat(
