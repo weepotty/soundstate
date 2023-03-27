@@ -1,14 +1,15 @@
 // Variables for sliders
-$slider-bar-height: 5px;
+$slider-bar-height: 3px;
 $thumb-height: 20px;
 $thumb-top-position: -($slider-bar-height);
 $track-inner-color: $gray;
 $track-outer-color: $light-gray;
 $thumb-bg-color: $white;
 $thumb-border-color: $gray;
-$cold-color: #F1C6FF;
-$medium-color: #F88EBE;
-$hot-color: #FF587F;
+$cold-color: #00ffd3;
+$medium-color: #35ffa4;
+$hot-color: #772fff;
+
 
 // Styling for dual slider
 .range {

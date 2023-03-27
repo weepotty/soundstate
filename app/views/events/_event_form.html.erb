@@ -1,5 +1,10 @@
 <div class="w-100 h-100 flex-grow-1 d-flex justify-content-center align-items-center position-relative">
   <div class="event-form" data-controller="slider">
+    <% if event.persisted? %>
+      <%= link_to user_path(current_user), class: "event-edit-cancel-btn" do %>
+        <i class="fa-solid fa-xmark"></i>
+      <% end %>
+    <% end %>
     <%= simple_form_for event do |f| %>
       <%= f.input :title, label: false, placeholder: "Title" %>
       <label>Acousticness</label>
@@ -10,7 +15,7 @@
       <%= render 'shared/event_slider', minValue: event["min_energy"], maxValue: event["max_energy"], propertyName: "energy" %>
       <label>Tempo</label>
       <%= render 'shared/event_slider', minValue: event["min_tempo"], maxValue: event["max_tempo"], propertyName: "tempo" %>
-      <label>Valence</label>
+      <label>Positivity</label>
       <%= render 'shared/event_slider', minValue: event["min_valence"], maxValue: event["max_valence"], propertyName: "valence" %>
       <label>Time</label>
       <input type="range" id="event_time" name="event[time]" class="time-slider" min="0" max="2" value="<%= Event.times[event["time"]] || 0 %>" step="1" data-action="input->slider#displayLabel">
@@ -19,9 +24,7 @@
         <p class="<%= Event.times[event["time"]] == 1 ? "" : "invisible" %>" data-slider-target="timeLabel">Afternoon</p>
         <p class="<%= Event.times[event["time"]] == 2 ? "" : "invisible" %>" data-slider-target="timeLabel">Evening</p>
       </div>
-      <%= button_tag(type: 'submit', class: 'event-button') do %>
-        <i class="fas fa-compact-disc fa-spin"></i>
-      <% end %>
+      <%= f.submit "Generate Event", class: "event-button" %>
     <% end %>
   </div>
 </div>
