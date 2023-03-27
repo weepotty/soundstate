@@ -4,12 +4,9 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ['hide']
   connect() {
-    console.log('test');
-    console.log(this.hideTargets);
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        console.log(entry);
         if (entry.isIntersecting) {
           entry.target.classList.add('active');
         } else {
