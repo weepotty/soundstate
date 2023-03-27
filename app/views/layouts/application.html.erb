@@ -8,11 +8,11 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
-  <body class="d-flex flex-column min-vh-100" style="background-image: url('/assets/background3.png'); background-repeat: no-repeat; background-size: cover;">
+  <body class="d-flex flex-column min-vh-100" style="background-color: $background;">
     <% if user_signed_in? %>
       <%= render "shared/header" %>
     <% end %>
-    <div class="content-container <%= "bg-black" unless user_signed_in? %>">
+    <div class="content-container <%= "bg-body-bg" unless user_signed_in? %>">
       <%= yield %>
     </div>
     <% if user_signed_in? %>

@@ -1,14 +1,14 @@
 // Variables for sliders
-$slider-bar-height: 3px;
+$slider-bar-height: 7px;
 $thumb-height: 20px;
 $thumb-top-position: -($slider-bar-height);
 $track-inner-color: $gray;
 $track-outer-color: $light-gray;
 $thumb-bg-color: $white;
 $thumb-border-color: $gray;
-$cold-color: #00ffd3;
-$medium-color: #35ffa4;
-$hot-color: #772fff;
+$cold-color: #dc6b57;
+$medium-color: rgb(220, 162, 87);
+$hot-color: #f4940d;
 
 
 // Styling for dual slider
@@ -20,7 +20,7 @@ $hot-color: #772fff;
 .range-slider {
   height: $slider-bar-height;
   position: relative;
-  background-color: $track-outer-color;
+  background-color: black;
   border-radius: $slider-bar-height;
 }
 .range-selected {
