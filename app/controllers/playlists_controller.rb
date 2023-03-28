@@ -44,6 +44,13 @@ class PlaylistsController < ApplicationController
     end
   end
 
+  def destroy
+    @playlist = Playlist.find(params[:id])
+    @playlist.destroy!
+
+    redirect_to users_path(current_user)
+  end
+
   def toggle_shared
     @playlist = Playlist.find(params[:playlist_id])
     @playlist.update(is_shared: !@playlist.is_shared)

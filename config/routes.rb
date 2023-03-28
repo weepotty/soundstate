@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     resources :playlists, only: %i[new create]
   end
 
-  resources :playlists, only: %i[show] do
+  resources :playlists, only: %i[show destroy] do
     collection do
       post :toggle_shared
     end
