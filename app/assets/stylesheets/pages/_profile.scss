@@ -1,4 +1,5 @@
 .modal-container {
+  position: relative;
   width: 85%;
   margin: 0 auto;
   margin-top: 5%;
@@ -9,11 +10,10 @@
   align-items: center;
   background-color: $light-gray;
   z-index: 2;
-  position: absolute;
-  top: 15%;
-  left: 0;
-  right: 0;
-  margin: auto;
+  position: fixed;
+  top:10%;
+  bottom:10%;
+  margin:auto;
 
   background-color: rgba(255, 255, 255, 0.074);
   border: 1px solid rgba(255, 255, 255, 0.222);
