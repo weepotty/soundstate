@@ -16,30 +16,41 @@
   reloadPage();
 </script>
 <%= render "shared/flashes" %>
-<h1>New Playlist</h1>
-<div id="first-song" value="<%= @song_uris.first %>"></div>
-<p><i class="fa-solid fa-chevron-left"></i> <%= link_to 'Edit filters', edit_event_path(@event)%></p>
-<div class="d-flex justify-content-center align-items-start gap-3 flex-wrap">
-  <div id="embed-iframe"></div>
-  <div class="flex-grow-1 episodes-container">
-    <ul id="episodes" class="list-unstyled">
-      <% @songs.each do |song| %>
-        <li class="episodes">
-          <button class="btn episodes-button" data-spotify-id=<%= song.uri %>>
-              <%= song.name %> - <%= song.artist %>
-            </button>
-          </li>
-        <% end %>
-      </ul>
+
+
+<div class="container" id="new-playlist">
+  <h1>NEW PLAYLIST PREVIEW</h1>
+  <div id="first-song" value="<%= @song_uris.first %>"></div>
+  <p><i class="fa-solid fa-chevron-left"></i> <%= link_to 'Edit filters', edit_event_path(@event)%></p>
+   <% if @songs.count == 0 %>
+    <h2 class="mt-5">Oppsie Daisy! Your library does not contain songs with such a filter</h2>
+  <% else %>
+    <div class="sdk-container d-flex justify-content-center align-items-start flex-wrap gap-1">
+      <div id="embed-iframe"></div>
+      <div class="flex-grow-1 episodes-container">
+        <ul id="episodes" class="list-unstyled">
+          <div class="list-items-container">
+            <% @songs.each do |song| %>
+              <li class="episodes">
+                <button class="btn episodes-button" data-spotify-id=<%= song.uri %>>
+                  <strong><%= song.name %></strong> - <%= song.artist %>
+                </button>
+              </li>
+            <% end %>
+          </div>
+        </ul>
+      </div>
+      </div>
     </div>
-  </div>
-</div>
-<div class="mb-5">
-  <%= simple_form_for [@event, @playlist], defaults: { required: false }  do |f| %>
-    <%= f.input :title, :label => "Playlist Title", input_html: {value: @event.title || 'My Playlist'}  %>
-    <%= f.button :submit, "Create Playlist", class: "btn oauth-signin", data: {bs_toggle: "modal", bs_target: "#playlistSpinnerModal"} %>
+    <div class="mb-5">
+      <%= simple_form_for [@event, @playlist], defaults: { required: false } do |f| %>
+        <%= f.input :title, as: :hidden, input_html: {value: @event.title || 'My Playlist', class: "new-playlist-form", readonly: true } %>
+        <%= f.button :submit, "Create Playlist", class: "btn create-btn", data: {bs_toggle: "modal", bs_target: "#playlistSpinnerModal"} %>
+      <% end %>
+    </div>
   <% end %>
 </div>
+
 <%# Spinner modal %>
 <div class="modal" id="playlistSpinnerModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-fullscreen">
