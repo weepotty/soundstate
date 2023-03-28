@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
 
   resources :events, only: %i[index new create edit update] do
+    get :image
     resources :playlists, only: %i[new create]
   end
 
