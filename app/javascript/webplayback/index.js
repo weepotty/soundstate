@@ -1,13 +1,13 @@
 window.onSpotifyIframeApiReady = (IFrameAPI) => {
-  let element = document.getElementById("embed-iframe");
-  let options = {
+  const element = document.getElementById("embed-iframe");
+  const options = {
     width: "75%",
     height: "400px",
     uri: document.getElementById("first-song").getAttribute("value"),
   };
-  let callback = (EmbedController) => {
+  const callback = (EmbedController) => {
     document
-      .querySelectorAll("ul#episodes > li > button")
+      .querySelectorAll(".episode")
       .forEach((episode) => {
         episode.addEventListener("click", () => {
           EmbedController.loadUri(episode.dataset.spotifyId);
