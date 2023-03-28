@@ -19,6 +19,9 @@ application.register("homepage", HomepageController)
 import ImageCreationController from "./image_creation_controller"
 application.register("image-creation", ImageCreationController)
 
+import LoadSongsController from "./load_songs_controller"
+application.register("load-songs", LoadSongsController)
+
 import LogoController from "./logo_controller"
 application.register("logo", LogoController)
 
