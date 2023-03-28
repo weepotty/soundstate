@@ -26,6 +26,9 @@ class Event < ApplicationRecord
 
     [songs, song_uris]
   end
+
+
+
   # def filter_songs(event)
   #   @songs = current_user.songs.where(
   #     acousticness: event.min_acousticness..event.max_acousticness,
