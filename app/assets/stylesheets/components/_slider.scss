@@ -86,8 +86,6 @@ $thumb-border-color: $gray;
 .time-slider::-webkit-slider-runnable-track {
   width: 100%;
   height: $slider-bar-height;
-  cursor: pointer;
-  animate: 0.2s;
   background: linear-gradient(to right, $cold-color, $hot-color);
   border-radius: $slider-bar-height;
 }
@@ -98,18 +96,17 @@ $thumb-border-color: $gray;
   background-color: $medium-color;
   cursor: pointer;
   -webkit-appearance: none;
-  margin-top: -11px;
+  margin-top: -7px;
 }
 .time-slider:focus::-webkit-slider-runnable-track {
   background: $track-outer-color;
+  background: linear-gradient(to right, $cold-color, $hot-color);
   border-radius: $slider-bar-height;
 }
 .time-slider::-moz-range-track {
   width: 100%;
   height: $slider-bar-height;
-  cursor: pointer;
-  animate: 0.2s;
-  background: $track-outer-color;
+  background: linear-gradient(to right, $cold-color, $hot-color);
   border-radius: $slider-bar-height;
 }
 .time-slider::-moz-range-thumb {
@@ -122,8 +119,6 @@ $thumb-border-color: $gray;
 .time-slider::-ms-track {
   width: 100%;
   height: $slider-bar-height;
-  cursor: pointer;
-  animate: 0.2s;
   background: transparent;
   border-color: transparent;
   color: transparent;
