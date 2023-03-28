@@ -15,8 +15,7 @@
   }
   reloadPage();
 </script>
-<%= render "shared/flashes" %>
-<div class="container" id="new-playlist" data-controller='image-creation'>
+<div class="container" id="new-playlist" data-controller='image-creation' data-image-creation-eventid-value="<%= @event.id %>">
   <h1>NEW PLAYLIST PREVIEW</h1>
   <div id="first-song" value="<%= @song_uris.first %>"></div>
   <p><i class="fa-solid fa-chevron-left"></i> <%= link_to 'Edit filters', edit_event_path(@event)%></p>
@@ -24,6 +23,7 @@
   <div class="mb-5">
     <div class='btn create-btn' data-action='click->image-creation#showImage' data-image-creation-target='generateImageButton'>Generate Image</div>
   </div>
+  <%# playlist sdk %>
   <% if @songs.count == 0 %>
     <h2 class="mt-5">Oopsie Daisy! Your library does not contain songs which match your filters.</h2>
   <% else %>
@@ -44,9 +44,11 @@
       </div>
     </div>
     <%# image display %>
-    <div data-image-creation-target='image' class='text-center d-none'>
-      <p>The image will go here</p>
-      <i class="fa-solid fa-arrows-rotate"></i>
+    <div data-image-creation-target='imageWrapper' class='text-center d-none'>
+      <img src="" data-image-creation-target="image" alt="">
+      <div class="d-flex justify-content-center py-4">
+        <i class="fa-solid fa-arrows-rotate" data-action="click->image-creation#generateImage"></i>
+      </div>
     </div>
     <%# Create playlist button %>
     <div class="mb-5 d-none" data-image-creation-target='createPlaylistButton'>
