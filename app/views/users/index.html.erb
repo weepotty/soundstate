@@ -1,3 +1,12 @@
-<% @users.each do |user| %>
-  <%= user.nickname %>
-<% end %>
+<div class="container">
+  <% @users.each do |user| %>
+  <div>
+    <% if user.avatar.attached? %>
+      <%= cl_image_tag user.avatar.key, crop: :fill, class: "avatar" %>
+    <% else %>
+      <%= image_tag "unknown_avatar.jpg", class: "avatar" %>
+    <% end %>
+    <%= user.nickname %>
+  </div>
+  <% end %>
+</div>
