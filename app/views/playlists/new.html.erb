@@ -24,6 +24,7 @@
   <div class="mb-5">
     <div class='btn create-btn' data-action='click->image-creation#showImage' data-image-creation-target='generateImageButton'>Generate Image</div>
   </div>
+  <%# playlist sdk %>
   <% if @songs.count == 0 %>
     <h2 class="mt-5">Oopsie Daisy! Your library does not contain songs which match your filters.</h2>
   <% else %>
@@ -45,7 +46,7 @@
     </div>
     <%# image display %>
     <div data-image-creation-target='image' class='text-center d-none'>
-      <p>The image will go here</p>
+      <p><%= image_tag @ai_image_url %></p>
       <i class="fa-solid fa-arrows-rotate"></i>
     </div>
     <%# Create playlist button %>
