@@ -13,5 +13,9 @@
 </div>
 <div class="vault-bottom">
   <h2 class="text-center">Your Vault</h2>
-  <%= render "shared/profile", playlists: @playlists.where(is_shared: false) %>
+  <% if @playlists.where(is_shared: false).empty? %>
+    <%= render "shared/default_profile" %>
+  <% else %>
+    <%= render "shared/profile", playlists: @playlists.where(is_shared: false) %>
+  <% end %>
 </div>
