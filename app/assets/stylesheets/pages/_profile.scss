@@ -1,6 +1,6 @@
 .modal-container {
   position: relative;
-  width: 85%;
+  width: 95%;
   margin: 2% auto;
 }
 
@@ -11,10 +11,10 @@
   z-index: 2;
   position: fixed;
   top:10%;
-  bottom:10%;
   left: 5%;
   min-width: 90%;
   margin:0 auto;
+  padding: 0.25em;
 
   background-color: rgba(255, 255, 255, 0.074);
   border: 1px solid rgba(255, 255, 255, 0.222);
