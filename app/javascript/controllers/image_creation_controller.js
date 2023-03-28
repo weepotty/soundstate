@@ -38,7 +38,9 @@ export default class extends Controller {
       .then((res) => res.text())
       .then((url) => {
         this.imageWrapperTarget.innerHTML = `<img src="${url}" />`;
+
         this.photoTarget.value = url;
+
       });
   }
 }

@@ -47,10 +47,12 @@
     <div data-image-creation-target='imageWrapper' class='text-center d-none'>
       <img src="" data-image-creation-target="image" alt="">
     </div>
+    
     <%# refresh button %>
     <div class="d-flex justify-content-center py-4">
       <i class="fa-solid fa-arrows-rotate" data-action="click->image-creation#generateImage"></i>
     </div>
+    
     <%# Create playlist button %>
     <div class="mb-5">
       <%= simple_form_for [@event, @playlist], defaults: { required: false } do |f| %>
