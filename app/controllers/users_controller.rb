@@ -15,12 +15,6 @@ class UsersController < ApplicationController
       session['devise.spotify_data'] = request.env['omniauth.auth'].except('extra')
       redirect_to new_user_registration_url, alert: @user.errors.full_messages.join("\n")
     end
-
-    # get all the songs from user's library and their properties, and load into songs table
-    ::ImportSongsService.call(
-      spotify_user: spotify_user,
-      current_user: current_user
-    )
   end
 
   # GET /users/
@@ -30,6 +24,11 @@ class UsersController < ApplicationController
       @users = User.search_by_nickname(@query)
     else
       @users = User.all
+    end
+
+    respond_to do |format|
+      format.html # Follow regular flow of Rails
+      format.text { render partial: 'shared/search_output', locals: {user: @users}, formats: [:html] }
     end
   end
 

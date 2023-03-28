@@ -19,6 +19,9 @@ application.register("homepage", HomepageController)
 import ImageCreationController from "./image_creation_controller"
 application.register("image-creation", ImageCreationController)
 
+import LoadSongsController from "./load_songs_controller"
+application.register("load-songs", LoadSongsController)
+
 import LogoController from "./logo_controller"
 application.register("logo", LogoController)
 
@@ -27,6 +30,9 @@ application.register("profile-card", ProfileCardController)
 
 import ProfileModalController from "./profile_modal_controller"
 application.register("profile-modal", ProfileModalController)
+
+import SearchController from "./search_controller"
+application.register("search", SearchController)
 
 import ShareButtonController from "./share_button_controller"
 application.register("share-button", ShareButtonController)

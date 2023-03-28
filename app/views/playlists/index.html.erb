@@ -8,4 +8,9 @@
     <h2><%= @user.nickname.capitalize %>'s Gallery</h2>
   </div>
 </div>
-<%= render "shared/profile", playlists: @playlists.where(is_shared: true) %>
+
+<% if @playlists.where(is_shared: true).empty?  %>
+  <%= render "shared/default_gallery" %>
+<% else %>
+  <%= render "shared/profile", playlists: @playlists.where(is_shared: true).order(created_at: :DESC) %>
+<% end %>

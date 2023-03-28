@@ -6,4 +6,17 @@ class PagesController < ApplicationController
       render 'pages/landing'
     end
   end
+
+  def load_songs_page
+  end
+
+  def load_songs
+    # get all the songs from user's library and their properties, and load into songs table
+    ::ImportSongsService.call(
+      spotify_user: current_user.spotify_user,
+      current_user: current_user
+    )
+
+    redirect_to root_path
+  end
 end
