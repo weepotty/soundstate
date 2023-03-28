@@ -1,6 +1,6 @@
 <div class="container">
   <% @users.each do |user| %>
-  <div>
+  <div class="user-search-card">
     <% if user.avatar.attached? %>
       <%= cl_image_tag user.avatar.key, crop: :fill, class: "avatar" %>
     <% else %>
