@@ -9,7 +9,7 @@ export default class extends Controller {
     "generateImageButton",
     "createPlaylistButton",
     "photo",
-    "title",
+    "regenerateButton",
   ];
 
   static values = {
@@ -19,28 +19,33 @@ export default class extends Controller {
   connect() {}
 
   async showImage() {
-    await this.generateImage();
-
+    this.imageTarget.classList.remove("d-none");
     this.playlistTarget.classList.add("d-none");
-    this.imageWrapperTarget.classList.remove("d-none");
     this.generateImageButtonTarget.classList.add("d-none");
+    await this.generateImage();
+    this.regenerateButtonTarget.classList.remove("d-none");
     this.createPlaylistButtonTarget.classList.remove("d-none");
   }
 
   generateImage() {
-    this.imageWrapperTarget.innerHTML = "<div style='my-4'>Loading...</div>";
+    return new Promise((resolve, reject) => {
+      this.imageTarget.innerHTML =
+        "<div class='playlist-loader'></div><div>Generating AI Art...</div>";
 
-    fetch(`/events/${this.eventidValue}/image`, {
-      headers: {
-        Accept: "text/plain",
-      },
-    })
-      .then((res) => res.text())
-      .then((url) => {
-        this.imageWrapperTarget.innerHTML = `<img src="${url}" />`;
-
-        this.photoTarget.value = url;
-
-      });
+      fetch(`/events/${this.eventidValue}/image`, {
+        headers: {
+          Accept: "text/plain",
+        },
+      })
+        .then((res) => res.text())
+        .then((url) => {
+          this.imageTarget.innerHTML = `<img src="${url}" />`;
+          this.photoTarget.value = url;
+          resolve();
+        })
+        .catch((error) => {
+          reject(error);
+        });
+    });
   }
 }

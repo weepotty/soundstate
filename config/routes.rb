@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get '/load_songs_page', to: 'pages#load_songs_page'
   get '/load_songs', to: 'pages#load_songs'
 
-  resources :users, only: %i[index show] do
+  resources :users, only: %i[index show edit update] do
     resources :playlists, only: %i[index]
   end
 

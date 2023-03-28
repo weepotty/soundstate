@@ -31,6 +31,9 @@ application.register("profile-card", ProfileCardController)
 import ProfileModalController from "./profile_modal_controller"
 application.register("profile-modal", ProfileModalController)
 
+import ProfilePictureUploadController from "./profile_picture_upload_controller"
+application.register("profile-picture-upload", ProfilePictureUploadController)
+
 import SearchController from "./search_controller"
 application.register("search", SearchController)
 

@@ -1,0 +1,7 @@
+<div class="mb-5 d-none" data-image-creation-target='createPlaylistButton'>
+  <%= simple_form_for [@event, @playlist], defaults: { required: false } do |f| %>
+    <%= f.input :photo, as: :hidden, value: "", input_html: { data: {image_creation_target: "photo"} } %>
+    <%= f.input :title, as: :hidden, input_html: { value: @event.title || 'My Playlist', class: "new-playlist-form", readonly: true, data: {image_creation_target: "title"} } %>
+    <%= f.button :submit,"Create Playlist", class: "btn create-btn", data: {bs_toggle: "modal", bs_target: "#playlistSpinnerModal"} %>
+  <% end %>
+</div>
