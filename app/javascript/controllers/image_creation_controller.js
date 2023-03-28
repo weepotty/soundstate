@@ -5,22 +5,37 @@ export default class extends Controller {
   static targets = [
     "playlist",
     "image",
+    "imageWrapper",
     "generateImageButton",
     "createPlaylistButton",
   ];
 
-  connect() {
-    console.log("connected");
-    console.log(this.playlistTarget);
-    console.log(this.imageTarget);
-    console.log(this.generateImageButtonTarget);
-    console.log(this.createPlaylistButtonTarget);
-  }
+  static values = {
+    eventid: String,
+  };
 
-  showImage() {
+  connect() {}
+
+  async showImage() {
+    await this.generateImage();
+
     this.playlistTarget.classList.add("d-none");
-    this.imageTarget.classList.remove("d-none");
+    this.imageWrapperTarget.classList.remove("d-none");
     this.generateImageButtonTarget.classList.add("d-none");
     this.createPlaylistButtonTarget.classList.remove("d-none");
+  }
+
+  generateImage() {
+    this.imageWrapperTarget.innerHTML = "<div style='my-4'>Loading...</div>";
+
+    fetch(`/events/${this.eventidValue}/image`, {
+      headers: {
+        Accept: "text/plain",
+      },
+    })
+      .then((res) => res.text())
+      .then((url) => {
+        this.imageWrapperTarget.innerHTML = `<img src="${url}" />`;
+      });
   }
 }
