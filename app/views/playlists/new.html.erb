@@ -46,10 +46,9 @@
     <%# image display %>
     <div data-image-creation-target='imageWrapper' class='text-center d-none'>
       <img src="" data-image-creation-target="image" alt="">
-      <%#= image_tag @ai_image_url %>
-    </div>
-    <div class="d-flex justify-content-center py-4">
-      <i class="fa-solid fa-arrows-rotate" data-action="click->image-creation#generateImage"></i>
+      <div class="d-flex justify-content-center py-4">
+        <i class="fa-solid fa-arrows-rotate" data-action="click->image-creation#generateImage"></i>
+      </div>
     </div>
     <%# Create playlist button %>
     <div class="mb-5 d-none" data-image-creation-target='createPlaylistButton'>
