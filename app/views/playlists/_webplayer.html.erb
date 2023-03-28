@@ -1,0 +1,16 @@
+<div class="sdk-container d-flex justify-content-center align-items-start flex-wrap gap-1" data-image-creation-target='playlist'>
+  <div id="embed-iframe"></div>
+  <div class="flex-grow-1 episodes-container">
+    <ul id="episodes" class="list-unstyled">
+      <div class="list-items-container">
+        <% @songs.each do |song| %>
+          <li class="episodes">
+            <button class="btn episode" data-spotify-id=<%= song.uri %>>
+                  <strong><%= song.name %></strong> - <%= song.artist %>
+            </button>
+          </li>
+        <% end %>
+      </div>
+    </ul>
+  </div>
+</div>
