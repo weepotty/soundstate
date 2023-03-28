@@ -31,6 +31,9 @@ application.register("profile-card", ProfileCardController)
 import ProfileModalController from "./profile_modal_controller"
 application.register("profile-modal", ProfileModalController)
 
+import SearchController from "./search_controller"
+application.register("search", SearchController)
+
 import ShareButtonController from "./share_button_controller"
 application.register("share-button", ShareButtonController)
 
