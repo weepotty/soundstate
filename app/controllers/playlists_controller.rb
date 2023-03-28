@@ -88,8 +88,7 @@ class PlaylistsController < ApplicationController
 
     # Various prompt helper words for better image generation results.
     art_styles = ['pop art', 'risograph', 'illustration', 'colouring-in sheet', 'cubism', 'memphis', 'digital art',
-                  '3D render', 'block printing', 'watercolor', 'synthwave', 'ceramics', 'vaporwave', 'linocut art',
-                  'storybook']
+                  '3D render', 'block printing', 'watercolor', 'synthwave', 'ceramics', 'vaporwave', 'linocut art']
 
     # Generate image and returns image url.
     client = OpenAI::Client.new
@@ -102,8 +101,7 @@ class PlaylistsController < ApplicationController
   def mood_descriptors(event)
     # happy energetic
     if event.max_valence > 0.5 && event.max_energy > 0.5
-      %w[bright vibrant dynamic spirited vivid lively energetic colorful joyful romantic expressive rich
-         psychedelic saturated happy]
+      %w[bright vibrant dynamic spirited vivid lively energetic colorful joyful romantic expressive rich]
     # happy chill
     elsif event.max_valence > 0.5 && event.max_energy < 0.5
       %w[light peaceful calm serene soothing relaxed cosy tranquil pastel ethereal tender soft]
