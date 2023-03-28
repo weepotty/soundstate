@@ -38,4 +38,14 @@ class UsersController < ApplicationController
     @playlists = current_user.playlists
     @events = current_user.events
   end
+
+  # GET /users/:id/edit
+  def edit
+
+  end
+
+  # PATCH /users/:id
+  def update
+
+  end
 end
