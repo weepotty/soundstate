@@ -58,18 +58,22 @@ $thumb-border-color: $gray;
 }
 
 .range-input .min::-webkit-slider-thumb {
+  border: 0;
   background-color: $cold-color;
 }
 
 .range-input .min::-moz-range-thumb {
+  border: 0;
   background-color: $cold-color;
 }
 
 .range-input .max::-webkit-slider-thumb {
+  border: 0;
   background-color: $hot-color;
 }
 
 .range-input .max::-moz-range-thumb {
+  border: 0;
   background-color: $hot-color;
 }
 
@@ -95,6 +99,7 @@ $thumb-border-color: $gray;
   height: $thumb-height;
   width: $thumb-height;
   border-radius: 50%;
+  border: 0;
   background-color: $medium-color;
   cursor: pointer;
   -webkit-appearance: none;
@@ -116,6 +121,7 @@ $thumb-border-color: $gray;
   height: $thumb-height;
   width: $thumb-height;
   border-radius: 50%;
+  border: 0;
   background-color: $medium-color;
   cursor: pointer;
 }
@@ -142,6 +148,7 @@ $thumb-border-color: $gray;
   width: $thumb-height;
   border-radius: 50%;
   background-color: $medium-color;
+  border: 0;
   cursor: pointer;
 }
 .time-slider:focus::-ms-fill-lower {
