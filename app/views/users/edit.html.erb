@@ -6,6 +6,10 @@
       <% else %>
         <%= image_tag "unknown_avatar.jpg", data: { "profile-picture-upload-target" => "profilePicture" } %>
       <% end %>
+      <div class="edit-overlay">
+        <p><i class="fa-solid fa-pen fa-3x"></i></p>
+        <p>Upload Photo</p>
+      </div>
     </div>
     <%= f.input :nickname, label: "Nickname", placeholder: "Enter your nickname", required: false %>
     <%= f.input :avatar,
