@@ -86,8 +86,6 @@ $thumb-border-color: $gray;
 .time-slider::-webkit-slider-runnable-track {
   width: 100%;
   height: $slider-bar-height;
-  cursor: pointer;
-  animate: 0.2s;
   background: linear-gradient(to right, $cold-color, $hot-color);
   border-radius: $slider-bar-height;
 }
@@ -108,8 +106,6 @@ $thumb-border-color: $gray;
 .time-slider::-moz-range-track {
   width: 100%;
   height: $slider-bar-height;
-  cursor: pointer;
-  animate: 0.2s;
   background: linear-gradient(to right, $cold-color, $hot-color);
   border-radius: $slider-bar-height;
 }
@@ -123,8 +119,6 @@ $thumb-border-color: $gray;
 .time-slider::-ms-track {
   width: 100%;
   height: $slider-bar-height;
-  cursor: pointer;
-  animate: 0.2s;
   background: transparent;
   border-color: transparent;
   color: transparent;
