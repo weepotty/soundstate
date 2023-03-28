@@ -14,8 +14,6 @@ class GenerateImageService
     img_res = image_response.dig('data', 0, 'url')
   end
 
-
-
   def self.mood_descriptors(event)
     # happy energetic
     if event.max_valence > 0.5 && event.max_energy > 0.5
