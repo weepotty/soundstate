@@ -39,9 +39,11 @@
         </ul>
       </div>
     </div>
+    <%# image display %>
+    <div data-image-creation-target='image' class='d-none'>The image will go here</div>
     <%# Create image button %>
     <div class="mb-5">
-      <div class='btn create-btn' data-action='click->image-creation#generate'>Generate Image</div>
+      <div class='btn create-btn' data-action='click->image-creation#showImage' data-image-creation-target='generate-image-button'>Generate Image</div>
     </div>
     <%# Create playlist button %>
     <div class="mb-5">
