@@ -16,6 +16,6 @@
   <% if @playlists.where(is_shared: false).empty? %>
     <%= render "shared/default_profile" %>
   <% else %>
-    <%= render "shared/profile", playlists: @playlists.where(is_shared: false) %>
+    <%= render "shared/profile", playlists: @playlists.where(is_shared: false).order(created_at: :DESC) %>
   <% end %>
 </div>
