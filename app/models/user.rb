@@ -46,7 +46,7 @@ class User < ApplicationRecord
   end
 
   def user_playlists
-    Playlist.where(user: self)
+    Playlist.where(user: self).order(created_at: :DESC)
   end
 
   def others_playlists
