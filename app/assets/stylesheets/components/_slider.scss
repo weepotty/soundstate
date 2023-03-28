@@ -102,6 +102,7 @@ $thumb-border-color: $gray;
 }
 .time-slider:focus::-webkit-slider-runnable-track {
   background: $track-outer-color;
+  background: linear-gradient(to right, $cold-color, $hot-color);
   border-radius: $slider-bar-height;
 }
 .time-slider::-moz-range-track {
@@ -109,7 +110,7 @@ $thumb-border-color: $gray;
   height: $slider-bar-height;
   cursor: pointer;
   animate: 0.2s;
-  background: $track-outer-color;
+  background: linear-gradient(to right, $cold-color, $hot-color);
   border-radius: $slider-bar-height;
 }
 .time-slider::-moz-range-thumb {
