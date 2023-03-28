@@ -3,7 +3,7 @@
     <hr>
 
     <% @users.each do |user| %>
-    <%= link_to user_playlists_path(user) do %>
+    <%= link_to user_playlists_path(user), class:"text-decoration-none" do %>
       <div class="user-search-card">
         <% if user.avatar.attached? %>
           <%= cl_image_tag user.avatar.key, crop: :fill, class: "avatar" %>
