@@ -1,4 +1,13 @@
 #playlist-show {
-  max-width: 100%;
+  max-width: 800px;
+  min-width: 300px;
   max-height: 500px;
+  margin: 0 auto;
+}
+
+@media(max-width: 300px) {
+  #playlist-show {
+    min-width: 230px;
+    max-height: 440px;
+  }
 }

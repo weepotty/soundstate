@@ -6,9 +6,10 @@
   backdrop-filter: blur(20px);
   border-radius: .6rem;
   transition: all ease .3s;
-  color: $white;
+  color: $medium-color;
   width: 90%;
   max-width: 360px;
+  min-width: 320px;
   padding: 1.6rem;
   margin: 0 auto;
   display: flex;
@@ -22,7 +23,7 @@
   width: 100%;
   height: 40px;
   border-radius: 10px;
-  background-color: #dc6b57;
+  background-color: $cold-color;
   // background-image: linear-gradient(155deg,#e4cd70,#dc6b57 40%,#f4940d);
   text-decoration: none;
   display: block;
@@ -53,7 +54,7 @@
   padding: 1em;
   border: none;
   outline: none;
-  color: rgb(255, 255, 255);
+  color: $cold-color;
   background-color: #242424;
   box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
 }
