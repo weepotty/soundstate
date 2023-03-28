@@ -25,6 +25,11 @@ class UsersController < ApplicationController
     else
       @users = User.all
     end
+
+    respond_to do |format|
+      format.html # Follow regular flow of Rails
+      format.text { render partial: 'shared/search_output', locals: {user: @users}, formats: [:html] }
+    end
   end
 
   # GET /users/:id
