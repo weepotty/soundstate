@@ -22,7 +22,7 @@
   <p><i class="fa-solid fa-chevron-left"></i> <%= link_to 'Edit filters', edit_event_path(@event)%></p>
   <%# Generate image button %>
   <div class="mb-5">
-    <div class='btn create-btn' data-action='click->image-creation#showImage' data-image-creation-target='generate-image-button'>Generate Image</div>
+    <div class='btn create-btn' data-action='click->image-creation#showImage' data-image-creation-target='generateImageButton'>Generate Image</div>
   </div>
   <% if @songs.count == 0 %>
     <h2 class="mt-5">Oopsie Daisy! Your library does not contain songs which match your filters.</h2>
@@ -49,7 +49,7 @@
       <i class="fa-solid fa-arrows-rotate"></i>
     </div>
     <%# Create playlist button %>
-    <div class="mb-5">
+    <div class="mb-5 d-none" data-image-creation-target='createPlaylistButton'>
       <%= simple_form_for [@event, @playlist], defaults: { required: false } do |f| %>
         <%= f.input :title, as: :hidden, input_html: { value: @event.title || 'My Playlist', class: "new-playlist-form", readonly: true } %>
         <%= f.button :submit, "Create Playlist", class: "btn create-btn", data: {bs_toggle: "modal", bs_target: "#playlistSpinnerModal"} %>
