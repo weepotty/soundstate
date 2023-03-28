@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root to: "pages#home"
 
+  # Routes to render the Loading Songs loading page.
+  get '/load_songs_page', to: 'pages#load_songs_page'
+  get '/load_songs', to: 'pages#load_songs'
+
   resources :users, only: %i[index show] do
     resources :playlists, only: %i[index]
   end
