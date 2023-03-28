@@ -32,14 +32,13 @@
           <div class="list-items-container">
             <% @songs.each do |song| %>
               <li class="episodes">
-                <button class="btn episodes-button" data-spotify-id=<%= song.uri %>>
+                <button class="btn episode" data-spotify-id=<%= song.uri %>>
                   <strong><%= song.name %></strong> - <%= song.artist %>
                 </button>
               </li>
             <% end %>
           </div>
         </ul>
-      </div>
       </div>
     </div>
     <div class="mb-5">
