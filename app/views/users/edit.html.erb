@@ -1,4 +1,11 @@
 <div class="user-profile-form">
+  <div class="user-profile-picture">
+    <% if current_user.avatar.attached? %>
+      <%= cl_image_tag current_user.avatar.key, height: 200, width: 200, crop: :fill %>
+    <% else %>
+      <%= image_tag "unknown_avatar.jpg" %>
+    <% end %>
+  </div>
   <%= simple_form_for(current_user) do |f| %>
     <%= f.input :nickname, label: "Nickname", placeholder: "Enter your nickname", required: false %>
     <%= f.input :avatar, as: :file, label: "Upload new profile picture" %>
