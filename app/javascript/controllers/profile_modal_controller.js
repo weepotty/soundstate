@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="profile-modal"
 export default class extends Controller {
-  static targets = ["modal", "overlay"]
+  static targets = ["modal", "overlay", "share"]
 
   open() {
     setTimeout(() => {

@@ -28,5 +28,8 @@ application.register("profile-modal", ProfileModalController);
 import SliderController from "./slider_controller";
 application.register("slider", SliderController);
 
+import ShareButtonController from "./share_button_controller"
+application.register("share-button", ShareButtonController)
+
 import TimeZoneController from "./time_zone_controller";
 application.register("time-zone", TimeZoneController);
