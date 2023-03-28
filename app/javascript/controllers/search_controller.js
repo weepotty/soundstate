@@ -9,4 +9,8 @@ export default class extends Controller {
     console.log(this.inputTarget)
     console.log(this.listTarget)
   }
+
+  update() {
+    console.log("TODO: send request in AJAX")
+  }
 }
