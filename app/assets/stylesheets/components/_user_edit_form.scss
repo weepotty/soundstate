@@ -9,9 +9,12 @@
 }
 
 .user-profile-picture {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  overflow: hidden;
   margin-bottom: 2rem;
+
+  img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
 }
