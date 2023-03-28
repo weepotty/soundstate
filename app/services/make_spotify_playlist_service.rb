@@ -1,5 +1,6 @@
 class MakeSpotifyPlaylistService
-  def self.call(event:, current_user:, playlist_params:)
+  def self.call(event:, current_user:, playlist_params:, image_url:)
+
     # @event, current_user, @ss_playlist
     songs, song_uris = event.filter_songs(current_user)
 
@@ -13,11 +14,7 @@ class MakeSpotifyPlaylistService
     # add playlist to our DB
     ss_playlist = Playlist.new(title: playlist_params[:title], user: current_user, spotify_id: spotify_playlist.id)
 
-    # generate image URL
-    image_url = ::GenerateImageService.call(
-      song: songs.sample,
-      event: event
-    )
+   
     playlist_image = URI.open(image_url)
 
     # attaching AI image to our DB
