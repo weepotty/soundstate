@@ -1,4 +1,4 @@
-<div class="w-100 h-100 flex-grow-1 p-4 d-flex justify-content-center align-items-center position-relative">
+<div class="user-profile-form">
   <%= simple_form_for(current_user) do |f| %>
     <%= f.input :nickname, label: "Nickname", placeholder: "Enter your nickname", required: false %>
     <%= f.input :avatar, as: :file, label: "Upload new profile picture" %>
