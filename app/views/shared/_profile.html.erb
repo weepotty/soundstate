@@ -1,5 +1,5 @@
 <div class="profile-wrapper mb-5">
-  <% playlists.reverse.each do |playlist| %>
+  <% playlists.each do |playlist| %>
     <div data-controller="profile-modal share-button" data-share-button-shared-value="<%= playlist.is_shared %>" data-share-button-id-value="<%= playlist.id %>">
       <div class="profile-card" data-controller="profile-card" data-action="click->profile-card#click" data-share-button-target="thumbnail">
         <div class="profile-scene scene--card" data-action="click->profile-modal#open">
