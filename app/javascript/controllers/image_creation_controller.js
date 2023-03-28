@@ -10,6 +10,7 @@ export default class extends Controller {
     "createPlaylistButton",
     "photo",
     "title",
+    "regenerateButton",
   ];
 
   static values = {
@@ -22,13 +23,15 @@ export default class extends Controller {
     await this.generateImage();
 
     this.playlistTarget.classList.add("d-none");
-    this.imageWrapperTarget.classList.remove("d-none");
+    this.imageTarget.classList.remove("d-none");
+    this.regenerateButtonTarget.classList.remove("d-none");
     this.generateImageButtonTarget.classList.add("d-none");
     this.createPlaylistButtonTarget.classList.remove("d-none");
   }
 
   generateImage() {
-    this.imageWrapperTarget.innerHTML = "<div style='my-4'>Loading...</div>";
+    this.imageTarget.innerHTML =
+      "<div class='playlist-loader'></div><div>Generating AI Art...</div>";
 
     fetch(`/events/${this.eventidValue}/image`, {
       headers: {
@@ -37,10 +40,8 @@ export default class extends Controller {
     })
       .then((res) => res.text())
       .then((url) => {
-        this.imageWrapperTarget.innerHTML = `<img src="${url}" />`;
-
+        this.imageTarget.innerHTML = `<img src="${url}" /><div style='cursor: pointer' class='d-flex justify-content-center py-4' data-image-creation-target='regenerateButton'><i class='fa-solid fa-arrows-rotate' data-action='click->image-creation#generateImage'></i></div>`;
         this.photoTarget.value = url;
-
       });
   }
 }

@@ -44,15 +44,15 @@
       </div>
     </div>
     <%# image display %>
-    <div data-image-creation-target='imageWrapper' class='text-center d-none'>
-      <img src="" data-image-creation-target="image" alt="">
+    <div>
+      <div data-image-creation-target='image' class='text-center d-none'>
+        <img src="" alt="">
+      </div>
     </div>
-    
     <%# refresh button %>
-    <div class="d-flex justify-content-center py-4">
+    <%# <div class="d-flex justify-content-center py-4 d-none" data-image-creation-target="regenerateButton">
       <i class="fa-solid fa-arrows-rotate" data-action="click->image-creation#generateImage"></i>
-    </div>
-    
+    </div> %>
     <%# Create playlist button %>
     <div class="mb-5">
       <%= simple_form_for [@event, @playlist], defaults: { required: false } do |f| %>
