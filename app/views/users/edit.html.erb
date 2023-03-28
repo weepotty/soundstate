@@ -1,8 +1,7 @@
-<div class="w-100 h-100 flex-grow-1 d-flex justify-content-center align-items-center position-relative">
-    <%= simple_form_for current_user do |f| %>
-      <%= f.input :nickname, label: "Nickname", placeholder: "Enter your nickname", required: false %>
-      <%= f.input :avatar, as: :file, label: "Upload new profile picture" %>
-      <%= f.submit "Save", class: "event-button" %>
-    <% end %>
-  </div>
+<div class="w-100 h-100 flex-grow-1 p-4 d-flex justify-content-center align-items-center position-relative">
+  <%= simple_form_for(current_user) do |f| %>
+    <%= f.input :nickname, label: "Nickname", placeholder: "Enter your nickname", required: false %>
+    <%= f.input :avatar, as: :file, label: "Upload new profile picture" %>
+    <%= f.submit "Save", class: "event-button w-50", style: "margin: 2rem auto;" %>
+  <% end %>
 </div>
