@@ -16,7 +16,25 @@ export default class extends Controller {
     eventid: String,
   };
 
-  connect() {}
+  connect() {
+    function reloadPage() {
+      // The last "domLoading" Time //
+      let currentDocumentTimestamp = new Date(
+        performance.timing.domLoading
+      ).getTime();
+      // Current Time //
+      let now = Date.now();
+      // Ten Seconds //
+      let oneSec = 1 * 1000;
+      // Plus Ten Seconds //
+      let plusOneSec = currentDocumentTimestamp + oneSec;
+      if (now > plusOneSec) {
+        location.reload();
+      } else {
+      }
+    }
+    reloadPage();
+  }
 
   async showImage() {
     this.imageTarget.classList.remove("d-none");
