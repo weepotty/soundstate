@@ -9,8 +9,9 @@
     </ul>
   </div>
 
-  <%= link_to "SOUNDSTATE", root_path, style: 'text-decoration: none; color: white;' %>
+  <%= link_to "SOUNDSTATE", root_path, class:"header-text", style: 'text-decoration: none; color: white;' %>
 
+  <%# <button data-action="click->lightmode#lightMode">Light Mode</button> %>
   <div class="dropdown">
     <button class="header-dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
       <i class="fa-solid fa-magnifying-glass"></i>
@@ -19,4 +20,10 @@
       <li class="dropdown-item"><%= render "shared/search_bar" %></li>
     </ul>
   </div>
+</div>
+<div class="mode-toggle">
+  <label class="switch">
+    <input data-action="click->lightmode#lightMode" type="checkbox">
+    <span class="slider"></span>
+  </label>
 </div>

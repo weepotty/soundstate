@@ -15,8 +15,9 @@
   }
   reloadPage();
 </script>
+<%= render "shared/flashes" %>
 <div class="container" id="new-playlist" data-controller='image-creation' data-image-creation-eventid-value="<%= @event.id %>">
-  <h1>New Playlist Preview</h1>
+  <h1 class="mb-3">New Playlist Preview</h1>
   <div id="first-song" value="<%= @song_uris.first %>"></div>
   <p><i class="fa-solid fa-chevron-left"></i> <%= link_to 'Edit filters', edit_event_path(@event)%></p>
   <%# Generate image button %>

@@ -1,5 +1,5 @@
 .content-container {
-  padding-bottom: 50px;
+  padding-bottom: 90px;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -12,4 +12,10 @@
 .container {
   width: 90%;
   margin-top: 5%;
+}
+
+@media(max-width: 400px) {
+  .content-container {
+    padding-bottom: 20%;
+  }
 }
