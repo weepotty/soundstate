@@ -20,6 +20,10 @@
   <h1>NEW PLAYLIST PREVIEW</h1>
   <div id="first-song" value="<%= @song_uris.first %>"></div>
   <p><i class="fa-solid fa-chevron-left"></i> <%= link_to 'Edit filters', edit_event_path(@event)%></p>
+  <%# Generate image button %>
+  <div class="mb-5">
+    <div class='btn create-btn' data-action='click->image-creation#showImage' data-image-creation-target='generate-image-button'>Generate Image</div>
+  </div>
   <% if @songs.count == 0 %>
     <h2 class="mt-5">Oopsie Daisy! Your library does not contain songs which match your filters.</h2>
   <% else %>
@@ -40,10 +44,9 @@
       </div>
     </div>
     <%# image display %>
-    <div data-image-creation-target='image' class='d-none'>The image will go here</div>
-    <%# Create image button %>
-    <div class="mb-5">
-      <div class='btn create-btn' data-action='click->image-creation#showImage' data-image-creation-target='generate-image-button'>Generate Image</div>
+    <div data-image-creation-target='image' class='text-center d-none'>
+      <p>The image will go here</p>
+      <i class="fa-solid fa-arrows-rotate"></i>
     </div>
     <%# Create playlist button %>
     <div class="mb-5">
