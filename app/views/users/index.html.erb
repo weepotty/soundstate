@@ -1,14 +1,16 @@
 <div class="container">
-  <% @users.each do |user| %>
-  <%= link_to user_playlists_path(user) do %>
-    <div class="user-search-card">
-      <% if user.avatar.attached? %>
-        <%= cl_image_tag user.avatar.key, crop: :fill, class: "avatar" %>
-      <% else %>
-        <%= image_tag "unknown_avatar.jpg", class: "avatar" %>
+  <div data-search-target="list">
+    <% @users.each do |user| %>
+    <%= link_to user_playlists_path(user) do %>
+      <div class="user-search-card">
+        <% if user.avatar.attached? %>
+          <%= cl_image_tag user.avatar.key, crop: :fill, class: "avatar" %>
+        <% else %>
+          <%= image_tag "unknown_avatar.jpg", class: "avatar" %>
+        <% end %>
+        <span><%= user.nickname %></span>
+      </div>
       <% end %>
-      <span><%= user.nickname %></span>
-    </div>
     <% end %>
-  <% end %>
+  </div>
 </div>

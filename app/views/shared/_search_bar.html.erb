@@ -1,9 +1,14 @@
-<%= form_with url: users_path, method: :get, class: "d-flex flex-grow-1" do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control search-bar",
-    placeholder: "type in username",
-    required: true
-  %>
-  <button class='btn btn-dark'>search</button>
-<% end %>
+<div>
+  <%= form_with url: users_path, method: :get, class: "d-flex flex-grow-1", data: {search_target: "form"} do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control search-bar",
+      placeholder: "type in username",
+      required: true,
+      data: {
+        search_target: "input",
+        action: "keyup->search-movies#update"}
+    %>
+    <button class='btn btn-dark'>search</button>
+  <% end %>
+</div>
