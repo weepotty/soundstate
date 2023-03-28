@@ -36,12 +36,6 @@ class PlaylistsController < ApplicationController
     )
 
     if @ss_playlist.save!
-      # As Spotify only accepts jpeg in Base64 string format, we would need to use Cloudinary to convert the uploaded png from OpenAI into jpeg.
-
-      # jpeg_image = URI.open("#{@ss_playlist.photo.url[...-4]}.jpeg") { |io| io.read }
-
-      # # replace spotify playlist image with AI generated one
-      # spotify_playlist.replace_image!(Base64.strict_encode64(jpeg_image), 'image/jpeg')
       update_spotify_playlist_image(@ss_playlist, spotify_playlist)
 
       redirect_to playlist_path(@ss_playlist)

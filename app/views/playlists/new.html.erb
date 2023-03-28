@@ -16,58 +16,20 @@
   reloadPage();
 </script>
 <div class="container" id="new-playlist" data-controller='image-creation' data-image-creation-eventid-value="<%= @event.id %>">
-  <h1>NEW PLAYLIST PREVIEW</h1>
+  <h1>New Playlist Preview</h1>
   <div id="first-song" value="<%= @song_uris.first %>"></div>
   <p><i class="fa-solid fa-chevron-left"></i> <%= link_to 'Edit filters', edit_event_path(@event)%></p>
   <%# Generate image button %>
   <div class="mb-5">
     <div class='btn create-btn' data-action='click->image-creation#showImage' data-image-creation-target='generateImageButton'>Generate Image</div>
   </div>
-  <%# playlist sdk %>
   <% if @songs.count == 0 %>
     <h2 class="mt-5">Oopsie Daisy! Your library does not contain songs which match your filters.</h2>
   <% else %>
-    <div class="sdk-container d-flex justify-content-center align-items-start flex-wrap gap-1" data-image-creation-target='playlist'>
-      <div id="embed-iframe"></div>
-      <div class="flex-grow-1 episodes-container">
-        <ul id="episodes" class="list-unstyled">
-          <div class="list-items-container">
-            <% @songs.each do |song| %>
-              <li class="episodes">
-                <button class="btn episode" data-spotify-id=<%= song.uri %>>
-                  <strong><%= song.name %></strong> - <%= song.artist %>
-                </button>
-              </li>
-            <% end %>
-          </div>
-        </ul>
-      </div>
-    </div>
-    <%# image display %>
-    <div data-image-creation-target='imageWrapper' class='text-center d-none'>
-      <img src="" data-image-creation-target="image" alt="">
-    </div>
-    
-    <%# refresh button %>
-    <div class="d-flex justify-content-center py-4">
-      <i class="fa-solid fa-arrows-rotate" data-action="click->image-creation#generateImage"></i>
-    </div>
-    
-    <%# Create playlist button %>
-    <div class="mb-5">
-      <%= simple_form_for [@event, @playlist], defaults: { required: false } do |f| %>
-        <%= f.input :photo, as: :hidden, value: "", input_html: { data: {image_creation_target: "photo"} } %>
-        <%= f.input :title, as: :hidden, input_html: { value: @event.title || 'My Playlist', class: "new-playlist-form", readonly: true, data: {image_creation_target: "title"} } %>
-        <%= f.button :submit,"Create Playlist", class: "d-none btn create-btn", data: {image_creation_target: "createPlaylistButton", bs_toggle: "modal", bs_target: "#playlistSpinnerModal"} %>
-      <% end %>
-    </div>
+    <%= render 'webplayer' %>
+    <%= render 'image_display' %>
+    <%= render 'playlist_creation_form' %>
   <% end %>
 </div>
 <%# Spinner modal %>
-<div class="modal" id="playlistSpinnerModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog modal-fullscreen">
-    <div class="modal-content d-flex justify-content-center align-items-center"  style='background: black; opacity: 0.9'>
-      <%= render 'generate_playlist_spinner' %>
-    </div>
-  </div>
-</div>
+<%= render 'spinner_modal' %>
