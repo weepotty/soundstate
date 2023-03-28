@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
   end
-  
+
   # POST /events
   def create
     @event = Event.new(event_params)
@@ -14,6 +14,20 @@ class EventsController < ApplicationController
       @event.min_tempo = (@event.min_tempo / 220)
       @event.max_tempo = (@event.max_tempo / 220)
       render :new, status: :unprocessable_entity
+    end
+  end
+
+  def image
+    @event = Event.find(params[:event_id])
+    @songs = @event.filter_songs(current_user).first
+
+    @ai_image_url = ::GenerateImageService.call(
+      song: @songs.sample,
+      event: @event
+    )
+
+    respond_to do |format|
+      format.text { render plain: @ai_image_url }
     end
   end
 
