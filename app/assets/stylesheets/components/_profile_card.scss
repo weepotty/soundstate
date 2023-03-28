@@ -105,3 +105,10 @@
 .card.is-flipped {
   transform: translateX(-100%) rotateY(-180deg);
 }
+
+
+@media only screen and (min-width: 600px) {
+  .profile-wrapper {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
