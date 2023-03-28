@@ -50,7 +50,7 @@ class User < ApplicationRecord
   end
 
   def others_playlists
-    Playlist.where.not(user: self)
+    Playlist.where.not(user: self).order(created_at: :DESC)
   end
 
   # Add 3 default events to new users
