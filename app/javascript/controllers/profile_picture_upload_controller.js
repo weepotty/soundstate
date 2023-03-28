@@ -1,0 +1,13 @@
+import { Controller } from "@hotwired/stimulus"
+
+// Connects to data-controller="profile-picture-upload"
+export default class extends Controller {
+  static targets = ["profilePicture"];
+  
+  connect() {
+  }
+
+  changePicture(event) {
+    this.profilePictureTarget.src = URL.createObjectURL(event.target.files[0]);
+  }
+}
