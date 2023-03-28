@@ -1,16 +1,20 @@
 // Styles for Your Event
 .vault-top {
   width: 100%;
-  margin: 3rem auto 1rem auto;
+  margin: 0 auto;
+  margin-bottom: 5rem;
+  // border-bottom: 1px solid $dark-gray;
 }
+
 
 .event-slide {
   padding: 1rem 0;
   max-height: 10rem;
   max-width: 900px;
   margin: 0 auto;
+  margin-bottom: 5rem;
 }
-  
+
 .event-cell {
   width: 70%;
   max-width: 300px;
@@ -20,15 +24,15 @@
 
 .event-cell * {
   opacity: 0.8;
-  transform: scale(0.8) translateY(0.8rem);
+  transform: scale(0.8);
   box-shadow: 0;
   transition: all 0.5s;
 }
 
 .event-cell.is-selected * {
   opacity: 1;
-  transform: scale(1) translateY(0);
-  box-shadow: 0px 0px 15px 1px #f88ebe89;
+  transform: scale(0.8);
+  box-shadow: 0px 0px 15px 5px $cold-color;
   transition: all 0.5s;
 
 }
@@ -37,7 +41,7 @@
   position: relative;
   width: 100%;
   height: 100%;
-  background: #f88ebe89;
+  background: $cold-color;
   border: 0;
   border-radius: .5rem;
   font-size: $label-fs;
@@ -57,5 +61,5 @@
 // Styles for Your Vault
 .vault-bottom {
   width: 100%;
-  margin: 3rem auto 1rem auto;
+  margin: 2rem auto 1rem auto;
 }

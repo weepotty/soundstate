@@ -1,14 +1,20 @@
-<div class="vault-top">
-  <h2 class="text-center">Your Filters</h2>
-  <div class="event-slide" data-controller="flickity">
-    <% @events.each_with_index do |event, index| %>
-      <div class="event-cell">
-        <div class="event-cell-card text-center py-4">
-          <%= event.title %>
-          <%= link_to "", edit_event_path(event) %>
+<div class="container">
+  <div class="vault-top">
+    <h1 class="text-center">My Vault</h2>
+    <div class="event-slide" data-controller="flickity">
+      <% @events.each_with_index do |event, index| %>
+        <div class="event-cell">
+          <div class="event-cell-card text-center py-4">
+            <%= event.title %>
+            <%= link_to "", edit_event_path(event) %>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="vault-bottom">
+    <%# <h2 class="text-center">Your Vault</h2> %>
+    <%= render "shared/profile", playlists: @playlists.where(is_shared: false) %>
   </div>
 </div>
 <div class="vault-bottom">

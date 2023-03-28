@@ -1,6 +1,8 @@
 .profile-header {
   margin: 0 8%;
   display: flex;
+  justify-content: center;
+  gap: 1rem;
   align-items: center;
 
   & img {
@@ -10,9 +12,9 @@
     object-fit: cover;
   }
 
-  & h2 {
-    margin: 0 0.5em;
-    font-size: 1.5rem;
+  & h1 {
+    margin: 0;
+    padding-top: 0.3rem
   }
 }
 
