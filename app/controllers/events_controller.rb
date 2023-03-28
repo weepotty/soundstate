@@ -21,6 +21,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:event_id])
     @songs = @event.filter_songs(current_user).first
 
+    # get the url of generated image
     @ai_image_url = ::GenerateImageService.call(
       song: @songs.sample,
       event: @event

@@ -31,15 +31,18 @@ class PlaylistsController < ApplicationController
     @ss_playlist, spotify_playlist = ::MakeSpotifyPlaylistService.call(
       current_user:,
       event: @event,
-      playlist_params:
+      playlist_params:,
+      image_url: image_params[:photo]
     )
 
     if @ss_playlist.save!
       # As Spotify only accepts jpeg in Base64 string format, we would need to use Cloudinary to convert the uploaded png from OpenAI into jpeg.
-      jpeg_image = URI.open("#{@ss_playlist.photo.url[...-4]}.jpeg") { |io| io.read }
 
-      # replace spotify playlist image with AI generated one
-      spotify_playlist.replace_image!(Base64.strict_encode64(jpeg_image), 'image/jpeg')
+      # jpeg_image = URI.open("#{@ss_playlist.photo.url[...-4]}.jpeg") { |io| io.read }
+
+      # # replace spotify playlist image with AI generated one
+      # spotify_playlist.replace_image!(Base64.strict_encode64(jpeg_image), 'image/jpeg')
+      update_spotify_playlist_image(@ss_playlist, spotify_playlist)
 
       redirect_to playlist_path(@ss_playlist)
     else
@@ -65,5 +68,15 @@ class PlaylistsController < ApplicationController
 
   def shared_params
     params.require(:playlist).permit(:is_shared)
+  end
+
+  def image_params
+    params.require(:playlist).permit(:photo)
+  end
+
+  def update_spotify_playlist_image(ss_playlist, spotify_playlist)
+    # convert to jpeg and base 64
+    jpeg_image = URI.open("#{ss_playlist.photo.url[...-4]}.jpeg") { |io| io.read }
+    spotify_playlist.replace_image!(Base64.strict_encode64(jpeg_image), 'image/jpeg')
   end
 end

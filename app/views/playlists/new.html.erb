@@ -46,15 +46,19 @@
     <%# image display %>
     <div data-image-creation-target='imageWrapper' class='text-center d-none'>
       <img src="" data-image-creation-target="image" alt="">
-      <div class="d-flex justify-content-center py-4">
-        <i class="fa-solid fa-arrows-rotate" data-action="click->image-creation#generateImage"></i>
-      </div>
     </div>
+    
+    <%# refresh button %>
+    <div class="d-flex justify-content-center py-4">
+      <i class="fa-solid fa-arrows-rotate" data-action="click->image-creation#generateImage"></i>
+    </div>
+    
     <%# Create playlist button %>
-    <div class="mb-5 d-none" data-image-creation-target='createPlaylistButton'>
+    <div class="mb-5">
       <%= simple_form_for [@event, @playlist], defaults: { required: false } do |f| %>
-        <%= f.input :title, as: :hidden, input_html: { value: @event.title || 'My Playlist', class: "new-playlist-form", readonly: true } %>
-        <%= f.button :submit, "Create Playlist", class: "btn create-btn", data: {bs_toggle: "modal", bs_target: "#playlistSpinnerModal"} %>
+        <%= f.input :photo, as: :hidden, value: "", input_html: { data: {image_creation_target: "photo"} } %>
+        <%= f.input :title, as: :hidden, input_html: { value: @event.title || 'My Playlist', class: "new-playlist-form", readonly: true, data: {image_creation_target: "title"} } %>
+        <%= f.button :submit,"Create Playlist", class: "d-none btn create-btn", data: {image_creation_target: "createPlaylistButton", bs_toggle: "modal", bs_target: "#playlistSpinnerModal"} %>
       <% end %>
     </div>
   <% end %>
