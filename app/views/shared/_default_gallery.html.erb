@@ -1,9 +1,19 @@
-<div class="container">
+<% if current_user.id == @playlists.first.user_id %>
+  <div class="container">
   <div class="d-flex flex-column" style="margin-top: 50px; !important">
     <p class="text-center">No shared playlists</p>
     <p class="text-center" style="font-style: italic; font-size: small;">Create a new playlist or share an existing playlist from your vault!</p>
   </div>
-</div>
-<%= link_to new_event_path, class:"text-decoration-none" do %>
+  </div>
+  <%= link_to new_event_path, class:"text-decoration-none" do %>
   <button class="btn create-btn">Create a new playlist</button>
+  <% end %>
+
+  <% else %>
+
+  <div class="container">
+  <div class="d-flex flex-column" style="margin-top: 50px; !important">
+    <p class="text-center"><%= @playlists.first.user.nickname %> has no shared playlists</p>
+  </div>
+
 <% end %>

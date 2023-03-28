@@ -14,7 +14,7 @@
 <div class="vault-bottom">
   <h2 class="text-center">Your Vault</h2>
   <% if @playlists.empty? %>
-    <%= render "shared/default_profile" %>
+    <%= render "shared/default_profile", user:  %>
   <% else %>
     <%= render "shared/profile", playlists: @playlists %>
   <% end %>
