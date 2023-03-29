@@ -15,6 +15,30 @@
     color: $background;
   }
 
+  .gallery-photo {
+    border: 7px solid rgb(189, 240, 254);
+  }
+
+  .event-card>h1 {
+    color:#e2f9ff
+  }
+
+  .event-form {
+    background-color: #dbf3fe;
+    box-shadow: 2px 5px 10px rgb(161, 161, 161);
+    color: $cold-color;
+  }
+
+  #event_title {
+    color: $cold-color;
+    background-color: #f0faff;
+    box-shadow: inset 2px 5px 10px rgb(161, 161, 161);
+
+    #event_title::placeholder {
+      color: $medium-color;
+    }
+  }
+
   .menu-bar {
     background-color: rgba(174, 238, 255, 0.8);
     box-shadow: 4px 0 20px rgba(87, 121, 130, 0.3);
