@@ -26,8 +26,10 @@
     <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= render 'shared/ios_pwa_links' %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
   </head>
   <body class="d-flex flex-column min-vh-100" style="background-color: $background;" data-controller="search lightmode">
     <% if user_signed_in? %>
