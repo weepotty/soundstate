@@ -9,9 +9,7 @@
   display: flex;
   justify-content: space-between;
   text-align: center;
-  padding: 1.5%;
-  padding-left: 10%;
-  padding-right: 10%;
+  padding: 5% 10%;
 
   a {
     color: $gray;
@@ -20,7 +18,7 @@
 }
 
 .current i{
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   color: #FFFFFF;
   text-shadow: 0 0 20px rgba(#FFFFFF, $alpha: 1);
 }
