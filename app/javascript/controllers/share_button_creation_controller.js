@@ -10,7 +10,7 @@ export default class extends Controller {
 
   share() {
     const url = `/playlists/toggle_shared`
-    const unlock = "<p class='m-0' style='$light-gray'>Playlist Shared</p>"
+    const unlock = "<p class='m-0' style='color: $light-gray; padding-top: 1em; padding-left: 1em;'>Playlist Shared</p>"
 
 
     fetch(url, {
