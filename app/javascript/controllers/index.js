@@ -2,52 +2,49 @@
 // Run that command whenever you add a new controller or create them with
 // ./bin/rails generate stimulus controllerName
 
-import { application } from "./application"
+import { application } from "./application";
 
-import DisplayLargeImageController from "./display_large_image_controller"
-application.register("display-large-image", DisplayLargeImageController)
+import FlickityController from "./flickity_controller";
+application.register("flickity", FlickityController);
 
-import FlickityController from "./flickity_controller"
-application.register("flickity", FlickityController)
+import GalleryCardController from "./gallery_card_controller";
+application.register("gallery-card", GalleryCardController);
 
-import GalleryCardController from "./gallery_card_controller"
-application.register("gallery-card", GalleryCardController)
+import HelloController from "./hello_controller";
+application.register("hello", HelloController);
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
+import HomepageController from "./homepage_controller";
+application.register("homepage", HomepageController);
 
-import HomepageController from "./homepage_controller"
-application.register("homepage", HomepageController)
+import ImageCreationController from "./image_creation_controller";
+application.register("image-creation", ImageCreationController);
 
-import ImageCreationController from "./image_creation_controller"
-application.register("image-creation", ImageCreationController)
+import LightmodeController from "./lightmode_controller";
+application.register("lightmode", LightmodeController);
 
-import LightmodeController from "./lightmode_controller"
-application.register("lightmode", LightmodeController)
+import LoadSongsController from "./load_songs_controller";
+application.register("load-songs", LoadSongsController);
 
-import LoadSongsController from "./load_songs_controller"
-application.register("load-songs", LoadSongsController)
+import LogoController from "./logo_controller";
+application.register("logo", LogoController);
 
-import LogoController from "./logo_controller"
-application.register("logo", LogoController)
+import ProfileCardController from "./profile_card_controller";
+application.register("profile-card", ProfileCardController);
 
-import ProfileCardController from "./profile_card_controller"
-application.register("profile-card", ProfileCardController)
+import ProfileModalController from "./profile_modal_controller";
+application.register("profile-modal", ProfileModalController);
 
-import ProfileModalController from "./profile_modal_controller"
-application.register("profile-modal", ProfileModalController)
+import ProfilePictureUploadController from "./profile_picture_upload_controller";
+application.register("profile-picture-upload", ProfilePictureUploadController);
 
-import ProfilePictureUploadController from "./profile_picture_upload_controller"
-application.register("profile-picture-upload", ProfilePictureUploadController)
+import SearchController from "./search_controller";
+application.register("search", SearchController);
 
-import SearchController from "./search_controller"
-application.register("search", SearchController)
+import ShareButtonController from "./share_button_controller";
+application.register("share-button", ShareButtonController);
 
-import ShareButtonController from "./share_button_controller"
-application.register("share-button", ShareButtonController)
+import SliderController from "./slider_controller";
+application.register("slider", SliderController);
 
-import SliderController from "./slider_controller"
-application.register("slider", SliderController)
-
-import TimeZoneController from "./time_zone_controller"
-application.register("time-zone", TimeZoneController)
+import TimeZoneController from "./time_zone_controller";
+application.register("time-zone", TimeZoneController);
