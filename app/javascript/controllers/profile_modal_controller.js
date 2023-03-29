@@ -2,16 +2,24 @@ import { Controller } from "@hotwired/stimulus";
 
 // Connects to data-controller="profile-modal"
 export default class extends Controller {
-  static targets = ["modal", "overlay", "share", "card"];
+  static targets = [
+    "modal",
+    "overlay",
+    "share",
+    "card",
+    "imagePreview",
+    "iframe",
+    "secretBox",
+  ];
+  static values = {
+    image: String,
+  };
 
-  connect() {
-    console.log(this.cardTarget);
-  }
+  connect() {}
   open() {
     setTimeout((event) => {
       this.modalTarget.classList.remove("hidden");
     }, 500);
-    console.log(this.event);
   }
 
   close() {
@@ -20,7 +28,20 @@ export default class extends Controller {
     // }, 500);
 
     this.modalTarget.classList.add("hidden");
-
     this.cardTargets.forEach((c) => c.classList.remove("is-flipped"));
+    this.closeImage();
+  }
+
+  showBigImage() {
+    this.imagePreviewTarget.innerHTML = `<img src="https://res.cloudinary.com/drftmp0s5/image/upload/c_fit/v1/development/${this.imageValue}">`;
+    this.iframeTarget.classList.add("darken");
+  }
+
+  closeImage(event) {
+    console.log("click registered");
+    if (event.target !== this.secretBoxTarget) {
+      this.imagePreviewTarget.innerHTML = "";
+      this.iframeTarget.classList.remove("darken");
+    }
   }
 }

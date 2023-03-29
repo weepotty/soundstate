@@ -2,7 +2,6 @@
   position: relative;
   width: 95%;
   margin: 2% auto;
-
 }
 
 .modal-container .fa-solid {
@@ -26,8 +25,41 @@
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   border-radius: .5rem;
+
+  .secret-box {
+    min-width: 115px;
+    min-height: 115px;
+    background: transparent;
+    position: absolute;
+    top: 55px;
+    left: 15px;
+    z-index: 100;
+  }
 }
 
 .hidden {
   display: none;
+}
+
+.image-preview {
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+}
+
+.darken {
+  filter: brightness(30%);
+}
+
+@media only screen and (min-width: 600px) {
+  .image-preview {
+   width: 500px;
+  }
+  .secret-box {
+    width: 160px;
+    height: 160px;
+  }
 }
