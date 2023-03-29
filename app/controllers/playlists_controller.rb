@@ -41,6 +41,9 @@ class PlaylistsController < ApplicationController
       
       update_spotify_playlist_image(@ss_playlist, spotify_playlist)
 
+      # sleep delay to allow Spotify to update the uploaded image to the playlist.
+      sleep(1)
+
       redirect_to playlist_path(@ss_playlist)
     else
       render :new, status: :unprocessable_entity
