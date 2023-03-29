@@ -33,8 +33,9 @@ export default class extends Controller {
   }
 
   showBigImage() {
-    this.imagePreviewTarget.innerHTML = `<img src="https://res.cloudinary.com/drftmp0s5/image/upload/c_fit/v1/development/${this.imageValue}">`;
+    this.imagePreviewTarget.innerHTML = `<img src="${this.imageValue}">`;
     this.iframeTarget.classList.add("darken");
+    this.iframeTarget.classList.add("pe-none");
   }
 
   closeImage(event) {
@@ -42,6 +43,7 @@ export default class extends Controller {
     if (event.target !== this.secretBoxTarget) {
       this.imagePreviewTarget.innerHTML = "";
       this.iframeTarget.classList.remove("darken");
+      this.iframeTarget.classList.remove("pe-none");
     }
   }
 }
