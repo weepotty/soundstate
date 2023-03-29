@@ -3,7 +3,7 @@
   <div class="container container-scroll" data-controller="time-zone">
     <h2 class="hide greeting" data-homepage-target="hide">Good <span data-time-zone-target="dayPeriod"></span>, <br><em><%= current_user.nickname %></em></h2>
   </div>
-  <div class="container carousel-container">
+  <div class="container carousel-container <%= "d-none" if current_user.user_playlists.empty? %>">
     <h2 class="hide carousel-greeting text-center" data-homepage-target="hide">Here is what you have been listening to</h2>
     <!-- Carousel -->
     <div class="carousel hide" data-controller="flickity" data-homepage-target="hide">
