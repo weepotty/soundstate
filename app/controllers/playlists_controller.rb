@@ -36,6 +36,9 @@ class PlaylistsController < ApplicationController
     )
 
     if @ss_playlist.save!
+      # sleep delay to allow Cloudinary to update the uploaded image, and Spotify to create and add songs to playlist.
+      sleep(5)
+      
       update_spotify_playlist_image(@ss_playlist, spotify_playlist)
 
       redirect_to playlist_path(@ss_playlist)
@@ -52,7 +55,12 @@ class PlaylistsController < ApplicationController
   end
 
   def toggle_shared
-    @playlist = Playlist.find(params[:playlist_id])
+    if params[:playlist_id].nil?
+      @playlist = Playlist.find(params[:id])
+    else
+      @playlist = Playlist.find(params[:playlist_id])
+    end
+
     @playlist.update(is_shared: !@playlist.is_shared)
     @playlist.save!
 

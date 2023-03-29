@@ -1,0 +1,17 @@
+{
+  "background_color": "black",
+  "description": "SoundState transforms the way you see music, literally. With the use of sophisticated AI, watch your music turn to art",
+  "display": "fullscreen",
+  "name": "SoundState",
+  "icons": [
+    <% files = Dir.entries(Rails.root.join("app/assets/images/icons/")).select {|f| !File.directory? f} %>
+    <% files.each_with_index do |file, index| %>
+      <% match = file.match(/.+-(?<size>\d{2,3}x\d{2,3}).png/) %>
+      {
+        "src": "<%= image_path "icons/#{file}" %>",
+        "sizes": "<%= match && match[:size] %>",
+        "type": "image/png"
+      }<%= "," unless (files.size - 1) == index %>
+    <% end %>
+  ]
+}

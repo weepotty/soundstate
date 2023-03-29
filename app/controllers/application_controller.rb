@@ -5,4 +5,8 @@ class ApplicationController < ActionController::Base
     load_songs_page_path
   end
 
+  def default_url_options
+    { host: ENV["DOMAIN"] || "localhost:3000" }
+  end
+
 end

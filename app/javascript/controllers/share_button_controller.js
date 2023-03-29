@@ -8,8 +8,6 @@ export default class extends Controller {
     shared: Boolean,
   };
 
-  connect() {}
-
   share() {
     const url = `/playlists/toggle_shared`;
     const lock = "<p class='m-0' style='$light-gray'>Playlist Hidden</p>";
