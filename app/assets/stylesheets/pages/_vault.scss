@@ -1,13 +1,17 @@
-// Styles for Your Event
+// Styles for My Vault page
 .vault-top {
   width: 100%;
   margin: 0 auto;
   margin-bottom: 5rem;
-  // border-bottom: 1px solid $dark-gray;
 }
 
+.vault-bottom {
+  width: 100%;
+  margin: 2rem auto 1rem auto;
+}
 
-.event-slide {
+// Styles for the event carousel
+.event-carousel {
   padding: 1rem 0;
   max-height: 10rem;
   max-width: 900px;
@@ -56,10 +60,4 @@
     background: transparent;
     border: none;
   }
-}
-
-// Styles for Your Vault
-.vault-bottom {
-  width: 100%;
-  margin: 2rem auto 1rem auto;
 }
