@@ -9,13 +9,12 @@
   display: flex;
   justify-content: space-between;
   text-align: center;
-  padding: 1.5%;
-  padding-left: 10%;
-  padding-right: 10%;
+  padding: 1.5% 10%;
 
   a {
     color: $gray;
     text-decoration: none;
+    padding: 3% 0% 10%;
   }
 }
 
@@ -23,4 +22,14 @@
   font-size: 1.5rem;
   color: #FFFFFF;
   text-shadow: 0 0 20px rgba(#FFFFFF, $alpha: 1);
+}
+
+@media only screen and (min-width: 600px) {
+  .menu-bar {
+    padding: 0% 10%;
+    a {
+      padding: 1.5% 0% 1.5%;
+    }
+  }
+
 }
