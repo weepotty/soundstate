@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     else
       # Removing extra as it can overflow some session stores
       session['devise.spotify_data'] = request.env['omniauth.auth'].except('extra')
-      redirect_to new_user_registration_url, alert: @user.errors.full_messages.join("\n")
+      redirect_to root_path, alert: @user.errors.full_messages.join("\n")
     end
   end
 
