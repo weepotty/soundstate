@@ -4,7 +4,7 @@
     <div class="event-carousel" data-controller="flickity">
       <% @events.each_with_index do |event, index| %>
         <div class="event-cell">
-          <div class="event-cell-card text-center py-4">
+          <div class="event-cell-card">
             <%= event.title %>
             <%= link_to "", edit_event_path(event) %>
           </div>
