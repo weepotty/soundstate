@@ -50,6 +50,12 @@
     border-bottom: 1px solid rgba($color: $background, $alpha: .2);
   }
 
+  // trashcan
+
+  a>i.text-white.fa-solid.fa-trash {
+    color: $background !important;
+  }
+
   .menu-bar {
     background-color: rgba(174, 238, 255, 0.8);
     box-shadow: 4px 0 20px rgba(87, 121, 130, 0.3);
