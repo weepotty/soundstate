@@ -7,9 +7,10 @@
         data-controller="share-button-creation"
         data-share-button-creation-target="share"
         data-action="click->share-button-creation#share"
-        data-share-button-creation-id-value="<%= @playlist.id %>"
-        data-share-button-creation-shared-value="<%= @playlist.is_shared %>">
-      <i class="fa-solid fa-lock" style="padding-top: 0.2em;"></i><p> Share this Playlist</p>
+      data-share-button-creation-id-value="<%= @playlist.id %>"
+      data-share-button-creation-shared-value="<%= @playlist.is_shared %>">
+      <i class="fa-solid fa-lock" style="padding-top: 0.2em;"></i>
+      <p> Share to Gallery</p>
     </div>
   <% end %>
 </div>
