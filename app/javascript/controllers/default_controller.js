@@ -17,9 +17,10 @@ export default class extends Controller {
         Accept: "application/json"
       }
     })
-      .then(response => response.text())
+      .then(response => response.json())
       .then((data) => {
-        this.formTarget.outerHTML = data
+        console.log(data.insert_edit_form);
+        this.formTarget.outerHTML = data.insert_edit_form
       })
   }
 }
