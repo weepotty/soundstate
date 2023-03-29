@@ -20,10 +20,9 @@ class UsersController < ApplicationController
   # GET /users/
   def index
     if params[:query]
-      @query = params[:query]
-      @users = User.search_by_nickname(@query)
+      @users = User.search_by_nickname(params[:query]).reorder('LOWER(nickname)')
     else
-      @users = User.all
+      @users = User.order('LOWER(nickname)')
     end
 
     respond_to do |format|
