@@ -16,7 +16,20 @@ export default class extends Controller {
     eventid: String,
   };
 
-  connect() {}
+  connect() {
+    // function to reload page to make webplayer SDK show up
+    let currentDocumentTimestamp = new Date(
+      performance.timing.domLoading
+    ).getTime();
+    // current time
+    let now = Date.now();
+    let oneSec = 1 * 1000;
+    // reload if >1s since last load
+    let plusOneSec = currentDocumentTimestamp + oneSec;
+    if (now > plusOneSec) {
+      location.reload();
+    }
+  }
 
   async showImage() {
     this.imageTarget.classList.remove("d-none");
