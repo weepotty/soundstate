@@ -1,7 +1,7 @@
 <div class="container">
   <div class="profile-header">
     <%= render 'shared/user_avatar_small', user: @user %>
-    <h1 class="text-center"><%= @user.nickname.capitalize %>'s Gallery</h2>
+    <h1 class="text-center"><%= @user.nickname %>'s Gallery</h2>
   </div>
   <% if @playlists.where(is_shared: true).empty?  %>
     <%= render "shared/default_gallery" %>
