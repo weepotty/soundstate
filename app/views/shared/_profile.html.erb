@@ -44,15 +44,15 @@
             </div>
           </div>
           <iframe id="playlist-show" style="border-radius:12px" src=<%= "https://open.spotify.com/embed/playlist/#{playlist.spotify_id}?utm_source=generator&theme=0" %> width="100%" height="600" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-          <div class='secret-box' data-bs-toggle="modal" data-bs-target="#biggerImageModal"></div>
+          <div class='secret-box' data-action='click->profile-modal#showBigImage'></div>
         </div>
       </section>
       <%# modal for larger image %>
-      <div class="modal fade" id="biggerImageModal" tabindex="-1" aria-labelledby="biggerImageModalLabel" aria-hidden="true">
+      <div class="modal fade d-none" id="biggerImageModal" tabindex="-1" aria-labelledby="biggerImageModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-body">
-              image goes here...
+              <%= cl_image_tag playlist.photo.key, crop: :fit %>
             </div>
           </div>
         </div>

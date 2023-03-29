@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import DisplayLargeImageController from "./display_large_image_controller"
+application.register("display-large-image", DisplayLargeImageController)
+
 import FlickityController from "./flickity_controller"
 application.register("flickity", FlickityController)
 

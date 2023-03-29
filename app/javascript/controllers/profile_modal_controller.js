@@ -5,7 +5,7 @@ export default class extends Controller {
   static targets = ["modal", "overlay", "share", "card"];
 
   connect() {
-    console.log(this.cardTarget);
+    console.log("connected from profile modal");
   }
   open() {
     setTimeout((event) => {
