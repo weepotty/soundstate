@@ -7,11 +7,7 @@
           <%= cl_image_tag playlist.photo.key, crop: :fill %>
         </div>
         <div class="gallery-user d-flex align-items-center gap-3 mt-2">
-          <% if playlist.user.avatar.attached? %>
-            <%= cl_image_tag playlist.user.avatar.key, crop: :fill, class: "avatar" %>
-          <% else %>
-            <%= image_tag "unknown_avatar.jpg", class: "avatar" %>
-          <% end %>
+          <%= render 'shared/user_avatar_small', user: playlist.user %>
           <p><small><%= playlist.user.nickname %></small></p>
           <%= link_to "", user_playlists_path(playlist.user) %>
         </div>

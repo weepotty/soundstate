@@ -1,10 +1,6 @@
 <div class="container">
   <div class="profile-header">
-    <% if @user.avatar.attached? %>
-      <%= cl_image_tag @user.avatar.key, crop: :fill %>
-    <% else %>
-      <%= image_tag "unknown_avatar.jpg" %>
-    <% end %>
+    <%= render 'shared/user_avatar_small', user: @user %>
     <h1 class="text-center"><%= @user.nickname.capitalize %>'s Gallery</h2>
   </div>
   <% if @playlists.where(is_shared: true).empty?  %>
