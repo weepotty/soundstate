@@ -6,7 +6,7 @@
       <% end %>
     <% end %>
     <%= simple_form_for event do |f| %>
-      <%= f.input :title, label: false, placeholder: "Title" %>
+      <%= f.input :title, label: false, placeholder: "Name Your Playlist" %>
       <label>Acousticness</label>
       <%= render 'shared/event_slider', minValue: event["min_acousticness"], maxValue: event["max_acousticness"], propertyName: "acousticness" %>
       <label>Danceability</label>
