@@ -1,32 +1,26 @@
-import { Controller } from "@hotwired/stimulus"
+import { Controller } from "@hotwired/stimulus";
 
 // Connects to data-controller="lightmode"
 export default class extends Controller {
-  static targets = ["toggle"]
+  static targets = ["toggle"];
   connect() {
-    console.log(this.toggleTarget.checked);
-    console.log(localStorage.getItem('light-mode') === "true");
-    console.log(localStorage);
-    if(localStorage.getItem('light-mode') === "true") {
-      this.element.classList.add('light-mode');
-      this.toggleTarget.checked = true
+    if (localStorage.getItem("light-mode") === "true") {
+      this.element.classList.add("light-mode");
+      this.toggleTarget.checked = true;
     } else {
-      this.toggleTarget.checked = false
-      this.element.classList.remove("light-mode")
+      this.toggleTarget.checked = false;
+      this.element.classList.remove("light-mode");
     }
     // localStorage.clear()
   }
 
   lightMode() {
-    console.log(this.toggleTarget.checked);
-    console.log(localStorage.getItem('light-mode') === "false");
-    console.log(localStorage);
-    if(this.toggleTarget.checked === true) {
-      this.element.classList.add("light-mode")
-      localStorage.setItem("light-mode",this.toggleTarget.checked)
+    if (this.toggleTarget.checked === true) {
+      this.element.classList.add("light-mode");
+      localStorage.setItem("light-mode", this.toggleTarget.checked);
     } else {
-      this.element.classList.remove("light-mode")
-      localStorage.setItem("light-mode", false)
+      this.element.classList.remove("light-mode");
+      localStorage.setItem("light-mode", false);
     }
   }
 }
