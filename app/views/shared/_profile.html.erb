@@ -3,19 +3,18 @@
     <div data-controller="profile-modal share-button" data-share-button-shared-value="<%= playlist.is_shared %>" data-share-button-id-value="<%= playlist.id %>">
       <div class="profile-card" data-controller="profile-card" data-action="click->profile-card#click" data-share-button-target="thumbnail">
         <div class="profile-scene scene--card" data-action="click->profile-modal#open">
-          <div class="card" data-profile-card-target="card">
+          <div class="card" data-profile-modal-target="card" data-profile-card-target="card">
             <div class="profile_card__face profile_card__face--front">
               <div class="profile-card">
                 <%= cl_image_tag playlist.photo.key %>
               </div>
             </div>
             <div class="profile_card__face profile_card__face--back">
-                <button class="btn-play"><i class="fa-solid fa-play"></i></button>
+              <button class="btn-play"><i class="fa-solid fa-play"></i></button>
             </div>
           </div>
         </div>
       </div>
-
       <section class="profile-modal hidden" data-profile-modal-target="modal" style="margin:0 auto">
         <div class="modal-container">
           <div class="d-flex flex-row justify-content-between align-items-center"
