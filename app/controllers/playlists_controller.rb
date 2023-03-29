@@ -36,6 +36,7 @@ class PlaylistsController < ApplicationController
     )
 
     if @ss_playlist.save!
+      sleep(5)
       update_spotify_playlist_image(@ss_playlist, spotify_playlist)
 
       redirect_to playlist_path(@ss_playlist)
