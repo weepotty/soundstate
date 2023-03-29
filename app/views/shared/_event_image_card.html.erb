@@ -1,4 +1,4 @@
 <div class="event-card" style="background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,0) 60%), url('<%= cl_image_path playlist.photo.key, crop: :fit %>')">
   <h1><%= playlist.title %></h1>
-  <%= link_to "", playlist_path(playlist), class: "event-card-link" %>
+  <%= link_to "", playlist_path(playlist) %>
 </div>
