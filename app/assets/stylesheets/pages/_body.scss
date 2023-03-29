@@ -32,11 +32,11 @@
   #event_title {
     color: $cold-color;
     background-color: #f0faff;
-    box-shadow: inset 2px 5px 10px rgb(161, 161, 161);
+    box-shadow: inset 2px 5px 10px rgba(161, 161, 161, 0.7);
+  }
 
-    #event_title::placeholder {
-      color: $medium-color;
-    }
+  #event_title::placeholder {
+    color: $cold-color;
   }
 
   .menu-bar {
