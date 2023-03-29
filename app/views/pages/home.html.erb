@@ -1,7 +1,7 @@
-
 <div data-controller="homepage" class="y scroll-snapping">
   <div class="container container-scroll" data-controller="time-zone">
-    <h2 class="hide greeting" data-homepage-target="hide">Good <span data-time-zone-target="dayPeriod"></span>, <br><em><%= current_user.nickname %></em></h2>
+    <h2 class="hide greeting" data-homepage-target="hide">Good <span data-time-zone-target="dayPeriod"></span>, <br>
+      <em><%= current_user.nickname %></em></h2>
   </div>
   <div class="container carousel-container <%= "d-none" if current_user.user_playlists.empty? %>">
     <h2 class="hide carousel-greeting text-center" data-homepage-target="hide">Here is what you have been listening to</h2>
@@ -20,7 +20,7 @@
       <h2 class="hide mb-3" data-homepage-target="hide">Discover Playlists</h2>
     </div>
     <div class="hide" data-homepage-target="hide">
-      <% current_user.others_playlists.each do |playlist| %>
+      <% current_user.others_playlists.sample(10).each do |playlist| %>
         <%= render "shared/gallery_card", playlist: playlist %>
       <% end %>
     </div>
