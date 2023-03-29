@@ -7,12 +7,12 @@
   background-color: $background;
   flex-grow: 1;
   width: 100%;
-}
 
-.landing-wrapper h1 {
-  color: $white;
-  font-size: $heading-fs;
-  font-weight: $heading-fw;
+  h1 {
+    color: $white;
+    font-size: $heading-fs;
+    font-weight: $heading-fw;
+  }
 }
 
 .webgl {

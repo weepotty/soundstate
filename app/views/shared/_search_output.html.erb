@@ -1,8 +1,8 @@
 <div data-search-target="list">
-    <h3>Search results for: <%= params[:query] %></h3>
-    <hr>
+  <h3>Search results for: <%= params[:query] %></h3>
+  <hr>
 
-    <% @users.each do |user| %>
+  <% @users.each do |user| %>
     <%= link_to user_playlists_path(user), class:"text-decoration-none" do %>
       <div class="user-search-card">
         <%= render 'shared/user_avatar_small', user: user %>
