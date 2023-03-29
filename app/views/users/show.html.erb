@@ -2,7 +2,7 @@
   <div class="vault-top">
     <h1 class="text-center">My Vault</h2>
     <div class="event-carousel" data-controller="flickity">
-      <% @events.each_with_index do |event, index| %>
+      <% @events.each do |event| %>
         <div class="event-cell">
           <div class="event-cell-card">
             <%= event.title %>
