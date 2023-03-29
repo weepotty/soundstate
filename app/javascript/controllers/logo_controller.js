@@ -15,7 +15,7 @@ export default class extends Controller {
     this.renderer.setSize(window.innerWidth, window.innerHeight);
 
 
-    this.geometry = new THREE.TorusKnotGeometry(0.4, 0.15, 100, 20, 2, 3);
+    this.geometry = new THREE.TorusKnotGeometry(0.4, 0.15, 300, 300, 2, 3);
     this.material = new THREE.MeshNormalMaterial();
     // this.material = new THREE.MeshStandardMaterial({ color: 0x212121 });
 
