@@ -20,6 +20,13 @@ li.episodes {
   border-bottom: 1px solid rgba($color: $white, $alpha: .2);
 }
 
+li button.episode {
+  text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 ul#episodes::-webkit-scrollbar, .list-items-container::-webkit-scrollbar {
   display: none;  /* Safari and Chrome */
 }
