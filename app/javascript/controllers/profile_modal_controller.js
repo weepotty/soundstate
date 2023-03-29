@@ -5,7 +5,6 @@ export default class extends Controller {
   static targets = ["modal", "overlay", "share", "card"];
 
   connect() {
-    console.log("hello from the profile-modal controller");
     console.log(this.cardTarget);
   }
   open() {
@@ -16,9 +15,12 @@ export default class extends Controller {
   }
 
   close() {
-    setTimeout(() => {
-      this.modalTarget.classList.add("hidden");
-    }, 500);
+    // setTimeout(() => {
+    //   this.modalTarget.classList.add("hidden");
+    // }, 500);
+
+    this.modalTarget.classList.add("hidden");
+
     this.cardTargets.forEach((c) => c.classList.remove("is-flipped"));
   }
 }
