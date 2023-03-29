@@ -4,7 +4,8 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["share"]
   static values = {
-    id: String
+    id: String,
+    shared: Boolean
   }
 
   share() {
