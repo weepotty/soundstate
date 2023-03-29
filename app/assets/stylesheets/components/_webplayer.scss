@@ -38,6 +38,11 @@ ul#episodes::-webkit-scrollbar, .list-items-container::-webkit-scrollbar {
   color: $cold-color;
 }
 
+#generate-button p{
+  color: $cold-color;
+  cursor: pointer;
+}
+
 .create-btn {
   color: #fff;
   width: 20%;
