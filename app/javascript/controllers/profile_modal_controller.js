@@ -11,7 +11,6 @@ export default class extends Controller {
     setTimeout((event) => {
       this.modalTarget.classList.remove("hidden");
     }, 500);
-    console.log(this.event);
   }
 
   close() {
