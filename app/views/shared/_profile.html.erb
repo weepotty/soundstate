@@ -35,8 +35,10 @@
               </div>
             <% end %>
             <div class='d-flex align-items-center gap-3'>
-              <%= link_to playlist_path(playlist), class:'text-decoration-none', data: {action: "click->profile-modal#close", turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-                <i class="text-white fa-solid fa-trash"></i>
+              <div class=<%= playlist.user_id == current_user.id ? "" : "d-none" %>>
+                <%= link_to playlist_path(playlist), class:'text-decoration-none', data: {action: "click->profile-modal#close", turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+                  <i class="text-white fa-solid fa-trash"></i>
+              </div>
               <% end %>
               <i class="fa-solid fa-xmark"
                  data-action="click->profile-modal#close"></i>
