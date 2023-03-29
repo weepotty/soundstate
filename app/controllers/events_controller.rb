@@ -2,6 +2,7 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
+    @default_events = current_user.events.first(3)
   end
 
   # POST /events
@@ -38,6 +39,11 @@ class EventsController < ApplicationController
     # 220 tempo for the maximum range, to fit slider of 0 to 1
     @event.min_tempo = (@event.min_tempo / 220)
     @event.max_tempo = (@event.max_tempo / 220)
+
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   # PATCH /events/:id
