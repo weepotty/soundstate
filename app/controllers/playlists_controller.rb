@@ -64,8 +64,7 @@ class PlaylistsController < ApplicationController
       @playlist = Playlist.find(params[:playlist_id])
     end
 
-    @playlist.update(is_shared: !@playlist.is_shared)
-    @playlist.save!
+    @playlist.update!(is_shared: !@playlist.is_shared)
 
     respond_to do |format|
       format.json { render json: { playlist: @playlist.is_shared } }
