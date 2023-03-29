@@ -25,24 +25,26 @@
                    data-share-button-target="share"
                    data-action="click->share-button#share">
                 <i class="fa-solid fa-lock-open" style="padding-top: 0.2em;"></i>
-                <span style="padding-left: 10px;">Hide this playlist</span>
+                <span style="padding-left: 10px;">Hide in Vault</span>
               </div>
             <% else %>
               <div class="d-flex justify-content-between"
                    data-share-button-target="share"
                    data-action="click->share-button#share">
                 <i class="fa-solid fa-lock" style="padding-top: 0.2em;"></i>
-                <span style="padding-left: 10px;">Share this playlist</span>
+                <span style="padding-left: 10px;">Share to Gallery</span>
               </div>
             <% end %>
-            <div class='d-flex align-items-center gap-3'>
+            <div class='d-flex align-items-center gap-2'>
               <div class=<%= playlist.user_id == current_user.id ? "" : "d-none" %>>
-                <%= link_to playlist_path(playlist), class:'text-decoration-none', data: {action: "click->profile-modal#close", turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+                <%= link_to playlist_path(playlist), class:'p-2 text-decoration-none', data: {action: "click->profile-modal#close", turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
                   <i class="text-white fa-solid fa-trash"></i>
-                </div>
-              <% end %>
-              <i class="fa-solid fa-xmark"
-                 data-action="click->profile-modal#close"></i>
+                <% end %>
+              </div>
+              <div class='p-2' data-action="click->profile-modal#close">
+                <i class="fa-solid fa-xmark"
+                   ></i>
+              </div>
             </div>
           </div>
           <div class="iframe-wrapper"  data-action='click->profile-modal#closeImage'><iframe data-profile-modal-target='iframe' id="playlist-show" style="border-radius:12px" src=<%= "https://open.spotify.com/embed/playlist/#{playlist.spotify_id}?utm_source=generator&theme=0" %> width="100%" height="600" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>

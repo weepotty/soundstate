@@ -4,29 +4,24 @@
       <i class="fa-solid fa-house fa-md"></i>
     </div>
   <% end %>
-
   <%= link_to (current_user.playlists.empty? ? new_event_path : playlist_path(current_user.playlists.last)), class: current?("playlists", "show") do %>
     <div class="px-3">
       <i class="fa-solid fa-headphones fa-md"></i>
     </div>
   <% end %>
-
   <%= link_to new_event_path, class: current?("events", "new") do %>
     <div class="px-3">
-      <i class="fa-regular fa-square-plus fa-xl"></i>
+      <i style="font-size: 1.8rem" class="fa-regular fa-square-plus fa-xl"></i>
     </div>
   <% end %>
-
   <%= link_to user_playlists_path(current_user), class: current?("playlists", "index") do %>
     <div class="px-3">
       <i class="fa-solid fa-border-all fa-md"></i>
     </div>
   <% end %>
-
   <%= link_to user_path(current_user), class: current?("users", "show") do %>
     <div class="mr-1 px-3">
       <i class="fa-solid fa-heart fa-md"></i>
     </div>
   <% end %>
-
 </div>

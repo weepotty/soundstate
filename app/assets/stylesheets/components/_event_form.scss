@@ -70,3 +70,14 @@
     color: $gray;
   }
 }
+
+
+@media only screen and (max-width: 600px) {
+  #event_title {
+    background-color: #2e2e2e;
+  }
+
+  #event_title::placeholder {
+    color:#9b9a9a;
+  }
+}
