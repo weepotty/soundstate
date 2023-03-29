@@ -14,7 +14,6 @@ class MakeSpotifyPlaylistService
 
     # attaching AI image to our DB
     ss_playlist.photo.attach(io: playlist_image, filename: "#{ss_playlist.title}.png", content_type: "image/png")
-    sleep(5)
     return [ss_playlist, spotify_playlist]
   end
 end
