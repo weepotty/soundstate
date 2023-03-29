@@ -2,16 +2,48 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="default"
 export default class extends Controller {
-  static targets = ['events', 'form']
+  static targets = ['eventOne', 'eventTwo','eventThree', 'form']
   connect() {
-    console.log(this.eventsTarget, this.formTarget);
+    console.log(this.eventOneTarget, this.eventTwoTarget, this.eventThreeTarget, this.formTarget);
   }
 
-  renderDefault(event) {
+  // Getting Ready default
+  renderFirstDefault(event) {
     event.preventDefault()
 
-    // console.log(this.formTarget)
-    fetch(this.eventsTarget.href, {
+    fetch(this.eventOneTarget.href, {
+      method: "GET",
+      headers: {
+        Accept: "application/json"
+      }
+    })
+      .then(response => response.json())
+      .then((data) => {
+        this.formTarget.outerHTML = data.insert_edit_form
+      })
+  }
+
+  // Acoustic default
+  renderSecondDefault(event) {
+    event.preventDefault()
+
+    fetch(this.eventTwoTarget.href, {
+      method: "GET",
+      headers: {
+        Accept: "application/json"
+      }
+    })
+      .then(response => response.json())
+      .then((data) => {
+        this.formTarget.outerHTML = data.insert_edit_form
+      })
+  }
+
+  // Sleep default
+  renderThirdDefault(event) {
+    event.preventDefault()
+
+    fetch(this.eventThreeTarget.href, {
       method: "GET",
       headers: {
         Accept: "application/json"
