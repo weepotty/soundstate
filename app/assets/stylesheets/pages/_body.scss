@@ -1,0 +1,55 @@
+.light-mode {
+  background-color: rgb(232, 250, 255);
+  color: $background;
+  .y.scroll-snapping {
+    width: 100vw;
+    background-image: url('assets/11.svg');
+    background-position: top 0 left -20%;
+    background-repeat: no-repeat;
+  }
+  .dropdown *, a.header-text {
+    color: $background !important;
+  }
+
+  .menu-bar {
+    background-color: rgba(174, 238, 255, 0.8);
+    // background-color: rgba($medium-color, 0.9);
+    // background-color: rgba(255, 202, 128, 0.9);
+
+    a {
+      color: #424451;
+    }
+  }
+
+  .current i{
+    font-size: 1.5rem;
+    color: $white;
+    text-shadow: 0 0 25px $white, 0 0 25px $white;
+  }
+
+  @media(max-width: 680px) and (min-width: 401px) {
+    .y.scroll-snapping {
+      background-position: top 10rem left 30%;
+      background-size: 400%;
+    }
+  }
+
+  @media(max-width: 401px) {
+    .y.scroll-snapping {
+      background-position: top 10rem left 25%;
+      background-size: 270%;
+    }
+  }
+
+  @media(max-width: 1080px) and (min-width: 901px) {
+    .y.scroll-snapping {
+      background-position: top left -5%;
+    }
+  }
+
+  @media(max-width: 900px) and (min-width: 681px) {
+    .y.scroll-snapping {
+      background-position: top 10rem left 17%;
+    }
+  }
+}
