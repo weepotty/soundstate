@@ -49,7 +49,7 @@ export default class extends Controller {
 
   initScene() {
     this.scene = new THREE.Scene();
-    this.scene.background = new THREE.Color( 0x161722 )
+    this.scene.background = new THREE.Color( 0x202129)
   }
   initCamera() {
     this.camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
