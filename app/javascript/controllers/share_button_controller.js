@@ -30,7 +30,9 @@ export default class extends Controller {
         } else {
           this.shareTarget.outerHTML = lock;
         }
-        this.thumbnailTarget.remove();
+        if (window.location.href.includes("playlist")) {
+          this.thumbnailTarget.remove();
+        }
       });
   }
 }
