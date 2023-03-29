@@ -4,7 +4,7 @@ class GenerateImageService
     prompt = generate_prompt(song)
 
     # Various prompt helper words for better image generation results.
-    art_styles = ['pop art', 'risograph', 'illustration', 'colouring-in sheet', 'cubism', 'memphis', 'digital art',
+    art_styles = ['pop art', 'risograph', 'illustration', 'cubism', 'memphis', 'digital art',
                   '3D render', 'block printing', 'watercolor', 'synthwave', 'ceramics', 'vaporwave', 'linocut art']
 
     # Generate image and returns image url.
