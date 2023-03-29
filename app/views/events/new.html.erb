@@ -1,4 +1,12 @@
 <div class="container">
   <h1 class="text-center mb-3">Choose Your Filters</h1>
+  <p class="text-center mb-3">Choose from defaults or create your own</p>
+  <div class="default-events">
+    <ul class="list-unstyled d-flex justify-content-around gap-3">
+      <% @default_events.each do |default| %>
+      <li><%= link_to default.title, edit_event_path(default), class: "btn default" %></li>
+      <% end %>
+    </ul>
+  </div>
   <%= render 'events/event_form', event: @event %>
 </div>

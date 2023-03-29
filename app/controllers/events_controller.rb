@@ -2,6 +2,7 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
+    @default_events = current_user.events.first(3)
   end
 
   # POST /events
