@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container" data-controller="default">
   <h1 class="text-center mb-3">Choose Your Filters</h1>
   <p class="text-center mb-3">Choose from defaults or create your own</p>
   <div class="default-events">
     <ul class="list-unstyled d-flex justify-content-center gap-3">
       <% @default_events.each do |default| %>
-      <li><%= link_to default.title, edit_event_path(default), class: "btn default" %></li>
+      <li><%= link_to default.title, edit_event_path(default), class: "btn default", data: {default_target: "events", action: "click->default#renderDefault"} %></li>
       <% end %>
     </ul>
   </div>
