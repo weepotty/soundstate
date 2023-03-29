@@ -5,7 +5,8 @@
        style="padding-top: 1em; gap: 0.5em; padding-left: 1em; cursor: pointer;"
        data-controller="share-button-creation"
        data-share-button-target="share"
-       data-action="click->share-button-creation#share">
+       data-action="click->share-button-creation#share"
+       data-share-button-creation-id-value="<%= @playlist.id %>">
     <i class="fa-solid fa-lock" style="padding-top: 0.2em;"></i><p> Share this Playlist</p>
   </div>
 </div>

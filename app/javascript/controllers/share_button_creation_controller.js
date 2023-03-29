@@ -3,6 +3,9 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="share-button-creation"
 export default class extends Controller {
   static targets = ["share"]
+  static values = {
+    id: String
+  }
 
   share() {
     const url = `/playlists/toggle_shared`
