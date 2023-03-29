@@ -34,6 +34,7 @@ class UsersController < ApplicationController
 
   # GET /users/:id
   def show
+    @user = User.find(params[:id])
     current_user
     @playlists = current_user.playlists
     @events = current_user.events
