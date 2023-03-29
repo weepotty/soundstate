@@ -52,7 +52,12 @@ class PlaylistsController < ApplicationController
   end
 
   def toggle_shared
-    @playlist = Playlist.find(params[:playlist_id])
+    if params[:playlist_id].nil?
+      @playlist = Playlist.find(params[:id])
+    else
+      @playlist = Playlist.find(params[:playlist_id])
+    end
+
     @playlist.update(is_shared: !@playlist.is_shared)
     @playlist.save!
 

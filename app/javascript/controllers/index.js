@@ -43,6 +43,9 @@ application.register("search", SearchController)
 import ShareButtonController from "./share_button_controller"
 application.register("share-button", ShareButtonController)
 
+import ShareButtonCreationController from "./share_button_creation_controller"
+application.register("share-button-creation", ShareButtonCreationController)
+
 import SliderController from "./slider_controller"
 application.register("slider", SliderController)
 

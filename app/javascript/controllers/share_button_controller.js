@@ -8,11 +8,6 @@ export default class extends Controller {
     shared: Boolean
    }
 
-  connect() {
-    console.log("Button controller connected");
-    console.log(this.thumbnailTarget);
-  }
-
   share() {
     const url = `/playlists/toggle_shared`
     const lock = "<p class='m-0' style='$light-gray'>Playlist Hidden</p>"
