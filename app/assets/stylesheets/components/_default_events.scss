@@ -11,4 +11,6 @@ a.default {
   font-size: small;
   background-color: $cold-color;
   border-radius: 2.5em;
+  box-shadow: 1px 1px 5px rgba($color: #000000, $alpha: 1);
+  white-space: nowrap;
 }

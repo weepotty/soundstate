@@ -1,16 +1,15 @@
 <div class="container">
   <div class="vault-top">
     <h1 class="text-center">My Vault</h2>
-    <div class="event-carousel" data-controller="flickity">
-      <% @events.each do |event| %>
-        <div class="event-cell">
-          <div class="event-cell-card">
-            <%= event.title %>
-            <%= link_to "", edit_event_path(event) %>
-          </div>
-        </div>
-      <% end %>
+
+    <div class="default-events" id="#vault-events-container">
+      <ul id="vault-events" class="list-unstyled d-flex justify-content-start gap-3">
+        <% @events.each do |event| %>
+          <li><%= link_to event.title, edit_event_path(event), class: "btn default vault-event" %></li>
+        <% end %>
+      </ul>
     </div>
+
   </div>
   <div class="vault-bottom">
     <% if @playlists.empty? %>
