@@ -3,6 +3,11 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
     @default_events = current_user.events.first(3)
+
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   # POST /events
