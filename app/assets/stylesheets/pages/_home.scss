@@ -27,7 +27,16 @@
   width: 60%;
   max-width: 250px;
   margin: 2em auto;
-  box-shadow: 2px 2px 10px rgba($black, .4);
+  box-shadow: 2px 2px 10px rgba($black, .5);
+  transform: scale(1);
+  transition: all .3s;
+  border: none;
+
+  &:hover {
+    transform: scale(1.03);
+    background-color: $cold-color;
+    border: none;
+  }
 }
 
 .y.scroll-snapping {
