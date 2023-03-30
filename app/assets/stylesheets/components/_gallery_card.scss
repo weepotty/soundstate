@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   max-width: 380px;
-  margin: 0 auto;
+  margin: 0.8rem auto;
 }
 
 .scene {
@@ -11,7 +11,6 @@
   min-width: 340px;
   aspect-ratio: 1/1.14;
   perspective: 600px;
-  margin-bottom: 2em;
 }
 
 .card {
