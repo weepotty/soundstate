@@ -50,6 +50,10 @@
     border-bottom: 1px solid rgba($color: $background, $alpha: .2);
   }
 
+  .event-cell-card {
+    color: $white;
+  }
+
   // trashcan
 
   a>i.text-white.fa-solid.fa-trash {
@@ -70,7 +74,7 @@
   .current i{
     font-size: 1.5rem;
     color: #ff7137;
-    text-shadow: 0 0 15px $white, 0 0 15px $white;
+    // text-shadow: 0 0 15px $white, 0 0 15px $white;
   }
 
   @media(max-width: 680px) and (min-width: 401px) {
