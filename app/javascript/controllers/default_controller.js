@@ -2,14 +2,15 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="default"
 export default class extends Controller {
-  static targets = ['eventOne', 'eventTwo','eventThree', 'form', 'selectedDefault'];
+  static targets = ['defaultEvent', 'form', 'selectedDefault'];
 
   connect() {
   }
 
   // Getting Ready default
-  renderFirstDefault(event) {
+  renderDefault(event) {
     event.preventDefault();
+
     if(event.target.classList.contains('is-selected')) {
       fetch('/events/new', {
         method: "GET",
@@ -24,7 +25,7 @@ export default class extends Controller {
 
       event.target.classList.remove('is-selected');
     } else {
-      fetch(this.eventOneTarget.href, {
+      fetch(event.target.href, {
         method: "GET",
         headers: {
           Accept: "application/json"
@@ -35,40 +36,8 @@ export default class extends Controller {
           this.formTarget.outerHTML = data.insert_edit_form;
         })
 
+      this.defaultEventTargets.forEach(element => element.classList.remove('is-selected'));
       event.target.classList.add('is-selected');
     }
-
-  }
-
-  // Acoustic default
-  renderSecondDefault(event) {
-    event.preventDefault()
-
-    fetch(this.eventTwoTarget.href, {
-      method: "GET",
-      headers: {
-        Accept: "application/json"
-      }
-    })
-      .then(response => response.json())
-      .then((data) => {
-        this.formTarget.outerHTML = data.insert_edit_form
-      })
-  }
-
-  // Sleep default
-  renderThirdDefault(event) {
-    event.preventDefault()
-
-    fetch(this.eventThreeTarget.href, {
-      method: "GET",
-      headers: {
-        Accept: "application/json"
-      }
-    })
-      .then(response => response.json())
-      .then((data) => {
-        this.formTarget.outerHTML = data.insert_edit_form
-      })
   }
 }
