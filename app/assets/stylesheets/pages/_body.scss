@@ -126,6 +126,14 @@
     box-shadow: 1px 1px 5px rgba($color: #000000, $alpha: 0.4);
   }
 
+  a.is-selected {
+    border: none;
+    color: $background;
+    background-color: $medium-color;
+    font-weight: bold;
+    box-shadow: inset 3px 4px 5px rgba($black,0.4);
+  }
+
   @media(max-width: 401px) {
     .y.scroll-snapping {
       background-position: top 10rem left 25%;
