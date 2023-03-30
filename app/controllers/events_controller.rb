@@ -9,6 +9,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.user = current_user
+    @default_events = current_user.events.first(3)
     if @event.save
       redirect_to new_event_playlist_path(@event)
     else
