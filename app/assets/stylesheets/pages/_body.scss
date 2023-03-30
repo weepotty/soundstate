@@ -75,6 +75,10 @@
     // text-shadow: 0 0 15px $white, 0 0 15px $white;
   }
 
+  .playlist-card>h1 {
+    color: $white;
+  }
+
   @media(max-width: 401px) {
     .y.scroll-snapping {
       background-position: top 10rem left 25%;
