@@ -72,7 +72,7 @@
   // border: 1px solid rgba(255, 255, 255, 0.222);
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
-  border-radius: .5rem;
+  // border-radius: .5rem;
   transform: scale(1);
   transition: all ease .3s;
 
@@ -93,7 +93,6 @@
 }
 
 .profile_card__face--back {
-  background: #282828;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -106,6 +105,10 @@
 
 .card.is-flipped {
   transform: translateX(-100%) rotateY(-180deg);
+
+  .profile_card__face--back {
+    background: #282828;
+  }
 }
 
 
