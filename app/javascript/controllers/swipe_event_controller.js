@@ -6,9 +6,7 @@ export default class extends Controller {
     eventid: String,
   };
 
-  connect() {
-    console.log("hello from swipe controller");
-  }
+  connect() {}
 
   start(event) {
     this.startY = event.touches[0].clientY;
