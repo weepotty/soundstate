@@ -11,7 +11,9 @@
   <% end %>
   <%= link_to new_event_path, class: current?("events", "new") do %>
     <div class="px-3">
-      <i style="font-size: 1.8rem" class="fa-regular fa-square-plus fa-xl"></i>
+      <span id="menu-create">
+        <i class="fa-regular fa-plus fa-xl"></i>
+      </span>
     </div>
   <% end %>
   <%= link_to user_playlists_path(current_user), class: current?("playlists", "index") do %>
