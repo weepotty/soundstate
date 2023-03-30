@@ -5,8 +5,8 @@ class GenerateImageService
 
     # Various prompt helper words for better image generation results.
     art_styles = ['pop art', 'risograph', 'illustration', 'cubism', 'memphis', 'digital art',
-                  '3D render', 'block printing', 'watercolor', 'synthwave', 'ceramics', 'vaporwave', 'linocut art',
-                  'geometric drawing', 'line art', 'vintage', '3D illustration', 'lego bricks', 'claymation',
+                  '3D render', 'block printing', 'watercolor', 'ceramics', 'vaporwave', 'linocut art',
+                  'geometric drawing', 'line art', 'vintage', '3D illustration', 'claymation',
                   'salvador dali', 'van gogh', 'low poly']
     # Generate image and returns image url.
     client = OpenAI::Client.new
@@ -18,29 +18,32 @@ class GenerateImageService
 
   # Helper method to get descriptions to help enhance the image generated.
   def self.mood_descriptors(event)
-    # happy energetic
-    if event.max_valence > 0.6 && (event.max_energy > 0.6 || event.max_acousticness < 0.5)
+    # very sad songs
+    if event.max_valence < 0.4
+      %w[winter somber melancholic sad gothic post-apocalyptic poignant]
+    # happy energetic, less acoustic
+    elsif event.max_valence > 0.6 && (event.max_energy > 0.6 || event.max_acousticness < 0.5)
       %w[bright vibrant dynamic spirited vivid lively energetic colorful joyful romantic expressive rich]
-    # happy chill
+    # happy chill, more acoustic
     elsif event.max_valence > 0.6 && (event.max_energy < 0.6 || event.max_acousticness > 0.5)
       %w[light peaceful calm serene soothing relaxed cosy tranquil pastel ethereal tender soft]
-    # sad chill
-    elsif event.max_valence < 0.4
-      %w[winter somber melancholic sad gothic post-apocalyptic poignant]
+    # neutral
+    elsif event.max_valence < 0.6
+      %w[harmonious natural diffuse whimsical]
     # discordant moods
     else
-      %w[sublime symmetrical cool]
+      %w[sublime symmetrical cool nostalgic]
     end
   end
 
   def self.time_colour_descriptor(event)
     case event.time
     when 'morning'
-      %w[spring dawn]
+      %w[spring dew dawn]
     when 'evening'
       %w[dusk twilight]
     when 'afternoon'
-      %w[summer autumn]
+      %w[warm]
     end
   end
 
