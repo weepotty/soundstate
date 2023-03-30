@@ -61,19 +61,40 @@
   }
 
   .menu-bar {
-    background-color: rgba(174, 238, 255, 0.8);
-    box-shadow: 4px 0 20px rgba(87, 121, 130, 0.3);
+    background-color: rgb(190, 241, 255);
+    box-shadow: 4px 0 20px rgba(87, 121, 130, 0.1);
 
     a {
       color: #424451;
     }
   }
 
+  #menu-create {
+    transform: translateX(-50%);
+    border: 10px solid #e8faff;
+    background-color: #ff8f63;
+    color: $background;
+  }
+
+  #menu-create::before {
+    background-color: rgb(190, 241, 255);
+    box-shadow: 7px -.2px #e8faff;
+  }
+  #menu-create::after {
+    background-color: rgb(190, 241, 255);
+    box-shadow: -8px -.2px #e8faff;
+  }
+
+  .current#add i{
+    color: $white !important;
+    // text-shadow: 0 0 15px $white, 0 0 15px $white;
+  }
+
   .current i{
-    font-size: 1.5rem;
     color: #ff8f63;
     // text-shadow: 0 0 15px $white, 0 0 15px $white;
   }
+
 
   .playlist-card>h1 {
     color: $white;

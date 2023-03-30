@@ -6,22 +6,24 @@
   <% end %>
   <%= link_to (current_user.playlists.empty? ? new_event_path : playlist_path(current_user.playlists.last)), class: current?("playlists", "show") do %>
     <div class="px-3">
-      <i class="fa-solid fa-headphones fa-md"></i>
+      <i style="font-size: 1.2rem" class="fa-solid fa-headphones fa-md"></i>
     </div>
   <% end %>
-  <%= link_to new_event_path, class: current?("events", "new") do %>
+  <%= link_to new_event_path, class: current?("events", "new"), id: "add" do %>
     <div class="px-3">
-      <i style="font-size: 1.8rem" class="fa-regular fa-square-plus fa-xl"></i>
+      <span id="menu-create">
+        <i class="fa-regular fa-plus fa-xl"></i>
+      </span>
     </div>
   <% end %>
   <%= link_to user_playlists_path(current_user), class: current?("playlists", "index") do %>
     <div class="px-3">
-      <i class="fa-solid fa-border-all fa-md"></i>
+      <i style="font-size: 1.2rem" class="fa-solid fa-border-all fa-md"></i>
     </div>
   <% end %>
   <%= link_to user_path(current_user), class: current?("users", "show") do %>
     <div class="me-1 px-3">
-      <i class="fa-solid fa-heart fa-md"></i>
+      <i class="fa-solid fa-lock"></i>
     </div>
   <% end %>
 </div>
