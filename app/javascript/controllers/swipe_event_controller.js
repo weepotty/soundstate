@@ -19,14 +19,13 @@ export default class extends Controller {
     const distance = this.startY - endY;
     const eventElement = event.target.closest(".vault-event");
 
+    // checks distance between touch start and end points, detects a swipe if more than 50 px
     if (distance > 50) {
-      console.log("user swiped up");
       this.deleteEvent(this.eventidValue, eventElement);
     }
   }
 
   async deleteEvent(eventId, eventElement) {
-    console.log(eventId);
     const url = `/events/${eventId}`;
     await fetch(url, {
       method: "DELETE",
