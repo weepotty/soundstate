@@ -110,6 +110,12 @@
     }
   }
 
+  // event buttons
+  a.default {
+    background-color: #ff8f63;
+    box-shadow: 1px 1px 5px rgba($color: #000000, $alpha: 0.4);
+  }
+
   @media(max-width: 401px) {
     .y.scroll-snapping {
       background-position: top 10rem left 25%;
