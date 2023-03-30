@@ -43,10 +43,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
 
-.spinner p {
-  animation: loading-wave 1.5s ease infinite;
+  p {
+    animation: loading-wave 1.5s ease infinite;
+  }
 }
 
 $total: 18;
