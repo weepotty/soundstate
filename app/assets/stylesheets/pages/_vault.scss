@@ -73,6 +73,7 @@ a.is-selected {
   color: $background;
   background-color: $medium-color;
   font-weight: bold;
+  box-shadow: inset 3px 4px 5px rgba($black,0.6);
 }
 
 #vault-events {
