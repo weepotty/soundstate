@@ -37,8 +37,8 @@ class PlaylistsController < ApplicationController
 
     if @ss_playlist.save!
       # sleep delay to allow Cloudinary to update the uploaded image, and Spotify to create and add songs to playlist.
-      sleep(5)
-      
+      sleep(7)
+
       update_spotify_playlist_image(@ss_playlist, spotify_playlist)
 
       # sleep delay to allow Spotify to update the uploaded image to the playlist.

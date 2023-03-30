@@ -54,3 +54,6 @@ application.register("slider", SliderController)
 
 import TimeZoneController from "./time_zone_controller"
 application.register("time-zone", TimeZoneController)
+
+import TooltipController from "./tooltip_controller"
+application.register("tooltip", TooltipController)
