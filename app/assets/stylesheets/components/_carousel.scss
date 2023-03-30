@@ -5,7 +5,7 @@
   max-width: 900px;
   margin: 0 auto;
 }
-  
+
 .carousel-cell {
   width: 70%;
   max-width: 300px;
@@ -15,6 +15,7 @@
     opacity: 0.8;
     transform: scale(0.9);
     transition: 0.5s;
+    overflow-wrap: anywhere;
   }
 
   &.is-selected * {
