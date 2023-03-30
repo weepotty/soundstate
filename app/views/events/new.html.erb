@@ -2,11 +2,13 @@
   <h1 class="text-center mb-3">Choose Your Filters</h1>
   <p class="text-center mb-3">Choose from defaults or create your own</p>
   <div class="default-events">
-    <ul class="list-unstyled d-flex justify-content-center gap-3">
-      <li><%= link_to @default_events[0].title, edit_event_path(@default_events[0]), class: "btn default", data: {default_target: "eventOne", action: "click->default#renderFirstDefault"} %></li>
-      <li><%= link_to @default_events[1].title, edit_event_path(@default_events[1]), class: "btn default", data: {default_target: "eventTwo", action: "click->default#renderSecondDefault"} %></li>
-      <li><%= link_to @default_events[2].title, edit_event_path(@default_events[2]), class: "btn default", data: {default_target: "eventThree", action: "click->default#renderThirdDefault"} %></li>
-    </ul>
+    <div class="default-events" id="#vault-events-container">
+      <ul id="vault-events" class="list-unstyled d-flex justify-content-start gap-3">
+        <% @events.each do |event| %>
+          <li><%= link_to event.title, edit_event_path(event), class: "btn default vault-event", data: {default_target: "defaultEvent", action: "click->default#renderDefault"} %></li>
+        <% end %>
+      </ul>
+    </div>
   </div>
   <%= render 'events/event_form', event: @event %>
 </div>

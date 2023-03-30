@@ -1,7 +1,6 @@
 <div class="container">
   <div class="vault-top">
     <h1 class="text-center">My Vault</h2>
-
     <div class="default-events" id="#vault-events-container">
       <ul id="vault-events" class="list-unstyled d-flex justify-content-start gap-3">
         <% @events.each do |event| %>
@@ -9,7 +8,6 @@
         <% end %>
       </ul>
     </div>
-
   </div>
   <div class="vault-bottom">
     <% if @playlists.empty? %>

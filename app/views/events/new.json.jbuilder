@@ -1,0 +1,1 @@
+json.insert_new_form render partial: 'events/event_simple_form', formats: [:html], locals: {event: Event.new}
