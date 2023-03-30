@@ -20,6 +20,25 @@
   padding-top: 0vh;
 }
 
+
+.cta-button {
+  padding: 10px;
+  background-color: $cold-color;
+  width: 60%;
+  max-width: 250px;
+  margin: 2em auto;
+  box-shadow: 2px 2px 10px rgba($black, .5);
+  transform: scale(1);
+  transition: all .3s;
+  border: none;
+
+  &:hover {
+    transform: scale(1.03);
+    background-color: $cold-color;
+    border: none;
+  }
+}
+
 .y.scroll-snapping {
   width: 100vw;
   background-image: url('assets/12.png');
@@ -28,12 +47,19 @@
 }
 
 .container-scroll {
-  min-height: 100vh;
+  min-height: 90vh;
 }
 
 .gallery-container {
+  margin-top: 6vh;
   padding-top: 6vh;
   min-height: 80vh;
+}
+
+@media(max-height: 900px) and (min-height: 801px) {
+  .gallery-container {
+    margin-top: 0;
+  }
 }
 
 @media(max-width: 400px) {
@@ -49,9 +75,6 @@
 @media(max-width: 850px) and (min-width: 401px) {
   .y.scroll-snapping {
     background-position: top 5rem left -20rem;
-  }
-  .carousel-container {
-    height: 70vh;
   }
 }
 
