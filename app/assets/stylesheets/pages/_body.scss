@@ -16,7 +16,7 @@
   }
 
   .gallery-photo {
-    border: 7px solid rgb(189, 240, 254);
+    border: 7px solid #bdf0fe;
   }
 
   .event-card>h1 {
@@ -36,7 +36,7 @@
   }
 
   #event_title::placeholder {
-    color: $cold-color;
+    color: #a3bbc2;
   }
 
   // New event songs preview on playlists#new
@@ -48,6 +48,10 @@
     text-overflow: ellipsis;
     color: $background;
     border-bottom: 1px solid rgba($color: $background, $alpha: .2);
+  }
+
+  .event-cell-card {
+    color: $white;
   }
 
   // trashcan
@@ -67,10 +71,10 @@
 
   .current i{
     font-size: 1.5rem;
-    color: #ff7137;
-    text-shadow: 0 0 15px $white, 0 0 15px $white;
+    color: #ff8f63;
+    // text-shadow: 0 0 15px $white, 0 0 15px $white;
   }
-  
+
   @media(max-width: 401px) {
     .y.scroll-snapping {
       background-position: top 10rem left 25%;
@@ -84,7 +88,7 @@
       background-size: 400%;
     }
   }
-  
+
   @media(max-width: 900px) and (min-width: 681px) {
     .y.scroll-snapping {
       background-position: top 10rem left 17%;
