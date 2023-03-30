@@ -46,7 +46,7 @@
   font-size: $text-fs * 0.8;
 }
 
-#new_event {
+.new_event, .edit_event {
   width: 100%;
 }
 
