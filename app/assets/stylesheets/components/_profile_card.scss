@@ -68,7 +68,7 @@
   height: 100%;
   width: 100%;
 
-  background-color: rgba(255, 255, 255, 0.074);
+  // background-color: rgba(255, 255, 255, 0.074);
   // border: 1px solid rgba(255, 255, 255, 0.222);
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
@@ -86,7 +86,7 @@
   margin: 0 auto;
 
   &:hover {
-    box-shadow: 0px 0px 20px 1px #ffbb763f;
+    // box-shadow: 0px 0px 20px 1px #ffbb763f;
     // border: 1px solid rgba(255, 255, 255, 0.454);
     transform: scale(1.02);
   }
@@ -112,5 +112,22 @@
 @media only screen and (min-width: 600px) {
   .profile-wrapper {
     grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media only screen and (max-width: 450px) {
+
+  .profile-header {
+    margin: 0 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+
+    & img {
+        width: 7rem;
+        height: 7rem;
+    }
   }
 }
