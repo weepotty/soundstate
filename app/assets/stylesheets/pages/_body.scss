@@ -110,6 +110,16 @@
     }
   }
 
+  .search-btn {
+    background-color: #ff8f63;
+    border: none;
+
+    &:active {
+      background-color: $medium-color;
+      border: none;
+    }
+  }
+
   // event buttons
   a.default {
     background-color: #ff8f63;
