@@ -9,7 +9,7 @@
       <i style="font-size: 1.2rem" class="fa-solid fa-headphones fa-md"></i>
     </div>
   <% end %>
-  <%= link_to new_event_path, class: current?("events", "new") do %>
+  <%= link_to new_event_path, class: current?("events", "new"), id: "add" do %>
     <div class="px-3">
       <span id="menu-create">
         <i class="fa-regular fa-plus fa-xl"></i>
