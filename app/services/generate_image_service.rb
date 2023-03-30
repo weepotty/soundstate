@@ -10,11 +10,12 @@ class GenerateImageService
     # Generate image and returns image url.
     client = OpenAI::Client.new
     image_response = client.images.generate(parameters: { prompt: "#{prompt}, #{mood_descriptors(event).sample(2).join(', ')}, in the art style of #{art_styles.sample}", size: "256x256" })
-    # image_response = client.images.generate(parameters: { prompt: "#{prompt}, #{mood_descriptors(event).sample(2).join(', ')}, in the art style of #{art_styles.sample}", size: "256x256" })
 
+    # Return the url of the image generated.
     img_res = image_response.dig('data', 0, 'url')
   end
 
+  # Helper method to get descriptions to help enhance the image generated.
   def self.mood_descriptors(event)
     # happy energetic
     if event.max_valence > 0.5 && event.max_energy > 0.5

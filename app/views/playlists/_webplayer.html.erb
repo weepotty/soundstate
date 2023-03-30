@@ -6,7 +6,7 @@
         <% @songs.each do |song| %>
           <li class="episodes">
             <button class="btn episode" data-spotify-id=<%= song.uri %>>
-                  <strong><%= song.name %></strong> - <%= song.artist %>
+              <strong><%= song.name %></strong> - <%= song.artist %>
             </button>
           </li>
         <% end %>

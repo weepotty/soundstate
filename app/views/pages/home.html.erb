@@ -9,7 +9,7 @@
     <div class="carousel hide" data-controller="flickity" data-homepage-target="hide">
       <% current_user.user_playlists.each do |playlist| %>
         <div class="carousel-cell">
-          <%= render 'shared/event_image_card', playlist: playlist %>
+          <%= render 'shared/playlist_carousel_card', playlist: playlist %>
         </div>
       <% end %>
     </div>
