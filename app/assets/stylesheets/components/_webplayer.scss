@@ -20,6 +20,13 @@ li.episodes {
   border-bottom: 1px solid rgba($color: $white, $alpha: .2);
 }
 
+li button.episode {
+  text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 ul#episodes::-webkit-scrollbar, .list-items-container::-webkit-scrollbar {
   display: none;  /* Safari and Chrome */
 }
@@ -57,10 +64,11 @@ ul#episodes::-webkit-scrollbar, .list-items-container::-webkit-scrollbar {
   text-align: center;
   border: none;
   margin: 3em auto;
+  transition: all 0.3s;
 
   &:hover {
-    background-color: $cold-color;
-    box-shadow: 0px 0px 10px 1px $cold-color;
+    background-color: $medium-color;
+    color: $background;
   }
 }
 
