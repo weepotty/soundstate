@@ -43,7 +43,7 @@ export default class extends Controller {
   generateImage() {
     return new Promise((resolve, reject) => {
       this.imageTarget.innerHTML =
-        "<div class='playlist-loader'></div><div class='playlist-loader-text'>Generating AI Art...</div>";
+        "<div class='playlist-loader'><div>LOADING</div></div><div class='playlist-loader-text'>Generating AI Art...</div>";
 
       fetch(`/events/${this.eventidValue}/image`, {
         headers: {
