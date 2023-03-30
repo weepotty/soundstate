@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
-    @default_events = current_user.events.first(3)
+    @events = current_user.events
 
     respond_to do |format|
       format.html
@@ -14,10 +14,10 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.user = current_user
-    @default_events = current_user.events.first(3)
     if @event.save
       redirect_to new_event_playlist_path(@event)
     else
+      @events = current_user.events
       scale_down_tempo(@event)
       render :new, status: :unprocessable_entity
     end
@@ -41,6 +41,8 @@ class EventsController < ApplicationController
   # GET /events/:id/edit
   def edit
     @event = Event.find(params[:id])
+    @events = current_user.events
+
     # 220 tempo for the maximum range, to fit slider of 0 to 1
     scale_down_tempo(@event)
 
@@ -56,6 +58,7 @@ class EventsController < ApplicationController
     if @event.update(event_params)
       redirect_to new_event_playlist_path(@event)
     else
+      @events = current_user.events
       scale_down_tempo(@event)
       render :edit, status: :unprocessable_entity
     end
