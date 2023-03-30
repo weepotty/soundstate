@@ -58,6 +58,23 @@
   }
 }
 
+a.vault-event {
+  border: none;
+
+  &:hover {
+    border: none;
+    background-color: $medium-color;
+    color: $background;
+  }
+}
+
+a.is-selected {
+  border: none;
+  color: $background;
+  background-color: $medium-color;
+  font-weight: bold;
+}
+
 #vault-events {
   overflow: auto;
   -ms-overflow-style: none;  /* Internet Explorer 10+ */
@@ -76,6 +93,11 @@
 
 #vault-events-container {
   height: 3rem;
+}
+
+.event-new-vault {
+  margin-top: 3rem;
+  margin-bottom: 4rem;
 }
 
 @media(min-width: 600px) {
