@@ -1,4 +1,4 @@
-<div class="profile-wrapper mb-5">
+<div class="profile-wrapper">
   <% playlists.each do |playlist| %>
     <div data-action='click->profile-modal#closeImage' data-controller="profile-modal share-button" data-profile-modal-image-value="<%= playlist.photo.url %>" data-share-button-shared-value="<%= playlist.is_shared %>" data-share-button-id-value="<%= playlist.id %>">
       <div class="profile-card" data-controller="profile-card" data-action="click->profile-card#click" data-share-button-target="thumbnail">
