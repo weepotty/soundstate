@@ -5,8 +5,8 @@ class GenerateImageService
 
     # Various prompt helper words for better image generation results.
     art_styles = ['pop art', 'risograph', 'illustration', 'cubism', 'memphis', 'digital art',
-                  '3D render', 'block printing', 'watercolor', 'synthwave', 'ceramics', 'vaporwave', 'linocut art',
-                  'geometric drawing', 'line art', 'vintage', '3D illustration', 'lego bricks', 'claymation',
+                  '3D render', 'block printing', 'watercolor', 'ceramics', 'vaporwave', 'linocut art',
+                  'geometric drawing', 'line art', 'vintage', '3D illustration', 'claymation',
                   'salvador dali', 'van gogh', 'low poly']
     # Generate image and returns image url.
     client = OpenAI::Client.new
@@ -36,11 +36,11 @@ class GenerateImageService
   def self.time_colour_descriptor(event)
     case event.time
     when 'morning'
-      %w[spring dawn]
+      %w[spring dew dawn]
     when 'evening'
       %w[dusk twilight]
     when 'afternoon'
-      %w[summer autumn]
+      %w[warm]
     end
   end
 
