@@ -29,17 +29,11 @@
 
 .container-scroll {
   min-height: 100vh;
-  scroll-snap-align: center;
-}
-
-.carousel-container {
-  scroll-snap-align: center;
 }
 
 .gallery-container {
-  padding-top: 10vh;
-  scroll-snap-align: start;
-  min-height: 100vh;
+  padding-top: 6vh;
+  min-height: 80vh;
 }
 
 @media(max-width: 400px) {
@@ -48,7 +42,7 @@
     background-size: 300%;
   }
   .carousel-container {
-    height: 70vh;
+    height: 60vh;
   }
 }
 

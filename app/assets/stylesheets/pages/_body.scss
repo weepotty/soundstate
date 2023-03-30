@@ -1,5 +1,5 @@
 .light-mode {
-  background-color: rgb(232, 250, 255);
+  background-color: #e8faff;
   color: $background;
   .y.scroll-snapping {
     width: 100vw;
@@ -11,8 +11,54 @@
     color: $background !important;
   }
 
+  .gallery-user>p>small {
+    color: $background;
+  }
+
+  .gallery-photo {
+    border: 7px solid rgb(189, 240, 254);
+  }
+
+  .event-card>h1 {
+    color:#e2f9ff
+  }
+
+  .event-form {
+    background-color: #dbf3fe;
+    box-shadow: 2px 5px 10px rgb(161, 161, 161);
+    color: $cold-color;
+  }
+
+  #event_title {
+    color: $cold-color;
+    background-color: #f0faff;
+    box-shadow: inset 2px 5px 10px rgba(161, 161, 161, 0.7);
+  }
+
+  #event_title::placeholder {
+    color: $cold-color;
+  }
+
+  // New event songs preview on playlists#new
+
+  li button.episode {
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: $background;
+    border-bottom: 1px solid rgba($color: $background, $alpha: .2);
+  }
+
+  // trashcan
+
+  a>i.text-white.fa-solid.fa-trash {
+    color: $background !important;
+  }
+
   .menu-bar {
     background-color: rgba(174, 238, 255, 0.8);
+    box-shadow: 4px 0 20px rgba(87, 121, 130, 0.3);
 
     a {
       color: #424451;
@@ -21,8 +67,8 @@
 
   .current i{
     font-size: 1.5rem;
-    color: $white;
-    text-shadow: 0 0 25px $white, 0 0 25px $white;
+    color: #ff7137;
+    text-shadow: 0 0 15px $white, 0 0 15px $white;
   }
   
   @media(max-width: 401px) {
