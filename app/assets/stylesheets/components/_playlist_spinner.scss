@@ -9,6 +9,22 @@
   animation-duration: 8s;
   animation-timing-function: step-start;
   animation-iteration-count: infinite;
+  position: relative;
+
+  div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: 600;
+    font-size: 1.2rem;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
 }
 
 @keyframes bg-image-animation {
