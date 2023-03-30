@@ -16,6 +16,10 @@
   flex-direction: column;
   align-items: center;
   box-shadow: 2px 5px 10px rgb(5, 5, 5);
+
+  label{
+    font-size: $text-fs * 0.8;
+  }
 }
 
 .event-button {
@@ -41,12 +45,7 @@
   }
 }
 
-
-.event-form label{
-  font-size: $text-fs * 0.8;
-}
-
-#new_event {
+.new_event, .edit_event {
   width: 100%;
 }
 
@@ -77,9 +76,9 @@
 @media only screen and (max-width: 600px) {
   #event_title {
     background-color: #2e2e2e;
-  }
 
-  #event_title::placeholder {
-    color:#9b9a9a;
+    &::placeholder {
+      color:#9b9a9a;
+    }
   }
 }
