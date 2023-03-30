@@ -13,17 +13,16 @@ class UsersController < ApplicationController
     else
       # Removing extra as it can overflow some session stores
       session['devise.spotify_data'] = request.env['omniauth.auth'].except('extra')
-      redirect_to new_user_registration_url, alert: @user.errors.full_messages.join("\n")
+      redirect_to root_path, alert: @user.errors.full_messages.join("\n")
     end
   end
 
   # GET /users/
   def index
     if params[:query]
-      @query = params[:query]
-      @users = User.search_by_nickname(@query)
+      @users = User.search_by_nickname(params[:query]).reorder('LOWER(nickname)')
     else
-      @users = User.all
+      @users = User.order('LOWER(nickname)')
     end
 
     respond_to do |format|
@@ -35,7 +34,6 @@ class UsersController < ApplicationController
   # GET /users/:id
   def show
     @user = User.find(params[:id])
-    current_user
     @playlists = current_user.playlists
     @events = current_user.events
   end

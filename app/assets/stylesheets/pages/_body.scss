@@ -59,8 +59,6 @@
   .menu-bar {
     background-color: rgba(174, 238, 255, 0.8);
     box-shadow: 4px 0 20px rgba(87, 121, 130, 0.3);
-    // background-color: rgba($medium-color, 0.9);
-    // background-color: rgba(255, 202, 128, 0.9);
 
     a {
       color: #424451;
@@ -72,14 +70,7 @@
     color: #ff7137;
     text-shadow: 0 0 15px $white, 0 0 15px $white;
   }
-
-  @media(max-width: 680px) and (min-width: 401px) {
-    .y.scroll-snapping {
-      background-position: top 10rem left 30%;
-      background-size: 400%;
-    }
-  }
-
+  
   @media(max-width: 401px) {
     .y.scroll-snapping {
       background-position: top 10rem left 25%;
@@ -87,15 +78,22 @@
     }
   }
 
-  @media(max-width: 1080px) and (min-width: 901px) {
+  @media(max-width: 680px) and (min-width: 401px) {
     .y.scroll-snapping {
-      background-position: top left -5%;
+      background-position: top 10rem left 30%;
+      background-size: 400%;
     }
   }
-
+  
   @media(max-width: 900px) and (min-width: 681px) {
     .y.scroll-snapping {
       background-position: top 10rem left 17%;
+    }
+  }
+
+  @media(max-width: 1080px) and (min-width: 901px) {
+    .y.scroll-snapping {
+      background-position: top left -5%;
     }
   }
 }

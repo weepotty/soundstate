@@ -4,7 +4,6 @@
   max-width: 250px;
   height: 3rem;
   overflow: hidden;
-  // border: 1px solid gray;
   border-radius: 4px;
   padding: 1rem;
   margin: 1rem auto;
@@ -13,8 +12,6 @@
   align-items: center;
   transform: scale(1);
   transition: transform 0.5s;
-  // background-color: rgba(60, 60, 60,0.5);
-  // box-shadow: 0 0 30px 5px rgba(60, 60, 60,0.5);
 
   &:hover {
     transform: scale(1.05);
@@ -50,9 +47,6 @@
   left: 0;
   transition: background-color 0.5s;
 }
-
-
-
 
 @keyframes sh02 {
   from {
