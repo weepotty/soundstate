@@ -59,7 +59,7 @@
 }
 
 #vault-events {
-  overflow-x: auto;
+  overflow: auto;
   -ms-overflow-style: none;  /* Internet Explorer 10+ */
   scrollbar-width: none;  /* Firefox */
   height: 3rem;
@@ -76,4 +76,14 @@
 
 #vault-events-container {
   height: 3rem;
+}
+
+@media(min-width: 600px) {
+  #vault-events-container {
+    width: 300px;
+  }
+  #vault-events {
+    margin: 0 auto;
+    width: 300px
+  }
 }
