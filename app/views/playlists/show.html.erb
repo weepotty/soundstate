@@ -1,5 +1,5 @@
 <div class="container d-flex flex-column justify-content-center">
-  <h1 class="mb-3 text-center">Your Newest Playlist</h1>
+  <h1 class="mb-3 text-center">Listen Now</h1>
   <% if !@playlist.is_shared %>
     <div class="d-flex"
         style="padding-top: 1em; gap: 0.5em; padding-left: 1em; cursor: pointer;"
@@ -8,7 +8,7 @@
         data-action="click->share-button-creation#share"
       data-share-button-creation-id-value="<%= @playlist.id %>"
       data-share-button-creation-shared-value="<%= @playlist.is_shared %>">
-      <i class="fa-solid fa-lock" style="padding-top: 0.2em;"></i>
+      <i class="red-lock fa-solid fa-lock" style="padding-top: 0.2em;"></i>
       <p> Share to Gallery</p>
     </div>
   <% end %>

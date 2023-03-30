@@ -8,10 +8,12 @@ export default class extends Controller {
     shared: Boolean,
   };
 
+
+
   share() {
     const url = `/playlists/toggle_shared`;
-    const lock = "<p class='m-0' style='$light-gray'>Playlist Hidden</p>";
-    const unlock = "<p class='m-0' style='$light-gray'>Playlist Shared</p>";
+    const lock = "<p class='m-0' style='$light-gray'><i class='red-lock fa-solid fa-lock' style='padding-top: 0.2em;'></i> Playlist Hidden</p>";
+    const unlock = "<p class='m-0' style='$light-gray'><i class='green-lock fa-solid fa-lock-open' style='padding-top: 0.2em;'></i> Playlist Shared</p>";
 
     fetch(url, {
       method: "POST",
