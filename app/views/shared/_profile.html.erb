@@ -10,7 +10,6 @@
               </div>
             </div>
             <div class="profile_card__face profile_card__face--back">
-              <button class="btn-play"><i class="fa-solid fa-play"></i></button>
             </div>
           </div>
         </div>
@@ -24,14 +23,14 @@
               <div class="d-flex justify-content-between <%= current_user.id == @user.id ? "" : "invisible" %>"
                    data-share-button-target="share"
                    data-action="click->share-button#share">
-                <i class="fa-solid fa-lock-open" style="padding-top: 0.2em;"></i>
+                <i class="green-lock fa-solid fa-lock-open" style="padding-top: 0.2em;"></i>
                 <span style="padding-left: 10px;">Hide in Vault</span>
               </div>
             <% else %>
               <div class="d-flex justify-content-between"
                    data-share-button-target="share"
                    data-action="click->share-button#share">
-                <i class="fa-solid fa-lock" style="padding-top: 0.2em;"></i>
+                <i class="red-lock fa-solid fa-lock" style="padding-top: 0.2em;"></i>
                 <span style="padding-left: 10px;">Share to Gallery</span>
               </div>
             <% end %>
