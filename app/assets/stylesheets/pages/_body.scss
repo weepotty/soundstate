@@ -7,7 +7,7 @@
     background-position: top 0 left -20%;
     background-repeat: no-repeat;
   }
-  .dropdown *, a.header-text {
+  .dropdown i, .dropdown a, a.header-text {
     color: $background !important;
   }
 
@@ -118,6 +118,14 @@
       background-color: $medium-color;
       border: none;
     }
+  }
+
+  .form-control.is-valid {
+    color: #ff8f63;
+  }
+
+  .user-search-card span{
+    color: $background;
   }
 
   // event buttons
