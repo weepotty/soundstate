@@ -187,4 +187,13 @@
       background-position: top left -5%;
     }
   }
+
+  @media only screen and (max-width: 450px) {
+
+    .profile-header {
+      & img {
+          box-shadow: 2px 2px 5px rgba($color: #000000, $alpha: 0.3);
+      }
+    }
+  }
 }
