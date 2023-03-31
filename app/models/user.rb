@@ -28,7 +28,7 @@ class User < ApplicationRecord
       account.update!(spotify_auth:)
     else
       account = User.create!(email: spotify_user.email, password: Devise.friendly_token[0, 20], nickname: spotify_user.display_name, spotify_auth:)
-      
+
       if !spotify_user.images.empty?
         require "open-uri"
         avatar = URI.open(spotify_user.images.first.url)
@@ -40,7 +40,7 @@ class User < ApplicationRecord
     end
     account
   end
-  
+
   def spotify_user
     RSpotify::User.new(spotify_auth)
   end
@@ -50,7 +50,7 @@ class User < ApplicationRecord
   end
 
   def others_playlists
-    Playlist.where.not(user: self).order(created_at: :DESC)
+    Playlist.where(is_shared: true).where.not(user: self).order(created_at: :DESC)
   end
 
   # Add 3 default events to new users
@@ -70,7 +70,7 @@ class User < ApplicationRecord
       time: 0,
       user: self
     )
-  
+
     Event.create!(
       title: 'Acoustic',
       min_acousticness: 0.8,
@@ -86,7 +86,7 @@ class User < ApplicationRecord
       time: 1,
       user: self
     )
-  
+
     Event.create!(
       title: 'Sleep',
       min_acousticness: 0.0,
