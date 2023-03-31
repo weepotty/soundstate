@@ -10,8 +10,8 @@ export default class extends Controller {
 
   share() {
     const url = `/playlists/toggle_shared`
-    const unlock = "<p style='color: $light-gray; padding-top: 1em; padding-left: 1em;'>Playlist Shared</p>"
-
+    const lock = "<p class='m-0' style='$light-gray'><i class='red-lock fa-solid fa-lock' style='padding-top: 0.2em;'></i> Playlist Hidden</p>";
+    const unlock = "<p class='m-0' style='$light-gray'><i class='green-lock fa-solid fa-lock-open' style='padding-top: 0.2em;'></i> Playlist Shared</p>"
 
     fetch(url, {
       method: "POST",
@@ -25,8 +25,14 @@ export default class extends Controller {
   })
     .then(res => res.json())
     .then((data) => {
-      this.shareTarget.outerHTML = unlock
-      console.log(this.shareTarget);
+      if (data.playlist) {
+        this.shareTarget.outerHTML = unlock;
+      } else {
+        this.shareTarget.outerHTML = lock;
+      }
+      if (window.location.href.includes("playlist")) {
+        this.thumbnailTarget.remove();
+      }
   })
 }
 }
