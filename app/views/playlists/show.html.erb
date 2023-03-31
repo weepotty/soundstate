@@ -7,13 +7,8 @@
         data-action="click->share-button-creation#share"
         data-share-button-creation-id-value="<%= @playlist.id %>"
         data-share-button-creation-shared-value="<%= @playlist.is_shared %>">
-    <% if !@playlist.is_shared %>
-      <i class="red-lock fa-solid fa-lock" style="padding-top: 0.2em;"></i>
-      <p> Share to Gallery</p>
-      <% else %>
-      <i class="green-lock fa-solid fa-lock-open" style="padding-top: 0.2em;"></i>
-      <p> Hide in Vault</p>
-    <% end %>
+          <i data-share-button-creation-target="lock" class="<%= !@playlist.is_shared ? "green-lock fa-solid fa-lock-open": "red-lock fa-solid fa-lock" %>" style="padding-top: 0.2em;"></i>
+          <p data-share-button-creation-target="action"> <%= !@playlist.is_shared ? " Share to Gallery": "Hide in Vault" %></p>
     </div>
   <iframe id="playlist-show" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/<%= @playlist.spotify_id %>?utm_source=generator&theme=0" width="100%" height="1000" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 </div>

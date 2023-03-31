@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="share-button-creation"
 export default class extends Controller {
-  static targets = ["share"]
+  static targets = ["share", "lock", "action"]
   static values = {
     id: String,
     shared: Boolean
@@ -10,8 +10,10 @@ export default class extends Controller {
 
   share() {
     const url = `/playlists/toggle_shared`
-    const lock = "<p class='m-0' style='$light-gray'><i class='red-lock fa-solid fa-lock' style='padding-top: 0.2em;'></i> Playlist Hidden</p>";
-    const unlock = "<p class='m-0' style='$light-gray'><i class='green-lock fa-solid fa-lock-open' style='padding-top: 0.2em;'></i> Playlist Shared</p>"
+    const lockHide = "<i data-share-button-creation-target='lock' class='green-lock fa-solid fa-lock-open' style='padding-top: 0.2em;'></i>";
+    const lockShare = "<i data-share-button-creation-target='lock' class='red-lock fa-solid fa-lock' style='padding-top: 0.2em;'></i>";
+    const actionHide = "<p data-share-button-creation-target='action'> Share to Gallery</p>"
+    const actionShare = "<p data-share-button-creation-target='action'> Hide in Vault</p>"
 
     fetch(url, {
       method: "POST",
@@ -25,10 +27,13 @@ export default class extends Controller {
   })
     .then(res => res.json())
     .then((data) => {
+
       if (data.playlist) {
-        this.shareTarget.outerHTML = unlock;
+        this.lockTarget.outerHTML = lockShare;
+        this.actionTarget.outerHTML = actionShare;
       } else {
-        this.shareTarget.outerHTML = lock;
+        this.lockTarget.outerHTML = lockHide;
+        this.actionTarget.outerHTML = actionHide;
       }
       if (window.location.href.includes("playlist")) {
         this.thumbnailTarget.remove();
