@@ -129,8 +129,13 @@
     align-items: center;
 
     & img {
-        width: 7rem;
-        height: 7rem;
+        width: 9rem;
+        height: 9rem;
+        box-shadow: 2px 2px 5px rgba($color: #000000, $alpha: 0.8);
+    }
+
+    & h1 {
+      font-size: 1.5rem;
     }
   }
 }
