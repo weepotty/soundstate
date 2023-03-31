@@ -52,5 +52,8 @@ application.register("share-button-creation", ShareButtonCreationController)
 import SliderController from "./slider_controller"
 application.register("slider", SliderController)
 
+import SwipeEventController from "./swipe_event_controller"
+application.register("swipe-event", SwipeEventController)
+
 import TimeZoneController from "./time_zone_controller"
 application.register("time-zone", TimeZoneController)

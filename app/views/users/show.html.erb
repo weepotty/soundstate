@@ -4,7 +4,9 @@
     <div class="default-events" id="#vault-events-container">
       <ul id="vault-events" class="list-unstyled d-flex justify-content-start gap-3">
         <% @events.each do |event| %>
-          <li><%= link_to event.title, edit_event_path(event), class: "btn default vault-event" %></li>
+          <div data-controller='swipe-event' data-swipe-event-eventid-value="<%= event.id %>">
+            <li data-action='touchstart->swipe-event#start touchend->swipe-event#end'><%= link_to event.title, edit_event_path(event), class: "btn default vault-event" %></li>
+          </div>
         <% end %>
       </ul>
     </div>
