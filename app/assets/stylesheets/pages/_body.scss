@@ -134,6 +134,26 @@
     box-shadow: 1px 1px 5px rgba($color: #000000, $alpha: 0.4);
   }
 
+  .event-button, .create-btn{
+    background-color: #ff8f63;
+  }
+
+  .event-button, .create-btn{
+    background-color: #ff8f63;
+  }
+
+  #edit-button{
+    i {
+      color: #ff8f63;
+    }
+    a {
+      color: #ff8f63;
+    }
+    p {
+      color: #ff8f63;
+    }
+  }
+
   a.is-selected {
     border: none;
     color: $background;

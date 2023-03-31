@@ -1,7 +1,7 @@
 <div class="container" id="new-playlist" data-controller='image-creation' data-image-creation-eventid-value="<%= @event.id %>">
   <h1 class="mb-3">Preview Your Playlist</h1>
   <div id="first-song" value="<%= @song_uris.first %>"></div>
-  <div class="d-flex justify-content-between align-items-start mb-5">
+  <div id="edit-button"class="d-flex justify-content-between align-items-start mt-5 mb-5">
     <p><i class="fa-solid fa-chevron-left"></i> <%= link_to 'Edit filters', edit_event_path(@event)%></p>
     <%# Generate image button %>
     <div id="generate-button" data-action='click->image-creation#showImage' data-image-creation-target='generateImageButton'><p> Generate Image <i class="fa-solid fa-chevron-right"></i></p></div>
