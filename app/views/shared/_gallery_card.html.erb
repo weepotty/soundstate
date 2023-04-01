@@ -3,7 +3,7 @@
     <div class="card" data-gallery-card-target="card">
       <div class="card__face card__face--front">
         <div class="gallery-photo" data-action="click->gallery-card#click">
-          <%= cl_image_tag playlist.photo.key, crop: :fill %>
+          <%= cl_image_tag playlist.photo.key, crop: :fill, loading: "lazy" %>
         </div>
         <div class="gallery-user d-flex align-items-center gap-3 mt-2">
           <%= render 'shared/user_avatar_small', user: playlist.user %>
