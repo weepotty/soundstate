@@ -46,11 +46,11 @@ class User < ApplicationRecord
   end
 
   def user_playlists
-    Playlist.where(user: self).order(created_at: :DESC)
+    Playlist.where(user: self).order(created_at: :desc)
   end
 
   def others_playlists
-    Playlist.where(is_shared: true).where.not(user: self).order(created_at: :DESC)
+    Playlist.where(is_shared: true).where.not(user: self).order(updated_at: :desc)
   end
 
   # Add 3 default events to new users
