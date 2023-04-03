@@ -3,7 +3,7 @@ class UpdatePlaylistsJob < ApplicationJob
 
   def perform(user)
     user.playlists.each do |playlist|
-      playlist.destroy if RSpotify::Playlist.find_by_id(playlist.spotify_id).public
+      playlist.destroy unless RSpotify::Playlist.find_by_id(playlist.spotify_id).public
     end
   end
 end
