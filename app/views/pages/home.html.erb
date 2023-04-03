@@ -23,7 +23,7 @@
       <h2 class="hide mb-3" data-homepage-target="hide">Discover Playlists</h2>
     </div>
     <div class="hide" data-homepage-target="hide">
-      <% current_user.others_playlists.sample(10).each do |playlist| %>
+      <% current_user.others_playlists.each do |playlist| %>
         <%= render "shared/gallery_card", playlist: playlist %>
       <% end %>
     </div>
