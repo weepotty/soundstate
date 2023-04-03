@@ -103,4 +103,10 @@ class User < ApplicationRecord
       user: self
     )
   end
+
+  def update_playlists_from_spotify
+    playlists.each do |playlist|
+      playlist.destroy if RSpotify::Playlist.find_by_id(playlist.spotify_id).public
+    end
+  end
 end
