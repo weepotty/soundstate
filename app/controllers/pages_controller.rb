@@ -2,8 +2,8 @@ class PagesController < ApplicationController
   def home
     if user_signed_in?
       # Sync user's playlists with Spotify as a background job.
-      UpdatePlaylistsJob.perform_later(current_user)
-      
+      # UpdatePlaylistsJob.perform_later(current_user)
+
       render 'pages/home'
     else
       render 'pages/landing'
