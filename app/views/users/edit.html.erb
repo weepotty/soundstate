@@ -2,7 +2,7 @@
   <%= simple_form_for(current_user) do |f| %>
     <div class="user-profile-picture" data-action="click->profile-picture-upload#uploadPicture">
       <% if current_user.avatar.attached? %>
-        <%= cl_image_tag current_user.avatar.key, height: 180, width: 180, crop: :fill, data: { "profile-picture-upload-target" => "profilePicture" } %>
+        <%= cl_image_tag current_user.avatar.key, height: 400, width: 400, crop: :fill, data: { "profile-picture-upload-target" => "profilePicture" } %>
       <% else %>
         <%= image_tag "unknown_avatar.jpg", data: { "profile-picture-upload-target" => "profilePicture" } %>
       <% end %>
