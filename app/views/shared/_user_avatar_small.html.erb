@@ -1,5 +1,5 @@
 <% if user.avatar.attached? %>
-  <%= cl_image_tag user.avatar.key, height: 100, width: 100,  crop: :fill, class: "avatar" %>
+  <%= cl_image_tag user.avatar.key, height: 400, width: 400,  crop: :fill, class: "avatar" %>
 <% else %>
   <%= image_tag "unknown_avatar.jpg", class: "avatar" %>
 <% end %>
