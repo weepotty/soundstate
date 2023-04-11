@@ -34,6 +34,7 @@
                 <span style="padding-left: 10px;">Share to Gallery</span>
               </div>
             <% end %>
+            <a href="<%= "https://open.spotify.com/playlist/#{playlist.spotify_id}" %>">Listen on <%= image_tag "spotify_logo.png", class: 'logo' %></a>
             <div class='d-flex align-items-center gap-2'>
               <div class=<%= playlist.user_id == current_user.id ? "" : "d-none" %>>
                 <%= link_to playlist_path(playlist), class:'p-2 text-decoration-none', data: {action: "click->profile-modal#close", turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
@@ -45,7 +46,8 @@
               </div>
             </div>
           </div>
-          <div class="iframe-wrapper d-flex justify-content-center"  data-action='click->profile-modal#closeImage'><iframe data-profile-modal-target='iframe' id="playlist-show" style="border-radius:12px" src=<%= "https://open.spotify.com/embed/playlist/#{playlist.spotify_id}?utm_source=generator&theme=0" %> width="100%" height="600" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+          <div class="iframe-wrapper d-flex justify-content-center"  data-action='click->profile-modal#closeImage'>
+            <iframe data-profile-modal-target='iframe' id="playlist-show" style="border-radius:12px" src=<%= "https://open.spotify.com/embed/playlist/#{playlist.spotify_id}?utm_source=generator&theme=0" %> width="100%" height="600" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div>
           <div class='secret-box' data-action='click->profile-modal#showBigImage' data-profile-modal-target='secretBox'></div>
           <div class="image-preview" data-profile-modal-target='imagePreview' data-profile-modal-target="imagePreview"></div>
         </div>
