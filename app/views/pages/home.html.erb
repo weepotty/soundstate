@@ -4,7 +4,8 @@
       <em><%= current_user.nickname %></em></h2>
   </div>
   <div class="carousel-container <%= "d-none" if current_user.user_playlists.empty? %>">
-    <h2 class="hide carousel-greeting text-center" data-homepage-target="hide">Here is what you have been listening to</h2>
+    <h2 class="hide carousel-greeting text-center" data-homepage-target="hide">Here is what you have been listening to <br>
+      <a href="https://open.spotify.com/" target="_blank"><%= image_tag "spotify_logo.png", {width: '100px', class: 'mt-2'} %></a></h2>
     <!-- Carousel -->
     <div class="carousel hide" data-controller="flickity" data-homepage-target="hide">
       <% current_user.user_playlists.each do |playlist| %>
