@@ -12,6 +12,7 @@
     </div>
   </div>
   <div class="vault-bottom">
+    <a href="https://open.spotify.com/"><%= image_tag "spotify_logo.png", {width: '100px', class: 'mb-2'} %></a>
     <% if @playlists.empty? %>
       <%= render "shared/default_profile" %>
     <% else %>

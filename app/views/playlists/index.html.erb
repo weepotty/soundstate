@@ -3,7 +3,7 @@
     <%= render 'shared/user_avatar_small', user: @user %>
     <h1 class="text-center"><%= @user.nickname %>'s Gallery</h2>
   </div>
-  <a href="https://open.spotify.com/"><%= image_tag "spotify_logo.png", {width: '100px', class: 'mb-2'} %></a>
+  <a href="https://open.spotify.com/" target="_blank"><%= image_tag "spotify_logo.png", {width: '100px', class: 'mb-2'} %></a>
   <% if @playlists.where(is_shared: true).empty?  %>
     <%= render "shared/default_gallery" %>
   <% else %>

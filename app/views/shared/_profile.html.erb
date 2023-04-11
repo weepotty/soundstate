@@ -34,7 +34,7 @@
                 <span style="padding-left: 10px;">Share to Gallery</span>
               </div>
             <% end %>
-            <a href="<%= "https://open.spotify.com/playlist/#{playlist.spotify_id}" %>">Listen on <%= image_tag "spotify_logo.png", class: 'logo' %></a>
+            <a href="<%= "https://open.spotify.com/playlist/#{playlist.spotify_id}" %>" target="_blank">Listen on <%= image_tag "spotify_logo.png", class: 'logo' %></a>
             <div class='d-flex align-items-center gap-2'>
               <div class=<%= playlist.user_id == current_user.id ? "" : "d-none" %>>
                 <%= link_to playlist_path(playlist), class:'p-2 text-decoration-none', data: {action: "click->profile-modal#close", turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>

@@ -19,8 +19,10 @@
   </div>
   <!-- Gallery Feed -->
   <div class="gallery-container">
-    <div class="container mt-6 text-center">
-      <h2 class="hide mb-3" data-homepage-target="hide">Discover Playlists</h2>
+    <div class="container mt-6 text-center hide" data-homepage-target="hide">
+      <%# <h2 class="hide mb-3" data-homepage-target="hide">Discover Playlists</h2> %>
+      <h2 class="mb-3">Discover Playlists</h2>
+      <a href="https://open.spotify.com/" target="_blank"><%= image_tag "spotify_logo.png", {width: '100px'} %></a>
     </div>
     <div class="hide" data-homepage-target="hide">
       <% current_user.others_playlists.sample(10).each do |playlist| %>
