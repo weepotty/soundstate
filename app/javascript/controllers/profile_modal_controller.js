@@ -39,7 +39,6 @@ export default class extends Controller {
   }
 
   closeImage(event) {
-    console.log("click registered");
     if (event.target !== this.secretBoxTarget) {
       this.imagePreviewTarget.innerHTML = "";
       this.iframeTarget.classList.remove("darken");
