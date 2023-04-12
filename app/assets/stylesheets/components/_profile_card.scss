@@ -38,6 +38,17 @@
   aspect-ratio: 1/1;
   object-fit: cover;
   }
+
+  .logo {
+    width: 100px;
+    aspect-ratio: unset;
+    object-fit: unset;
+  }
+
+  a {
+    text-decoration:none;
+    color: $white;
+  }
 }
 
 .profile-scene {
