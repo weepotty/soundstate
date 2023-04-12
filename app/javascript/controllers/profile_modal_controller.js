@@ -10,6 +10,7 @@ export default class extends Controller {
     "imagePreview",
     "iframe",
     "secretBox",
+    "enlargedImage",
   ];
   static values = {
     image: String,
@@ -33,14 +34,16 @@ export default class extends Controller {
   }
 
   showBigImage() {
-    this.imagePreviewTarget.innerHTML = `<img src="${this.imageValue}">`;
+    this.imagePreviewTarget.innerHTML = `<img src="${this.imageValue}" data-profile-modal-target="enlargedImage">`;
     this.iframeTarget.classList.add("darken");
     this.iframeTarget.classList.add("pe-none");
   }
 
   closeImage(event) {
-    console.log("click registered");
-    if (event.target !== this.secretBoxTarget) {
+    if (
+      event.target !== this.secretBoxTarget &&
+      event.target !== this.enlargedImageTarget
+    ) {
       this.imagePreviewTarget.innerHTML = "";
       this.iframeTarget.classList.remove("darken");
       this.iframeTarget.classList.remove("pe-none");
