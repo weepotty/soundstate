@@ -6,8 +6,13 @@ A smart playlist curator that allows you to filter your Spotify library accordin
 
 We made this as a team of 4 for our final 2 week project at Le Wagon's web dev bootcamp.
 
+<a><img src="app/assets/images/soundstate-demo-short.gif"></a>
+<a><img src="https://res.cloudinary.com/drftmp0s5/image/upload/v1681239925/filters_dni68w.png" style="width: 300px"></a>
+<a><img src="https://res.cloudinary.com/drftmp0s5/image/upload/v1681239925/playlist-show_j43wr4.png" style="width: 300px"></a>
+<a><img src="https://res.cloudinary.com/drftmp0s5/image/upload/v1681239926/gallery_pyc0sz.png" style="width: 300px"></a>
+
 ### ✨ [Demo](https://www.soundstate.live/)
-demo username: soundstatedemo@gmail.com | 
+demo username: soundstatedemo@gmail.com |
 demo password: SoundStateDemo1160
 
 <h2>Technologies and Learning Points</h2>
@@ -31,12 +36,12 @@ demo password: SoundStateDemo1160
 - Applying RESTful principles: with the use of 2 APIs we made a conscious effort to keep the routes RESTful
 
 
-<a href="https://www.postgresql.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="40" height="40"/> </a> 
+<a href="https://www.postgresql.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="40" height="40"/> </a>
 - How to define database schema, perform CRUD operations, database migrations. We are aware of the importance of a sound database structure and spent time trying to establish this from the beginning. One particular dilemma we faced was whether or not to store the user's songs in our own database. We ended up electing to do this as it was much more efficient to query our database when filtering songs than to make an API request each time.
 
 - Importance of validations to ensure data integrity and consistency
- 
-<a href="https://www.figma.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40"/> </a> <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> <a href="https://heroku.com" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/heroku/heroku-icon.svg" alt="heroku" width="40" height="40"/> </a> 
+
+<a href="https://www.figma.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40"/> </a> <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> <a href="https://heroku.com" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/heroku/heroku-icon.svg" alt="heroku" width="40" height="40"/> </a>
 - Figma: designing a user-centric app, designing with components, producing a low fidelity prototype
 - Collaboration via Github, PRs, resolving merge conflicts
 - Deployment via Heroku, management of database on Heroku, environment variables
@@ -54,5 +59,3 @@ Other key learning points:
 
 
 Thanks for reading 🤓
-
-
