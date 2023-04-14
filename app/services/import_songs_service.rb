@@ -3,12 +3,12 @@ class ImportSongsService
     @tracks = spotify_user.saved_tracks(offset: 0, limit: 50)
     all_tracks = @tracks
     offset = 50
-    while @tracks.count == 50
+    while (@tracks.count == 50 && offset <= 2000 )
       @tracks = spotify_user.saved_tracks(offset:, limit: 50)
       all_tracks.concat(@tracks)
       offset += 50
     end
-
+    
     insert_songs(all_tracks, current_user)
 
     # get the spotify song URIs from the filtered_array and create a playlist with these +/- store in user's spotify
