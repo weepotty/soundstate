@@ -15,6 +15,10 @@
     color: $background;
   }
 
+  .gallery-container a img, .profile-header + a img, .vault-bottom a img {
+    content: url("assets/spotify_logo_black.png");
+  }
+
   .gallery-photo {
     border: 7px solid #bdf0fe;
   }
