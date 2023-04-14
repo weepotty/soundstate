@@ -3,7 +3,9 @@ class ImportSongsService
     @tracks = spotify_user.saved_tracks(offset: 0, limit: 50)
     all_tracks = @tracks
     offset = 50
-    while (@tracks.count == 50 && offset <= 2000 )
+
+    # Limit import songs to 400, to limit api request.
+    while (@tracks.count == 50 && offset < 400 )
       @tracks = spotify_user.saved_tracks(offset:, limit: 50)
       all_tracks.concat(@tracks)
       offset += 50
