@@ -30,7 +30,7 @@ class PlaylistsController < ApplicationController
 
     @ss_playlist, spotify_playlist = ::MakeSpotifyPlaylistService.call(
       current_user:,
-      event: @event,
+      song_uris: song_uris_params,
       playlist_params:,
       image_url: image_params[:photo]
     )
@@ -83,6 +83,10 @@ class PlaylistsController < ApplicationController
 
   def image_params
     params.require(:playlist).permit(:photo)
+  end
+
+  def song_uris_params
+    params.require(:playlist).permit(:song_uris)["song_uris"].split(',')
   end
 
   def update_spotify_playlist_image(ss_playlist, spotify_playlist)
