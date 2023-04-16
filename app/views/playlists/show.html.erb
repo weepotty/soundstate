@@ -1,14 +1,14 @@
 <div class="container d-flex flex-column justify-content-center">
   <h1 class="mb-3 text-center">Listen Now</h1>
-    <div class="d-flex"
+  <div class="d-flex"
         style="padding-top: 1em; gap: 0.5em; padding-left: 1em; cursor: pointer;"
         data-controller="share-button-creation"
         data-share-button-creation-target="share"
         data-action="click->share-button-creation#share"
-        data-share-button-creation-id-value="<%= @playlist.id %>"
-        data-share-button-creation-shared-value="<%= @playlist.is_shared %>">
-          <i data-share-button-creation-target="lock" class="<%= !@playlist.is_shared ? "green-lock fa-solid fa-lock-open": "red-lock fa-solid fa-lock" %>" style="padding-top: 0.2em;"></i>
-          <p data-share-button-creation-target="action"> <%= !@playlist.is_shared ? " Share to Gallery": "Hide in Vault" %></p>
-    </div>
+    data-share-button-creation-id-value="<%= @playlist.id %>"
+    data-share-button-creation-shared-value="<%= @playlist.is_shared %>">
+    <i data-share-button-creation-target="lock" class="<%= @playlist.is_shared ? "green-lock fa-solid fa-lock-open": "red-lock fa-solid fa-lock" %>" style="padding-top: 0.2em;"></i>
+    <p data-share-button-creation-target="action"> <%= @playlist.is_shared ? " Shared to Gallery": "Hidden in Vault" %></p>
+  </div>
   <iframe id="playlist-show" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/<%= @playlist.spotify_id %>?utm_source=generator&theme=0" width="100%" height="1000" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 </div>
