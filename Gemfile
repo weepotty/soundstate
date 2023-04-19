@@ -43,7 +43,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
 
 # Sidekiq for background jobs
-gem "sidekiq"
+gem 'sidekiq', '~> 6.5'
 gem "sidekiq-failures", "~> 1.0"
 
 # Use Sass to process CSS
