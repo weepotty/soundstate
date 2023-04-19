@@ -63,22 +63,33 @@ class GenerateImageService
 
   # Helper method to get descriptions to help enhance the image generated.
   def mood_descriptors
-    # very sad songs
-    if event.max_valence < 0.4
+    if very_sad?
       %w[winter somber melancholic sad gothic post-apocalyptic poignant]
-    # happy energetic, less acoustic
-    elsif event.max_valence > 0.6 && (event.max_energy > 0.6 || event.max_acousticness < 0.5)
+    elsif happy_energetic_less_acoustic?
       %w[bright vibrant dynamic spirited vivid lively energetic colorful joyful romantic expressive rich]
-    # happy chill, more acoustic
-    elsif event.max_valence > 0.6 && (event.max_energy < 0.6 || event.max_acousticness > 0.5)
+    elsif happy_chill_more_acoustic?
       %w[light peaceful calm serene soothing relaxed cosy tranquil pastel ethereal tender soft]
-    # neutral
-    elsif event.max_valence < 0.6
+    elsif neutral?
       %w[harmonious natural diffuse whimsical]
-    # discordant moods
     else
       %w[sublime symmetrical cool nostalgic]
     end
+  end
+
+  def very_sad?
+    event.max_valence < 0.4
+  end
+
+  def happy_energetic_less_acoustic?
+    event.max_valence > 0.6 && (event.max_energy > 0.6 || event.max_acousticness < 0.5)
+  end
+
+  def happy_chill_more_acoustic?
+    event.max_valence > 0.6 && (event.max_energy < 0.6 || event.max_acousticness > 0.5)
+  end
+
+  def neutral?
+    event.max_valence < 0.6
   end
 
   def client
