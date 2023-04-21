@@ -12,12 +12,9 @@ class MakeSpotifyPlaylistService
 
   def call
     spotify_playlist = create_spotify_playlist
-    # add playlist to our DB
-    ss_playlist = Playlist.new(title: @playlist_params[:title], user: @current_user, spotify_id: spotify_playlist.id)
+    local_playlist = create_local_playlist(spotify_playlist)
 
-    # attaching AI image to our DB
-    ss_playlist.photo.attach(io: playlist_image, filename: "#{ss_playlist.title}.png", content_type: "image/png")
-    return [ss_playlist, spotify_playlist]
+    return [local_playlist, spotify_playlist]
   end
 
   private
@@ -31,6 +28,18 @@ class MakeSpotifyPlaylistService
     spotify_playlist.add_tracks!(song_uris)
 
     return spotify_playlist
+  end
+
+  def create_local_playlist(spotify_playlist)
+    local_playlist = Playlist.new(title: playlist_params[:title], user: current_user, spotify_id: spotify_playlist.id)
+
+    attach_image_to_local_playlist(local_playlist)
+
+    return local_playlist
+  end
+
+  def attach_image_to_local_playlist(local_playlist)
+    local_playlist.photo.attach(io: playlist_image, filename: "#{local_playlist.title}.png", content_type: "image/png")
   end
 
   def spotify_user
