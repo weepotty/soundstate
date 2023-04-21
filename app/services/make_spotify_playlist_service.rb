@@ -11,12 +11,7 @@ class MakeSpotifyPlaylistService
   end
 
   def call
-    # song_uris, current_user, @ss_playlist
-    # make empty playlist in spotify playlist
-    spotify_playlist = spotify_user.create_playlist!(@playlist_params[:title])
-    # add tracks to spotify
-    spotify_playlist.add_tracks!(@song_uris)
-
+    spotify_playlist = create_spotify_playlist
     # add playlist to our DB
     ss_playlist = Playlist.new(title: @playlist_params[:title], user: @current_user, spotify_id: spotify_playlist.id)
 
@@ -28,6 +23,15 @@ class MakeSpotifyPlaylistService
   private
 
   attr_reader :song_uris, :current_user, :playlist_params, :image_url
+
+  def create_spotify_playlist
+    # make empty playlist in spotify playlist
+    spotify_playlist = spotify_user.create_playlist!(playlist_params[:title])
+    # add tracks to spotify (add_tracks! returns array of RSpotify tracks instances)
+    spotify_playlist.add_tracks!(song_uris)
+
+    return spotify_playlist
+  end
 
   def spotify_user
     @spotify_user ||= current_user.spotify_user
