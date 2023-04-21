@@ -4,6 +4,12 @@ class GenerateImageService
     '3D render', 'block printing', 'watercolor', 'ceramics', 'vaporwave', 'linocut art',
     'geometric drawing', 'line art', 'vintage', '3D illustration', 'claymation',
     'salvador dali', 'van gogh', 'low poly'].freeze
+
+  TIME_COLOURS = {
+    morning: %w[spring dew dawn],
+    evening: %w[dusk twilight],
+    afternoon: %w[warm]
+  }.freeze
   
   def self.call(song:, event:)
     # Generate the prompt from the Song instance object.
@@ -11,7 +17,7 @@ class GenerateImageService
 
     # Generate image and returns image url.
     client = OpenAI::Client.new
-    image_response = client.images.generate(parameters: { prompt: "#{prompt}, #{mood_descriptors(event).sample(2).join(', ')}, in the art style of #{ART_STYLES.sample}. use a colour palette inspired by #{time_colour_descriptor(event).sample}", size: "256x256" })
+    image_response = client.images.generate(parameters: { prompt: "#{prompt}, #{mood_descriptors(event).sample(2).join(', ')}, in the art style of #{ART_STYLES.sample}. use a colour palette inspired by #{TIME_COLOURS[event.time.to_sym].sample}", size: "256x256" })
 
     # Return the url of the image generated.
     img_res = image_response.dig('data', 0, 'url')
@@ -34,17 +40,6 @@ class GenerateImageService
     # discordant moods
     else
       %w[sublime symmetrical cool nostalgic]
-    end
-  end
-
-  def self.time_colour_descriptor(event)
-    case event.time
-    when 'morning'
-      %w[spring dew dawn]
-    when 'evening'
-      %w[dusk twilight]
-    when 'afternoon'
-      %w[warm]
     end
   end
 
