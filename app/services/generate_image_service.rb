@@ -9,14 +9,11 @@ class GenerateImageService
   end
   
   def call
-    # Generate the prompt from the Song instance object.
-    prompt = generate_prompt(@song)
-
     # Generate image and returns image url.
-    image_response = client.images.generate(parameters: { prompt: "#{prompt}, #{sample_mood_descriptors}, in the art style of #{sample_art_style}. use a colour palette inspired by #{sample_time_colour_descriptor}", size: "256x256" })
+    image_response = client.images.generate(parameters: { prompt: generated_image_prompt, size: "256x256" })
 
     # Return the url of the image generated.
-    img_res = image_response.dig('data', 0, 'url')
+    image_response.dig('data', 0, 'url')
   end
 
   private
@@ -26,11 +23,21 @@ class GenerateImageService
   def client
     @client ||= OpenAI::Client.new
   end
-  
+
+  # Helper method to generate prompt for image generation.
+  def generated_image_prompt
+    <<~HEREDOC
+      #{generated_prompt_from_song}, 
+      #{sample_mood_descriptors}, 
+      in the art style of #{sample_art_style}. 
+      use a colour palette inspired by #{sample_time_colour_descriptor}
+    HEREDOC
+  end
+
   # Private method to generate prompt from the Song instance object.
-  def generate_prompt(song)
+  def generated_prompt_from_song
     query = "Return the mood of the song #{song.name} by #{song.artist} in three words."
-    
+
     response = client.chat(
       parameters: {
         model: 'gpt-3.5-turbo', # Required.
@@ -38,11 +45,8 @@ class GenerateImageService
         temperature: 0.7
       }
     )
-    response.dig('choices', 0, 'message', 'content')
-  end
 
-  def sample_mood_descriptors
-    get_mood_descriptors.sample(2).join(', ')
+    response.dig('choices', 0, 'message', 'content')
   end
 
   # Helper method to get art style to help enhance the image generated.
@@ -63,7 +67,11 @@ class GenerateImageService
     time_colours[event.time.to_sym].sample
   end
 
-  # Helper method to get mood descriptions to help enhance the image generated.
+  # Helper methods to get mood descriptions to help enhance the image generated.
+  def sample_mood_descriptors
+    get_mood_descriptors.sample(2).join(', ')
+  end
+
   def get_mood_descriptors
     if very_sad?
       %w[winter somber melancholic sad gothic post-apocalyptic poignant]
