@@ -1,16 +1,17 @@
 class GenerateImageService
+  # Various prompt helper words for better image generation results.
+  ART_STYLES = ['pop art', 'risograph', 'illustration', 'cubism', 'memphis', 'digital art',
+    '3D render', 'block printing', 'watercolor', 'ceramics', 'vaporwave', 'linocut art',
+    'geometric drawing', 'line art', 'vintage', '3D illustration', 'claymation',
+    'salvador dali', 'van gogh', 'low poly'].freeze
+  
   def self.call(song:, event:)
     # Generate the prompt from the Song instance object.
     prompt = generate_prompt(song)
 
-    # Various prompt helper words for better image generation results.
-    art_styles = ['pop art', 'risograph', 'illustration', 'cubism', 'memphis', 'digital art',
-                  '3D render', 'block printing', 'watercolor', 'ceramics', 'vaporwave', 'linocut art',
-                  'geometric drawing', 'line art', 'vintage', '3D illustration', 'claymation',
-                  'salvador dali', 'van gogh', 'low poly']
     # Generate image and returns image url.
     client = OpenAI::Client.new
-    image_response = client.images.generate(parameters: { prompt: "#{prompt}, #{mood_descriptors(event).sample(2).join(', ')}, in the art style of #{art_styles.sample}. use a colour palette inspired by #{time_colour_descriptor(event).sample}", size: "256x256" })
+    image_response = client.images.generate(parameters: { prompt: "#{prompt}, #{mood_descriptors(event).sample(2).join(', ')}, in the art style of #{ART_STYLES.sample}. use a colour palette inspired by #{time_colour_descriptor(event).sample}", size: "256x256" })
 
     # Return the url of the image generated.
     img_res = image_response.dig('data', 0, 'url')
