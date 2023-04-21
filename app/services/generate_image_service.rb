@@ -10,21 +10,32 @@ class GenerateImageService
     evening: %w[dusk twilight],
     afternoon: %w[warm]
   }.freeze
-  
+
   def self.call(song:, event:)
+    new(song:, event:).call
+  end
+
+  def initialize(song:, event:)
+    @song = song
+    @event = event
+  end
+  
+  def call
     # Generate the prompt from the Song instance object.
-    prompt = generate_prompt(song)
+    prompt = generate_prompt(@song)
 
     # Generate image and returns image url.
     client = OpenAI::Client.new
-    image_response = client.images.generate(parameters: { prompt: "#{prompt}, #{mood_descriptors(event).sample(2).join(', ')}, in the art style of #{ART_STYLES.sample}. use a colour palette inspired by #{TIME_COLOURS[event.time.to_sym].sample}", size: "256x256" })
+    image_response = client.images.generate(parameters: { prompt: "#{prompt}, #{mood_descriptors(@event).sample(2).join(', ')}, in the art style of #{ART_STYLES.sample}. use a colour palette inspired by #{TIME_COLOURS[@event.time.to_sym].sample}", size: "256x256" })
 
     # Return the url of the image generated.
     img_res = image_response.dig('data', 0, 'url')
   end
 
+  private
+
   # Helper method to get descriptions to help enhance the image generated.
-  def self.mood_descriptors(event)
+  def mood_descriptors(event)
     # very sad songs
     if event.max_valence < 0.4
       %w[winter somber melancholic sad gothic post-apocalyptic poignant]
@@ -44,7 +55,7 @@ class GenerateImageService
   end
 
   # Private method to generate prompt from the Song instance object.
-  def self.generate_prompt(song)
+  def generate_prompt(song)
     query = "Return the mood of the song #{song.name} by #{song.artist} in three words."
 
     client = OpenAI::Client.new
