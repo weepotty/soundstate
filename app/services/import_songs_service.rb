@@ -1,23 +1,34 @@
 class ImportSongsService
   def self.call(spotify_user:, current_user:)
-    @tracks = spotify_user.saved_tracks(offset: 0, limit: 50)
+    new(spotify_user:, current_user:).call
+  end
+
+  def initialize(spotify_user:, current_user:)
+    @spotify_user = spotify_user
+    @current_user = current_user
+  end
+
+  def call
+    @tracks = @spotify_user.saved_tracks(offset: 0, limit: 50)
     all_tracks = @tracks
     offset = 50
 
     # Limit import songs to 400, to limit api request.
     while (@tracks.count == 50 && offset < 400 )
-      @tracks = spotify_user.saved_tracks(offset:, limit: 50)
+      @tracks = @spotify_user.saved_tracks(offset:, limit: 50)
       all_tracks.concat(@tracks)
       offset += 50
     end
     
-    insert_songs(all_tracks, current_user)
+    insert_songs(all_tracks, @current_user)
 
     # get the spotify song URIs from the filtered_array and create a playlist with these +/- store in user's spotify
     # play the playlist
   end
 
-  def self.insert_songs(all_tracks, current_user)
+  private
+
+  def insert_songs(all_tracks, current_user)
     all_tracks.each do |track|
       # for each track, check if it's already in the DB, if not create the song
       song = Song.find_by(spotify_id: track.id)
