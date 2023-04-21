@@ -11,7 +11,6 @@ class MakeSpotifyPlaylistService
   end
 
   def call
-    playlist_image = URI.open(@image_url)
     # song_uris, current_user, @ss_playlist
     # make empty playlist in spotify playlist
     spotify_playlist = spotify_user.create_playlist!(@playlist_params[:title])
@@ -32,5 +31,9 @@ class MakeSpotifyPlaylistService
 
   def spotify_user
     @spotify_user ||= current_user.spotify_user
+  end
+
+  def playlist_image
+    URI.open(image_url)
   end
 end
