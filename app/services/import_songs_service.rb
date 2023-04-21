@@ -20,15 +20,15 @@ class ImportSongsService
   attr_reader :spotify_user, :current_user
 
   def fetch_all_songs
-    tracks = spotify_user.saved_tracks(offset: 0, limit: 50)
-    all_tracks = tracks
-    offset = 50
-
+    all_tracks = []
+    offset = 0
     # Limit import songs to 400, to limit api request.
-    while (tracks.count == 50 && offset < 400 )
+    loop do
       tracks = spotify_user.saved_tracks(offset:, limit: 50)
       all_tracks.concat(tracks)
       offset += 50
+
+      break unless (tracks.count == 50 && offset < 400)
     end
 
     return all_tracks
