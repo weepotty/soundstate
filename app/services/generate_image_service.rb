@@ -1,16 +1,4 @@
 class GenerateImageService
-  # Various prompt helper words for better image generation results.
-  ART_STYLES = ['pop art', 'risograph', 'illustration', 'cubism', 'memphis', 'digital art',
-    '3D render', 'block printing', 'watercolor', 'ceramics', 'vaporwave', 'linocut art',
-    'geometric drawing', 'line art', 'vintage', '3D illustration', 'claymation',
-    'salvador dali', 'van gogh', 'low poly'].freeze
-
-  TIME_COLOURS = {
-    morning: %w[spring dew dawn],
-    evening: %w[dusk twilight],
-    afternoon: %w[warm]
-  }.freeze
-
   def self.call(song:, event:)
     new(song:, event:).call
   end
@@ -25,7 +13,7 @@ class GenerateImageService
     prompt = generate_prompt(@song)
 
     # Generate image and returns image url.
-    image_response = client.images.generate(parameters: { prompt: "#{prompt}, #{get_mood_descriptors.sample(2).join(', ')}, in the art style of #{ART_STYLES.sample}. use a colour palette inspired by #{TIME_COLOURS[@event.time.to_sym].sample}", size: "256x256" })
+    image_response = client.images.generate(parameters: { prompt: "#{prompt}, #{sample_mood_descriptors}, in the art style of #{sample_art_style}. use a colour palette inspired by #{sample_time_colour_descriptor}", size: "256x256" })
 
     # Return the url of the image generated.
     img_res = image_response.dig('data', 0, 'url')
@@ -53,7 +41,29 @@ class GenerateImageService
     response.dig('choices', 0, 'message', 'content')
   end
 
-  # Helper method to get descriptions to help enhance the image generated.
+  def sample_mood_descriptors
+    get_mood_descriptors.sample(2).join(', ')
+  end
+
+  # Helper method to get art style to help enhance the image generated.
+  def sample_art_style
+    ['pop art', 'risograph', 'illustration', 'cubism', 'memphis', 'digital art',
+    '3D render', 'block printing', 'watercolor', 'ceramics', 'vaporwave', 'linocut art',
+    'geometric drawing', 'line art', 'vintage', '3D illustration', 'claymation',
+    'salvador dali', 'van gogh', 'low poly'].sample
+  end
+
+  # Helper method to get color descriptors based on the time selected to help enhance the image generated.
+  def sample_time_colour_descriptor
+    time_colours = {
+      morning: %w[spring dew dawn],
+      evening: %w[dusk twilight],
+      afternoon: %w[warm]
+    }
+    time_colours[event.time.to_sym].sample
+  end
+
+  # Helper method to get mood descriptions to help enhance the image generated.
   def get_mood_descriptors
     if very_sad?
       %w[winter somber melancholic sad gothic post-apocalyptic poignant]
