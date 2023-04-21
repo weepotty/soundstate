@@ -25,7 +25,6 @@ class GenerateImageService
     prompt = generate_prompt(@song)
 
     # Generate image and returns image url.
-    client = OpenAI::Client.new
     image_response = client.images.generate(parameters: { prompt: "#{prompt}, #{mood_descriptors(@event).sample(2).join(', ')}, in the art style of #{ART_STYLES.sample}. use a colour palette inspired by #{TIME_COLOURS[@event.time.to_sym].sample}", size: "256x256" })
 
     # Return the url of the image generated.
@@ -33,6 +32,10 @@ class GenerateImageService
   end
 
   private
+
+  def client
+    @client ||= OpenAI::Client.new
+  end
 
   # Helper method to get descriptions to help enhance the image generated.
   def mood_descriptors(event)
@@ -58,7 +61,6 @@ class GenerateImageService
   def generate_prompt(song)
     query = "Return the mood of the song #{song.name} by #{song.artist} in three words."
 
-    client = OpenAI::Client.new
     response = client.chat(
       parameters: {
         model: 'gpt-3.5-turbo', # Required.
