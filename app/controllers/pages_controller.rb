@@ -18,13 +18,9 @@ class PagesController < ApplicationController
         current_user: current_user
       )
     else
-      ::ImportAllSongsJob.perform_later(
-        current_user: current_user
-      )
+      ::ImportAllSongsJob.perform_later(current_user:)
+      ::UpdatePlaylistsJob.perform_later(current_user:)
     end
-
-    # Sync user's playlists with Spotify as a background job.
-    UpdatePlaylistsJob.perform_later(current_user)
 
     redirect_to root_path
   end

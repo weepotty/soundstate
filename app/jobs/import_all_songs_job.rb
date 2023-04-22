@@ -10,5 +10,7 @@ class ImportAllSongsJob < ApplicationJob
 
       break if (tracks.count < 50)
     end
+
+    ::UpdateLikedSongsJob.perform_later(current_user:)
   end
 end
