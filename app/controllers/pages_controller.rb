@@ -19,6 +19,8 @@ class PagesController < ApplicationController
 
     # Sync user's playlists with Spotify as a background job.
     UpdatePlaylistsJob.perform_later(current_user)
+    
+    ::ImportSongRecommendationsService.call(current_user:)
 
     redirect_to root_path
   end
