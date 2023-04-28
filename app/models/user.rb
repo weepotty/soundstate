@@ -53,6 +53,13 @@ class User < ApplicationRecord
     Playlist.where(is_shared: true).where.not(user: self).order(updated_at: :desc)
   end
 
+  def new_user?
+    # User created within the last 60 seconds
+    (Time.now - created_at) <= 60
+  end
+
+  private
+
   # Add 3 default events to new users
   def add_default_events
     Event.create!(
