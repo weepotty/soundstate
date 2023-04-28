@@ -18,15 +18,14 @@ export default class extends Controller {
 
   connect() {}
   open() {
+    document.body.style.overflow = "hidden";
     setTimeout((event) => {
       this.modalTarget.classList.remove("hidden");
     }, 500);
   }
 
   close() {
-    // setTimeout(() => {
-    //   this.modalTarget.classList.add("hidden");
-    // }, 500);
+    document.body.style.overflow = "unset";
 
     this.modalTarget.classList.add("hidden");
     this.cardTargets.forEach((c) => c.classList.remove("is-flipped"));
