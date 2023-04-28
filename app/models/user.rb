@@ -58,8 +58,6 @@ class User < ApplicationRecord
     (Time.now - created_at) <= 60
   end
 
-  private
-
   # Add 3 default events to new users
   def add_default_events
     Event.create!(
