@@ -4,7 +4,7 @@
       <% if current_user.avatar.attached? %>
         <%= cl_image_tag current_user.avatar.key, height: 400, width: 400, crop: :fill, data: { "profile-picture-upload-target" => "profilePicture" } %>
       <% else %>
-        <%= image_tag "unknown_avatar.jpg", data: { "profile-picture-upload-target" => "profilePicture" } %>
+        <%= image_tag "https://ui-avatars.com/api/?name=#{current_user.nickname}&background=random&length=1&format=svg", data: { "profile-picture-upload-target" => "profilePicture" } %>
       <% end %>
       <div class="edit-overlay">
         <p><i class="fa-solid fa-pen fa-3x"></i></p>
