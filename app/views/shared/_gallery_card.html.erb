@@ -5,14 +5,14 @@
         <div class="gallery-photo">
           <%= cl_image_tag playlist.photo.key, crop: :fill, loading: "lazy" %>
         </div>
-        <div class="gallery-user d-flex align-items-center gap-3 mt-2">
-          <%= render 'shared/user_avatar_small', user: playlist.user %>
-          <p><small><%= playlist.user.nickname %></small></p>
-          <%= link_to "", user_playlists_path(playlist.user) %>
-        </div>
       </div>
       <div class="card__face card__face--back">
       </div>
+    </div>
+    <div class="gallery-user">
+      <%= render 'shared/user_avatar_small', user: playlist.user %>
+      <p><small><%= playlist.user.nickname %></small></p>
+      <%= link_to "", user_playlists_path(playlist.user) %>
     </div>
   </div>
 </div>
