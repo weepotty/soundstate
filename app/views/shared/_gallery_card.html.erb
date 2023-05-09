@@ -1,19 +1,18 @@
-<div class="gallery-card" data-controller="gallery-card">
+<div class="gallery-card">
   <div class="scene scene--card">
-    <div class="card" data-gallery-card-target="card">
+    <div class="card" data-gallery-card-target="card" data-action="click->gallery-card#open" data-playlist-spotify-id="<%= playlist.spotify_id %>">
       <div class="card__face card__face--front">
-        <div class="gallery-photo" data-action="click->gallery-card#click">
+        <div class="gallery-photo">
           <%= cl_image_tag playlist.photo.key, crop: :fill, loading: "lazy" %>
         </div>
-        <div class="gallery-user d-flex align-items-center gap-3 mt-2">
-          <%= render 'shared/user_avatar_small', user: playlist.user %>
-          <p><small><%= playlist.user.nickname %></small></p>
-          <%= link_to "", user_playlists_path(playlist.user) %>
-        </div>
       </div>
-      <div class="card__face card__face--back d-none" data-gallery-card-target="iframeCard">
-        <iframe style="border-radius:12px;" src="https://open.spotify.com/embed/playlist/<%= playlist.spotify_id %>?utm_source=generator&theme=0" width="100%" height="100%" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <div class="card__face card__face--back">
       </div>
+    </div>
+    <div class="gallery-user">
+      <%= render 'shared/user_avatar_small', user: playlist.user %>
+      <p><small><%= playlist.user.nickname %></small></p>
+      <%= link_to "", user_playlists_path(playlist.user) %>
     </div>
   </div>
 </div>

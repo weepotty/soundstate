@@ -2,14 +2,14 @@
   display: flex;
   justify-content: center;
   max-width: 380px;
-  margin: 0.8rem auto;
+  margin: 0.8rem auto 1.6rem;
 }
 
 .scene {
   display: inline-block;
   width: 90%;
   min-width: 340px;
-  aspect-ratio: 1/1.14;
+  aspect-ratio: 1/1;
   perspective: 600px;
 }
 
@@ -26,7 +26,7 @@
 
 .gallery-photo {
   align-items: center;
-  border: 7px solid $dark-gray ;
+  border: 7px solid $dark-gray;
   border-radius: 0.2em;
   transition: all 0.3s;
 
@@ -45,7 +45,7 @@
   position: absolute;
   backface-visibility: hidden;
   background: transparent;
-  padding: .6em;
+  padding: 0.6em;
   margin-top: 8%;
   height: 100%;
   width: 100%;
@@ -54,9 +54,9 @@
   // border: 1px solid rgba(255, 255, 255, 0.222);
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
-  border-radius: .2rem;
+  border-radius: 0.2rem;
   transform: scale(1);
-  transition: all ease .3s;
+  transition: all ease 0.3s;
 
   p {
     color: $light-gray;
@@ -67,7 +67,7 @@
 .card__face--front {
   margin: 0 auto;
 
-  &:hover .gallery-photo{
+  &:hover .gallery-photo {
     box-shadow: 0px 0px 5px 1px rgba(255, 255, 255, 0.0754);
     // border: 1px solid rgba(255, 255, 255, 0.0754);
     transform: scale(1.02);
@@ -86,12 +86,19 @@
 .gallery-user {
   display: flex;
   position: relative;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
   padding-left: 0.5rem;
 
   a {
     position: absolute;
     width: 100%;
     height: 100%;
+  }
+
+  p {
+    margin: 0;
   }
 }
 

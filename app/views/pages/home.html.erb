@@ -19,16 +19,31 @@
     </div>
   </div>
   <!-- Gallery Feed -->
-  <div class="gallery-container">
+  <div class="gallery-container" data-controller="gallery-card">
     <div class="container mt-6 text-center hide" data-homepage-target="hide">
       <%# <h2 class="hide mb-3" data-homepage-target="hide">Discover Playlists</h2> %>
       <h2 class="mb-3">Discover Playlists</h2>
       <a href="https://open.spotify.com/" target="_blank"><%= image_tag "spotify_logo.png", {width: '100px'} %></a>
     </div>
     <div class="hide" data-homepage-target="hide">
-      <% current_user.others_playlists.sample(10).each do |playlist| %>
+      <% current_user.others_playlists.sample(20).each do |playlist| %>
         <%= render "shared/gallery_card", playlist: playlist %>
       <% end %>
+    </div>
+    <!-- Iframe Modal -->
+    <div class="gallery-modal invisible" data-gallery-card-target="modal">
+      <div class="modal-container">
+        <div class="d-flex flex-row justify-content-between align-items-center" style="padding-bottom: 0.75em; padding-top: 0.25em;">
+          <div></div>
+          <div class='p-2' data-action="click->gallery-card#close">
+            <i class="fa-solid fa-xmark"></i>
+          </div>
+        </div>
+        <div class="text-center mb-2"><a href="" target="_blank" data-gallery-card-target="playlistLink">Listen on <%= image_tag "spotify_logo.png", class: 'logo' %></a></div>
+        <div class="iframe-wrapper d-flex justify-content-center">
+          <iframe id="playlist-show" style="border-radius:12px" src=<%= "https://open.spotify.com/embed/playlist/#{Playlist.first.spotify_id}?utm_source=generator&theme=0" %> width="100%" height="600" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" data-gallery-card-target="playlistIframe"></iframe>
+        </div>
+      </div>
     </div>
   </div>
 </div>
