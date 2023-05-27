@@ -9,22 +9,22 @@ RSpec.describe User, type: :model do
     expect(user.errors[:email].empty?).to be(true)
   end
 
-  it "is an invalid user if email is incorrectly formatted" do
+  it "is invalid if email is incorrectly formatted" do
     user1 = User.new(email: 'alice@alice')
     user2 = User.new(email: 'alice.com')
 
     user1.valid?
     user2.valid?
 
-    expect(user1.errors[:email].empty?).to be(false)
-    expect(user2.errors[:email].empty?).to be(false)
+    expect(user1.errors[:email][0]).to eq("is invalid")
+    expect(user2.errors[:email][0]).to eq("is invalid")
   end
 
-  it "is an invalid user if email is empty" do
+  it "is invalid if email is empty" do
     user = User.new
 
     user.valid?
 
-    expect(user.errors[:email].empty?).to be(false)
+    expect(user.errors[:email][0]).to eq("can't be blank")
   end
 end
