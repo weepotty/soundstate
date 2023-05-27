@@ -37,4 +37,8 @@
 
 .env*
 
+# Ignore the Redis backup file
 dump.rdb
+
+# Ignore coverage report
+/coverage

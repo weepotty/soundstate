@@ -92,4 +92,7 @@ group :test do
   # Use RSpec and FactoryBot for Unit Testing
   gem "rspec-rails"
   gem "factory_bot_rails"
+
+  # Use SimpleCov for code coverage
+  gem 'simplecov'
 end
