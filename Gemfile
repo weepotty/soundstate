@@ -88,4 +88,8 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+
+  # Use RSpec and FactoryBot for Unit Testing
+  gem "rspec-rails"
+  gem "factory_bot_rails"
 end
