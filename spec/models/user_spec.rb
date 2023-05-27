@@ -19,4 +19,12 @@ RSpec.describe User, type: :model do
     expect(user1.errors[:email].empty?).to be(false)
     expect(user2.errors[:email].empty?).to be(false)
   end
+
+  it "is an invalid user if email is empty" do
+    user = User.new
+
+    user.valid?
+
+    expect(user.errors[:email].empty?).to be(false)
+  end
 end
