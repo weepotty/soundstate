@@ -27,4 +27,13 @@ RSpec.describe User, type: :model do
 
     expect(user.errors[:email][0]).to eq("can't be blank")
   end
+
+  it "should have unique email" do
+    FactoryBot.create(:user)
+    user = FactoryBot.build(:user)
+
+    user.valid?
+
+    expect(user.errors[:email][0]).to eq("has already been taken")
+  end
 end
