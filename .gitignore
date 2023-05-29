@@ -42,3 +42,6 @@ dump.rdb
 
 # Ignore coverage report
 /coverage
+
+# Ignore RSpec example status file
+/spec/examples.txt
