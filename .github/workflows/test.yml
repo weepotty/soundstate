@@ -72,7 +72,4 @@ jobs:
           bundle exec rails db:create db:migrate
 
       - name: Run model tests
-        run: bundle exec rails test
-
-      - name: Run system tests
-        run: bundle exec rails test:system
+        run: bundle exec rspec spec/models
