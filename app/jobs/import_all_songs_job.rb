@@ -1,9 +1,9 @@
 class ImportAllSongsJob < ApplicationJob
   queue_as :default
 
-  def perform(current_user:)
+  def perform(current_user:, offset:)
     spotify_user = current_user.spotify_user
-    offset = 0
+    offset ||= 0
     loop do
       tracks = ::ImportSongsByBatchService.call(spotify_user:, current_user:, offset:)
       offset += tracks.count
